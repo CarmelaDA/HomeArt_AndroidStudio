@@ -17,9 +17,11 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 
 import android.view.MenuItem
+import android.widget.Toast
 
 
 import androidx.room.Room
+import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.databinding.ActivityMainBinding
 
 import com.carmelart.homeart.database.ProductsDatabase
@@ -30,7 +32,7 @@ class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
 
     //private lateinit var adapter: ProductListAdapter
-    private val model: MainActivityViewModel by viewModels()
+
 
     /**
      * Los observadores se preparan para estar pendientes de cambios
@@ -83,7 +85,9 @@ class MainActivity : AppCompatActivity(){
             "HomeArt_DB",
         ).allowMainThreadQueries().build()
 
-        db.DataDAO().addData("my", 0)
+        db.DataDAO().addData(DataEntity(0)) // inicializar insert a 0 all
+
+        Toast.makeText(this, db.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -107,7 +111,7 @@ class MainActivity : AppCompatActivity(){
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun formatStringsForTextView()
+    /*private fun formatStringsForTextView()
     {
         val stringLED: String
 
@@ -129,5 +133,6 @@ class MainActivity : AppCompatActivity(){
 
 
         //binding.textSet.text = "SET_LED:$stringLED \n" // no quitar
-    }
+    }*/
 }
+

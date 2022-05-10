@@ -1,5 +1,6 @@
 package com.carmelart.homeart.ui.iluminacion
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +11,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.StrictMode
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
 import androidx.room.Room
-
-import com.carmelart.homeart.MainActivityViewModel
 import com.carmelart.homeart.database.ProductsDatabase
+
 import com.carmelart.homeart.databinding.FragmentIluminacionBinding
 //import com.carmelart.homeart.formatStringsForTextView
 
@@ -33,10 +32,11 @@ class IluminacionFragment : Fragment() {
     private lateinit var iluminacionViewModel: IluminacionViewModel
     private var _binding: FragmentIluminacionBinding? = null
 
-    private val model: MainActivityViewModel by activityViewModels()
-
-
-
+    val db = Room.databaseBuilder(
+        requireActivity().baseContext,
+        ProductsDatabase::class.java,
+        "HomeArt_DB",
+    ).allowMainThreadQueries().build()
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -69,13 +69,13 @@ class IluminacionFragment : Fragment() {
 
         // Base de datos
 
-        val db = Room.databaseBuilder(
+        /*val db = Room.databaseBuilder(
             requireContext(),
             ProductsDatabase::class.java,
             "HomeArt_DB",
-        ).allowMainThreadQueries().build()
+        ).allowMainThreadQueries().build()*/
 
-        db.DataDAO().getData("myDB")
+        //db.DataDAO().getData("myDB")
 
 
 
@@ -92,9 +92,12 @@ class IluminacionFragment : Fragment() {
         binding.switchIluminacionSala.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionSala.isChecked = isChecked
 
-
+            Toast.makeText(activity, db.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT).show()
 
             @Override
+
+
+            //var mLED = db.DataDAO().getData().led
 
             if(nLED==0) nLED=1
             else nLED=0
@@ -243,3 +246,5 @@ class IluminacionFragment : Fragment() {
     /*val Fragment.dbController: ProductsDatabase
         get()=(requireActivity() as IluminacionFragment).dbController*/
 }
+
+//vamos a hacer una variable de extendion a ls fragmentos con la db instaciada

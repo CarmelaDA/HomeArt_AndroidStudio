@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.carmelart.homeart.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_seguridad"
+        android:name="com.carmelart.homeart.ui.seguridad.SeguridadFragment"
+        android:label="@string/menu_seguridad"
+        tools:layout="@layout/fragment_seguridad" />
+
+    <fragment
+        android:id="@+id/nav_iluminacion"
+        android:name="com.carmelart.homeart.ui.iluminacion.IluminacionFragment"
+        android:label="@string/menu_iluminacion"
+        tools:layout="@layout/fragment_iluminacion" />
+
+    <fragment
+        android:id="@+id/nav_tiempo"
+        android:name="com.carmelart.homeart.ui.tiempo.TiempoFragment"
+        android:label="@string/menu_tiempo"
+        tools:layout="@layout/fragment_tiempo" />
+
+    <fragment
+        android:id="@+id/nav_exterior"
+        android:name="com.carmelart.homeart.ui.exterior.ExteriorFragment"
+        android:label="@string/menu_exterior"
+        tools:layout="@layout/fragment_exterior" />
+
+    <fragment
+        android:id="@+id/nav_ventanas"
+        android:name="com.carmelart.homeart.ui.ventanas.VentanasFragment"
+        android:label="@string/menu_ventanas"
+        tools:layout="@layout/fragment_ventanas" />
+
+    <fragment
+        android:id="@+id/nav_cocina"
+        android:name="com.carmelart.homeart.ui.cocina.CocinaFragment"
+        android:label="@string/menu_cocina"
+        tools:layout="@layout/fragment_cocina" />
+
+    <fragment
+        android:id="@+id/nav_salon"
+        android:name="com.carmelart.homeart.ui.salon.SalonFragment"
+        android:label="@string/menu_salon"
+        tools:layout="@layout/fragment_salon" />
+
+    <fragment
+        android:id="@+id/nav_bano"
+        android:name="com.carmelart.homeart.ui.bano.BanoFragment"
+        android:label="@string/menu_bano"
+        tools:layout="@layout/fragment_bano" />
+
+    <fragment
+        android:id="@+id/nav_dormitorio"
+        android:name="com.carmelart.homeart.ui.dormitorio.DormitorioFragment"
+        android:label="@string/menu_dormitorio"
+        tools:layout="@layout/fragment_dormitorio" />
+
+    <fragment
+        android:id="@+id/nav_oficina"
+        android:name="com.carmelart.homeart.ui.oficina.OficinaFragment"
+        android:label="@string/menu_oficina"
+        tools:layout="@layout/fragment_oficina" />
+
+    <fragment
+        android:id="@+id/nav_garaje"
+        android:name="com.carmelart.homeart.ui.garaje.GarajeFragment"
+        android:label="@string/menu_garaje"
+        tools:layout="@layout/fragment_garaje" />
+
+    <fragment
+        android:id="@+id/nav_huerto"
+        android:name="com.carmelart.homeart.ui.huerto.HuertoFragment"
+        android:label="@string/menu_huerto"
+        tools:layout="@layout/fragment_huerto" />
+
+</navigation>

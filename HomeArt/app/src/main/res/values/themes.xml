@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.HomeArt" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/magenta</item>   <!-- Letras menú -->
+        <item name="colorPrimaryDark">@color/azul</item>   <!-- Barra notificaciones -->
+        <item name="colorAccent">@color/verde</item>   <!-- NI IDEA -->
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.HomeArt.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.HomeArt.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.HomeArt.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

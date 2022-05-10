@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Carmen/AndroidStudioProjects/HomeArt/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/Carmen/AndroidStudioProjects/HomeArt/app/src/main/res/layout/content_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Carmen/AndroidStudioProjects/HomeArt/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
+        <entry key="..\:/Users/Carmen/AndroidStudioProjects/HomeArt/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/icons8_casa.xml" value="0.12094017094017094" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/side_nav_bar.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/app_bar_main.xml" value="0.264" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_cocina.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_exterior.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_gallery.xml" value="0.25416666666666665" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_iluminacion.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_seguridad.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_slideshow.xml" value="0.25416666666666665" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_tiempo.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/fragment_ventanas.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/menu/activity_main_drawer.xml" value="0.6" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2703125" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/button_oficina.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_calefaccion.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_calefaccion_off.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_calefaccion_on.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_dentro.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_dormitorio_b.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_luz_off.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_luz_on.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_puerta_on.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_riego_off.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_riego_on.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_ventana_off.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_ventana_on.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_ventanas.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_ventilador_off.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_ventilador_on.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_wifi_off.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/icon_wifi_on.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_background.xml" value="0.16666666666666666" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_calefaccion.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_calefaccion_bg.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_iluminacion.xml" value="0.16666666666666666" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_iluminacion_bg.xml" value="0.16666666666666666" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_puertas.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_puertas_bg.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_riego.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_riego_bg.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_seguridad.xml" value="0.16666666666666666" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_ventanas.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_ventanas_bg.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_ventilador.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/drawable/toggle_ventilador_bg.xml" value="0.2189873417721519" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/activity_main.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/content_main.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_bano.xml" value="0.16880341880341881" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_cocina.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_dormitorio.xml" value="0.16880341880341881" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_exterior.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_garaje.xml" value="0.16880341880341881" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_home.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_huerto.xml" value="0.16880341880341881" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_iluminacion.xml" value="0.23524590163934425" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_oficina.xml" value="0.16880341880341881" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_salon.xml" value="0.16880341880341881" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_seguridad.xml" value="0.4" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_tiempo.xml" value="0.176" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/fragment_ventanas.xml" value="0.4" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/layout/nav_header_main.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/menu/activity_main_drawer.xml" value="0.20854700854700856" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/menu/main.xml" value="0.16880341880341881" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16666666666666666" />
+        <entry key="..\:/_CARMELA_/UPM/TFG/Kotlin/HomeArt/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16666666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25416666666666665" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

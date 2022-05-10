@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1312dp">
+
+                <TextView
+                    android:id="@+id/text_salon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="100dp"
+                    android:text="@string/salon"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_comedor"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_sala" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_sala"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_salon" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_sala"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="58dp"
+                    android:text="@string/sala_de_estar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_salon"
+                    tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_comedor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="95dp"
+                    android:text="@string/comedor"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_sala"
+                    tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+                <TextView
+                    android:id="@+id/text_cocina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="50dp"
+                    android:text="@string/cocina"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_comedor"
+                    tools:ignore="TextContrastCheck" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_cogeneral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="100dp"
+                    android:text="@string/general"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_cocina"
+                    tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_fregadero"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="83dp"
+                    android:text="@string/fregadero"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_cogeneral"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_cogeneral"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_cocina" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_fregadero"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_cogeneral" />
+
+                <TextView
+                    android:id="@+id/text_bano"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="100dp"
+                    android:text="@string/bano"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_fregadero" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_bageneral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="100dp"
+                    android:text="@string/general"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_bano"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_espejo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="110dp"
+                    android:text="@string/espejo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_bageneral"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_bageneral"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_bano" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_espejo"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_bageneral" />
+
+                <TextView
+                    android:id="@+id/text_dormitorio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="100dp"
+                    android:text="@string/dormitorio"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_espejo" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_dogeneral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="100dp"
+                    android:text="@string/general"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_dormitorio"
+                    tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_mesitaizq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="15dp"
+                    android:text="@string/mesita_de_noche_izq"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_dogeneral"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_mesitadch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="9dp"
+                    android:text="@string/mesita_de_noche_dch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_mesitaizq"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_dogeneral"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_dormitorio" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_mesizq"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_dogeneral" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_mesdch"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_mesizq" />
+
+                <TextView
+                    android:id="@+id/text_oficina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="100dp"
+                    android:text="@string/oficina"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_mesitadch" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_ofgeneral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="100dp"
+                    android:text="@string/general"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_oficina"
+                    tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_gaming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="65dp"
+                    android:text="@string/zona_gaming"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_ofgeneral"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_ofgeneral"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_oficina" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_gaming"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_ofgeneral" />
+
+                <TextView
+                    android:id="@+id/text_garaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="100dp"
+                    android:text="@string/garaje"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.506"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_gaming" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_gageneral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="100dp"
+                    android:text="@string/general"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_garaje"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_gageneral"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_garaje" />
+
+                <TextView
+                    android:id="@+id/text_huerto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="100dp"
+                    android:text="@string/huerto"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_gageneral" />
+
+                <Switch
+                    android:id="@+id/switch_iluminacion_hugeneral"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="64dp"
+                    android:checked="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="100dp"
+                    android:text="@string/general"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_huerto"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <ToggleButton
+                    android:id="@+id/toggle_iluminacion_hugeneral"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/toggle_iluminacion_bg"
+                    android:clickable="false"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_huerto" />
+
+                <TextView
+                    android:id="@+id/text_set"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/set_led"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

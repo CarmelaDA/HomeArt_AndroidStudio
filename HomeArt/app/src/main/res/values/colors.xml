@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- AÑADIR 'F' AL PRINCIPIO HASTA LLEGAR A LOS 8 CARACTERES -->
+
+    <color name="naranja">#FFCB7C19</color>
+    <color name="magenta">#FF8C1252</color>
+    <color name="amarillo">#FFEFC100</color>
+    <color name="verde">#FFC2CE29</color>
+    <color name="azul">#FF269DAD</color>
+    <color name="negro">#FF000000</color>
+    <color name="blanco">#FFFFFFFF</color>
+    <color name="ic_launcher_background">#FFFFFFFF</color>
+    <color name="ic_launcher_foreground">#FFFFFFFF</color>
+</resources>

@@ -26,6 +26,7 @@ class IluminacionFragment : Fragment() {
     private val binding get() = _binding!!
     private val timeout = 1000
     private val token = "fe5g8e2a5f4e85d2e85a7c5"
+    private val type = "i"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -160,16 +161,22 @@ class IluminacionFragment : Fragment() {
                 ledValue = 1
             this.dataIlum.led = ledValue
             dbController.DataDAO().updateData(this.dataIlum)
-
-            
-            Toast.makeText(requireActivity(), dbController.DataDAO().getData().toString(), Toast.LENGTH_SHORT)
-                .show()
+            this.generateDataStringAndSend(this.type, this.dataIlum)
         }
 
     }
 
-    fun generateDataStringAndSend(data: DataEntity) {
-        sendDataToServer(binding.textSet.text.toString() + " ; " + token + "\n")
+    fun generateDataStringAndSend(type: String, data: DataEntity) {
+        var vectorDatos: MutableList<String> = mutableListOf()
+        vectorDatos.add(data.led.toString())
+        vectorDatos.add(data.id.toString())
+        Toast.makeText(
+            requireActivity(),
+            type + vectorDatos.toString() + ";" + token,
+            Toast.LENGTH_SHORT
+        )
+            .show()
+        //sendDataToServer(binding.textSet.text.toString() + " ; " + token + "\n")
     }
 
 }

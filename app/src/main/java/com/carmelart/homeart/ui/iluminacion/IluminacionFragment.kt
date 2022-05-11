@@ -51,9 +51,10 @@ class IluminacionFragment : Fragment() {
         this.bindingManagement()
         // Actualizar data.
         this.dataIlum = dbController.DataDAO().getData()
+        // Cada switch
+        binding.switchIluminacionSala.isChecked = this.dataIlum.led == 1
         return root
     }
-
 
     private fun sendDataToServer(message: String) {
         try {
@@ -159,6 +160,10 @@ class IluminacionFragment : Fragment() {
                 ledValue = 1
             this.dataIlum.led = ledValue
             dbController.DataDAO().updateData(this.dataIlum)
+
+            
+            Toast.makeText(requireActivity(), dbController.DataDAO().getData().toString(), Toast.LENGTH_SHORT)
+                .show()
         }
 
     }

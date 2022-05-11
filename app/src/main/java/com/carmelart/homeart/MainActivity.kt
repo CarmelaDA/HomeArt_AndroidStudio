@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
 
         dbController.DataDAO().addData(DataEntity(0)) // inicializar insert a 0 all
 
-        Toast.makeText(this, dbController.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT)
-            .show()
+        /*Toast.makeText(this, dbController.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT)
+            .show()*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -170,13 +170,13 @@ class IluminacionFragment : Fragment() {
         var vectorDatos: MutableList<String> = mutableListOf()
         vectorDatos.add(data.led.toString())
         vectorDatos.add(data.id.toString())
-        Toast.makeText(
+        /*Toast.makeText(
             requireActivity(),
             type + vectorDatos.toString() + ";" + token,
             Toast.LENGTH_SHORT
         )
-            .show()
-        //sendDataToServer(binding.textSet.text.toString() + " ; " + token + "\n")
+            .show()*/
+        sendDataToServer(vectorDatos.toString() + " ; " + token + "\n")
     }
 
 }

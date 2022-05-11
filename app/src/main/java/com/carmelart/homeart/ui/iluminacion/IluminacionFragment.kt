@@ -12,9 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import android.os.StrictMode
 import android.widget.Toast
 import androidx.room.Room
+import com.carmelart.homeart.MainActivity
 import com.carmelart.homeart.database.ProductsDatabase
 
 import com.carmelart.homeart.databinding.FragmentIluminacionBinding
+import com.carmelart.homeart.dbController
 //import com.carmelart.homeart.formatStringsForTextView
 
 import java.io.DataOutputStream
@@ -32,16 +34,13 @@ class IluminacionFragment : Fragment() {
     private lateinit var iluminacionViewModel: IluminacionViewModel
     private var _binding: FragmentIluminacionBinding? = null
 
-    val db = Room.databaseBuilder(
-        requireActivity().baseContext,
-        ProductsDatabase::class.java,
-        "HomeArt_DB",
-    ).allowMainThreadQueries().build()
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
     private var nLED: Int = 0
+
+    
 
     //val ilum = dbController.productsDAO().getOneProduct("baseId")
 
@@ -70,12 +69,16 @@ class IluminacionFragment : Fragment() {
         // Base de datos
 
         /*val db = Room.databaseBuilder(
-            requireContext(),
+            (activity as MainActivity).applicationContext,
             ProductsDatabase::class.java,
             "HomeArt_DB",
         ).allowMainThreadQueries().build()*/
 
-        //db.DataDAO().getData("myDB")
+        dbController.DataDAO().getData()
+
+        Toast.makeText(requireActivity(), dbController.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT).show()
+
+
 
 
 
@@ -92,22 +95,16 @@ class IluminacionFragment : Fragment() {
         binding.switchIluminacionSala.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionSala.isChecked = isChecked
 
-            Toast.makeText(activity, db.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, db.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT).show()
 
-            @Override
-
-
-            //var mLED = db.DataDAO().getData().led
-
-            if(nLED==0) nLED=1
-            else nLED=0
+            var mLED = dbController.DataDAO().getData().led
 
 
 
-            //if(ilum.LEDazul==0)ilum.LEDazul=1
-            //else ilum.LEDazul=0
+            mLED = if(mLED==0){
+                1
+            } else 0
 
-            //dbController.productsDAO().updateProduct(product = ilum)
 
 
             formatStringsForTextView()
@@ -164,12 +161,6 @@ class IluminacionFragment : Fragment() {
             binding.toggleIluminacionHugeneral.isChecked = isChecked
         }
 
-        // Base de datos
-        /*this.dbController = Room
-            .databaseBuilder(this.requireContext(), ProductsDatabase::class.java, "HomeArtDatabase")
-            .allowMainThreadQueries()
-            .build()*/
-
         return root
     }
 
@@ -178,7 +169,7 @@ class IluminacionFragment : Fragment() {
     {
         val stringLED: String
 
-        if (nLED == 0) stringLED = "0"
+        if (mLED == 0) stringLED = "0"
         else stringLED = "1"
 
         //if(ilum.LEDazul==0) stringLED = "0"

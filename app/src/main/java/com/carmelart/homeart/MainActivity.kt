@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity(){
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    lateinit var dbController: ProductsDatabase
     //private lateinit var adapter: ProductListAdapter
 
 
@@ -79,15 +80,15 @@ class MainActivity : AppCompatActivity(){
         /**
          * Compartir datos entre fragmentos y guardar datos en local.
         **/
-        val db = Room.databaseBuilder(
+        this.dbController = Room.databaseBuilder(
             applicationContext,
             ProductsDatabase::class.java,
             "HomeArt_DB",
         ).allowMainThreadQueries().build()
 
-        db.DataDAO().addData(DataEntity(0)) // inicializar insert a 0 all
+        dbController.DataDAO().addData(DataEntity(0)) // inicializar insert a 0 all
 
-        Toast.makeText(this, db.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, dbController.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -134,5 +135,11 @@ class MainActivity : AppCompatActivity(){
 
         //binding.textSet.text = "SET_LED:$stringLED \n" // no quitar
     }*/
+
+
 }
+
+val Fragment.dbController: ProductsDatabase
+    get() = (requireActivity() as MainActivity).dbController
+
 

@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class DataEntity(
-    @ColumnInfo(name = "led") val led: Int,
+    @ColumnInfo(name = "led") var led: Int,
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // Primera columna
 )

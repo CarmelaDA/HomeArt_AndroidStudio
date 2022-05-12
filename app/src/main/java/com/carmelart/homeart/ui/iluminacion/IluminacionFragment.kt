@@ -26,7 +26,6 @@ class IluminacionFragment : Fragment() {
     private val binding get() = _binding!!
     private val timeout = 1000
     private val token = "fe5g8e2a5f4e85d2e85a7c5"
-    private val type = "i"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,10 +49,11 @@ class IluminacionFragment : Fragment() {
         })
         // SWITCHES
         this.bindingManagement()
-        // Actualizar data.
+        // Actualizar data
         this.dataIlum = dbController.DataDAO().getData()
-        // Cada switch
-        binding.switchIluminacionSala.isChecked = this.dataIlum.led == 1
+        // Todos las variables de Iluminación
+        binding.switchIluminacionSala.isChecked = this.dataIlum.luzSala == 1
+        binding.switchIluminacionComedor.isChecked = this.dataIlum.luzComedor == 1
         return root
     }
 
@@ -99,15 +99,31 @@ class IluminacionFragment : Fragment() {
         }
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     fun bindingManagement() {
+
+        binding.switchIluminacionSala.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionSala.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzSala = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
+        }
+
         binding.switchIluminacionComedor.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionComedor.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzComedor = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
         binding.switchIluminacionCogeneral.setOnCheckedChangeListener { _, isChecked ->
@@ -154,29 +170,22 @@ class IluminacionFragment : Fragment() {
             binding.toggleIluminacionHugeneral.isChecked = isChecked
         }
 
-        binding.switchIluminacionSala.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionSala.isChecked = isChecked
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataIlum.led = ledValue
-            dbController.DataDAO().updateData(this.dataIlum)
-            this.generateDataStringAndSend(this.type, this.dataIlum)
-        }
+
 
     }
 
-    fun generateDataStringAndSend(type: String, data: DataEntity) {
-        var vectorDatos: MutableList<String> = mutableListOf()
-        vectorDatos.add(data.led.toString())
-        vectorDatos.add(data.id.toString())
+    fun generateDataStringAndSend(data: DataEntity) {
+        var vIlum: MutableList<String> = mutableListOf()
+        // Todos los datos de Iluminación en el orden deseado
+        vIlum.add(data.luzSala.toString())
+        vIlum.add(data.luzComedor.toString())
+        //vectorDatos.add(data.id.toString())
         /*Toast.makeText(
             requireActivity(),
-            type + vectorDatos.toString() + ";" + token,
+            type + vectorDatos.toString(),
             Toast.LENGTH_SHORT
         )
             .show()*/
-        sendDataToServer(vectorDatos.toString() + " ; " + token + "\n")
+        sendDataToServer("i;$vIlum;$token\n") // i[..., ..., ...] + token
     }
-
 }

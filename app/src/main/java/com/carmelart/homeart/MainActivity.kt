@@ -50,10 +50,7 @@ class MainActivity : AppCompatActivity() {
             "HomeArt_DB",
         ).allowMainThreadQueries().build()
 
-        dbController.DataDAO().addData(DataEntity(0)) // inicializar insert a 0 all
-
-        /*Toast.makeText(this, dbController.DataDAO().getData().led.toString(), Toast.LENGTH_SHORT)
-            .show()*/
+        dbController.DataDAO().addData(DataEntity(0, 0, 0, 0)) // Inicializar todas las variables a 0
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -76,10 +73,9 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
 }
 
-// Extension Func
+// Funciones de extensión
 
 val Fragment.dbController: DataDb
     get() = (requireActivity() as MainActivity).dbController

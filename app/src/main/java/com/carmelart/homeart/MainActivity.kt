@@ -50,7 +50,13 @@ class MainActivity : AppCompatActivity() {
             "HomeArt_DB",
         ).allowMainThreadQueries().build()
 
-        dbController.DataDAO().addData(DataEntity(0, 0, 0, 0)) // Inicializar todas las variables a 0
+        dbController.DataDAO().addData(DataEntity(
+            0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0,0, 0, 0,
+            0, 0, 0,
+
+            0 , 0
+        )) // Inicializar todas las variables a 0
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

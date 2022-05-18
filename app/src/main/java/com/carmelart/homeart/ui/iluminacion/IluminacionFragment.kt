@@ -126,51 +126,156 @@ class IluminacionFragment : Fragment() {
             this.generateDataStringAndSend(this.dataIlum)
         }
 
-        binding.switchIluminacionCogeneral.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionCogeneral.isChecked = isChecked
+        binding.switchIluminacionAmbiente.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionAmbiente.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzAmbiente = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
+        }
+
+        binding.switchIluminacionRecibidor.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionRecibidor.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzRecibidor = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
+        }
+
+        binding.switchIluminacionCocina.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionCocina.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzCocina = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
         binding.switchIluminacionFregadero.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionFregadero.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzFregadero = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
-        binding.switchIluminacionBageneral.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionBageneral.isChecked = isChecked
+        binding.switchIluminacionBano.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionBano.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzBano = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
         binding.switchIluminacionEspejo.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionEspejo.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzEspejo = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
-        binding.switchIluminacionDogeneral.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionDogeneral.isChecked = isChecked
+        binding.switchIluminacionDormitorio.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionDormitorio.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzDormitorio = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
         binding.switchIluminacionMesitaizq.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionMesizq.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzMesitaIzq = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
         binding.switchIluminacionMesitadch.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionMesdch.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzMesitaDch = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
-        binding.switchIluminacionOfgeneral.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionOfgeneral.isChecked = isChecked
+        binding.switchIluminacionOficina.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionOficina.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzOficina = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
         binding.switchIluminacionGaming.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionGaming.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzGaming = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
-        binding.switchIluminacionGageneral.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionGageneral.isChecked = isChecked
+        binding.switchIluminacionGaraje.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionGaraje.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzGaraje = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
+
         }
 
-        binding.switchIluminacionHugeneral.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionHugeneral.isChecked = isChecked
+        binding.switchIluminacionJardin.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionJardin.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzJardin = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
 
+        binding.switchIluminacionPorche.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionPorche.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzPorche = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
+        }
 
+        binding.switchIluminacionTendedero.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionTendedero.isChecked = isChecked
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzPorche = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
+        }
 
     }
 
@@ -179,6 +284,22 @@ class IluminacionFragment : Fragment() {
         // Todos los datos de Iluminación en el orden deseado
         vIlum.add(data.luzSala.toString())
         vIlum.add(data.luzComedor.toString())
+        vIlum.add(data.luzAmbiente.toString())
+        vIlum.add(data.luzRecibidor.toString())
+        vIlum.add(data.luzCocina.toString())
+        vIlum.add(data.luzFregadero.toString())
+        vIlum.add(data.luzBano.toString())
+        vIlum.add(data.luzEspejo.toString())
+        vIlum.add(data.luzDormitorio.toString())
+        vIlum.add(data.luzMesitaIzq.toString())
+        vIlum.add(data.luzMesitaDch.toString())
+        vIlum.add(data.luzOficina.toString())
+        vIlum.add(data.luzGaming.toString())
+        vIlum.add(data.luzGaraje.toString())
+        vIlum.add(data.luzJardin.toString())
+        vIlum.add(data.luzPorche.toString())
+        vIlum.add(data.luzTendedero.toString())
+
         //vectorDatos.add(data.id.toString())
         /*Toast.makeText(
             requireActivity(),
@@ -186,6 +307,7 @@ class IluminacionFragment : Fragment() {
             Toast.LENGTH_SHORT
         )
             .show()*/
+
         sendDataToServer("i;$vIlum;$token\n") // i[..., ..., ...] + token
     }
 }

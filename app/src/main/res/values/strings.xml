@@ -29,7 +29,6 @@
     <string name="button">Button</string>
     <string name="bano">BAÑO</string>
     <string name="garaje">GARAJE</string>
-    <string name="exterior">EXTERIOR</string>
     <string name="huerto">HUERTO</string>
     <string name="dormitorio">DORMITORIO</string>
     <string name="oficina">OFICINA</string>
@@ -67,5 +66,11 @@
     <string name="manual">MANUAL</string>
     <string name="automatico">AUTOMÁTICO</string>
     <string name="set_led">SET_LED:</string>
+    <string name="ambiente">AMBIENTE</string>
+    <string name="recibidor">RECIBIDOR</string>
+    <string name="exterior">EXTERIOR</string>
+    <string name="jardin">JARDÍN</string>
+    <string name="porche">PORCHE</string>
+    <string name="tendedero">TENDEDERO</string>
 
 </resources>

@@ -54,6 +54,22 @@ class IluminacionFragment : Fragment() {
         // Todos las variables de Iluminación
         binding.switchIluminacionSala.isChecked = this.dataIlum.luzSala == 1
         binding.switchIluminacionComedor.isChecked = this.dataIlum.luzComedor == 1
+        binding.switchIluminacionAmbiente.isChecked = this.dataIlum.luzAmbiente == 1
+        binding.switchIluminacionRecibidor.isChecked = this.dataIlum.luzRecibidor == 1
+        binding.switchIluminacionCocina.isChecked = this.dataIlum.luzCocina == 1
+        binding.switchIluminacionFregadero.isChecked = this.dataIlum.luzFregadero == 1
+        binding.switchIluminacionBano.isChecked = this.dataIlum.luzBano == 1
+        binding.switchIluminacionEspejo.isChecked = this.dataIlum.luzEspejo == 1
+        binding.switchIluminacionDormitorio.isChecked = this.dataIlum.luzDormitorio == 1
+        binding.switchIluminacionMesitaizq.isChecked = this.dataIlum.luzMesitaIzq == 1
+        binding.switchIluminacionMesitadch.isChecked = this.dataIlum.luzMesitaDch == 1
+        binding.switchIluminacionOficina.isChecked = this.dataIlum.luzOficina == 1
+        binding.switchIluminacionGaming.isChecked = this.dataIlum.luzGaming == 1
+        binding.switchIluminacionGaraje.isChecked = this.dataIlum.luzGaraje == 1
+        binding.switchIluminacionJardin.isChecked = this.dataIlum.luzJardin == 1
+        binding.switchIluminacionPorche.isChecked = this.dataIlum.luzPorche == 1
+        binding.switchIluminacionTendedero.isChecked = this.dataIlum.luzTendedero == 1
+
         return root
     }
 
@@ -104,7 +120,7 @@ class IluminacionFragment : Fragment() {
         _binding = null
     }
 
-    fun bindingManagement() {
+    private fun bindingManagement() {
 
         binding.switchIluminacionSala.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionSala.isChecked = isChecked
@@ -244,7 +260,6 @@ class IluminacionFragment : Fragment() {
             this.dataIlum.luzGaraje = ledValue
             dbController.DataDAO().updateData(this.dataIlum)
             this.generateDataStringAndSend(this.dataIlum)
-
         }
 
         binding.switchIluminacionJardin.setOnCheckedChangeListener { _, isChecked ->
@@ -272,15 +287,16 @@ class IluminacionFragment : Fragment() {
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataIlum.luzPorche = ledValue
+            this.dataIlum.luzTendedero = ledValue
             dbController.DataDAO().updateData(this.dataIlum)
             this.generateDataStringAndSend(this.dataIlum)
         }
 
     }
 
-    fun generateDataStringAndSend(data: DataEntity) {
+    private fun generateDataStringAndSend(data: DataEntity) {
         var vIlum: MutableList<String> = mutableListOf()
+
         // Todos los datos de Iluminación en el orden deseado
         vIlum.add(data.luzSala.toString())
         vIlum.add(data.luzComedor.toString())

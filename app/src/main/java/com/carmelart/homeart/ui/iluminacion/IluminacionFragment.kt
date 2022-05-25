@@ -49,6 +49,10 @@ class IluminacionFragment : Fragment() {
         })
         // SWITCHES
         this.bindingManagement()
+        // SEEKBARS
+        binding.seekBarRed.isEnabled = false
+        binding.seekBarGreen.isEnabled = false
+        binding.seekBarBlue.isEnabled = false
         // Actualizar data
         this.dataIlum = dbController.DataDAO().getData()
         // Todos las variables de Iluminación
@@ -243,7 +247,19 @@ class IluminacionFragment : Fragment() {
         }
 
         binding.switchIluminacionGaming.setOnCheckedChangeListener { _, isChecked ->
+
+            // Bloqueo de SeekBar
+            binding.seekBarRed.isEnabled = isChecked
+            binding.seekBarGreen.isEnabled = isChecked
+            binding.seekBarBlue.isEnabled = isChecked
+
             binding.toggleIluminacionGaming.isChecked = isChecked
+
+            // Bloqueo de SeekBar
+            binding.seekBarRed.isEnabled = isChecked
+            binding.seekBarGreen.isEnabled = isChecked
+            binding.seekBarBlue.isEnabled = isChecked
+
             var ledValue = 0
             if (isChecked)
                 ledValue = 1

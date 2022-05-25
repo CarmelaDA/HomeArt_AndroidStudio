@@ -628,7 +628,7 @@
                     android:layout_width="200dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="60dp"
+                    android:layout_marginEnd="75dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/seekBar_red" />
 
@@ -637,7 +637,7 @@
                     android:layout_width="200dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="60dp"
+                    android:layout_marginEnd="75dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/seekBar_green" />
 
@@ -646,9 +646,39 @@
                     android:layout_width="200dp"
                     android:layout_height="20dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="60dp"
+                    android:layout_marginEnd="75dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_gaming" />
+
+                <TextView
+                    android:id="@+id/r_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="R"
+                    app:layout_constraintEnd_toStartOf="@+id/seekBar_red"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_gaming" />
+
+                <TextView
+                    android:id="@+id/B_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="B"
+                    app:layout_constraintEnd_toStartOf="@+id/seekBar_blue"
+                    app:layout_constraintTop_toBottomOf="@+id/G_text" />
+
+                <TextView
+                    android:id="@+id/G_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="G"
+                    app:layout_constraintEnd_toStartOf="@+id/seekBar_green"
+                    app:layout_constraintTop_toBottomOf="@+id/r_text" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

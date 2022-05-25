@@ -1,15 +1,18 @@
 package com.carmelart.homeart.ui.iluminacion
 
+import android.graphics.Color
 import android.os.Bundle
+import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import android.os.StrictMode
-import android.widget.Toast
 import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.databinding.FragmentIluminacionBinding
 import com.carmelart.homeart.dbController
@@ -53,6 +56,9 @@ class IluminacionFragment : Fragment() {
         binding.seekBarRed.isEnabled = false
         binding.seekBarGreen.isEnabled = false
         binding.seekBarBlue.isEnabled = false
+        binding.seekBarRed.max = 255
+        binding.seekBarGreen.max = 255
+        binding.seekBarBlue.max = 255
         // Actualizar data
         this.dataIlum = dbController.DataDAO().getData()
         // Todos las variables de Iluminación
@@ -69,6 +75,9 @@ class IluminacionFragment : Fragment() {
         binding.switchIluminacionMesitadch.isChecked = this.dataIlum.luzMesitaDch == 1
         binding.switchIluminacionOficina.isChecked = this.dataIlum.luzOficina == 1
         binding.switchIluminacionGaming.isChecked = this.dataIlum.luzGaming == 1
+        binding.seekBarRed.progress = this.dataIlum.luzR
+        binding.seekBarGreen.progress = this.dataIlum.luzG
+        binding.seekBarBlue.progress = this.dataIlum.luzB
         binding.switchIluminacionGaraje.isChecked = this.dataIlum.luzGaraje == 1
         binding.switchIluminacionJardin.isChecked = this.dataIlum.luzJardin == 1
         binding.switchIluminacionPorche.isChecked = this.dataIlum.luzPorche == 1
@@ -247,12 +256,6 @@ class IluminacionFragment : Fragment() {
         }
 
         binding.switchIluminacionGaming.setOnCheckedChangeListener { _, isChecked ->
-
-            // Bloqueo de SeekBar
-            binding.seekBarRed.isEnabled = isChecked
-            binding.seekBarGreen.isEnabled = isChecked
-            binding.seekBarBlue.isEnabled = isChecked
-
             binding.toggleIluminacionGaming.isChecked = isChecked
 
             // Bloqueo de SeekBar
@@ -267,6 +270,39 @@ class IluminacionFragment : Fragment() {
             dbController.DataDAO().updateData(this.dataIlum)
             this.generateDataStringAndSend(this.dataIlum)
         }
+
+        binding.seekBarRed.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {}
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+                dataIlum.luzR = seekBar.progress
+                dbController.DataDAO().updateData(dataIlum)
+                generateDataStringAndSend(dataIlum)
+            }
+        })
+
+        binding.seekBarGreen.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {}
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+                dataIlum.luzG = seekBar.progress
+                dbController.DataDAO().updateData(dataIlum)
+                generateDataStringAndSend(dataIlum)
+            }
+        })
+
+        binding.seekBarBlue.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {}
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {
+
+                dataIlum.luzB = seekBar.progress
+                dbController.DataDAO().updateData(dataIlum)
+                generateDataStringAndSend(dataIlum)
+            }
+        })
 
         binding.switchIluminacionGaraje.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionGaraje.isChecked = isChecked
@@ -327,6 +363,9 @@ class IluminacionFragment : Fragment() {
         vIlum.add(data.luzMesitaDch.toString())
         vIlum.add(data.luzOficina.toString())
         vIlum.add(data.luzGaming.toString())
+        vIlum.add(data.luzR.toString())
+        vIlum.add(data.luzG.toString())
+        vIlum.add(data.luzB.toString())
         vIlum.add(data.luzGaraje.toString())
         vIlum.add(data.luzJardin.toString())
         vIlum.add(data.luzPorche.toString())

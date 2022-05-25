@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         dbController.DataDAO().addData(DataEntity(
             0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0,0, 0, 0,
-            0, 0, 0,
+            0, 0, 0,0, 0, 0,
 
             0 , 0
         )) // Inicializar todas las variables a 0

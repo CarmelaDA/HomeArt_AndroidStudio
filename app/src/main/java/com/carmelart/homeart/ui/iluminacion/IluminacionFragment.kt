@@ -1,6 +1,5 @@
 package com.carmelart.homeart.ui.iluminacion
 
-import android.graphics.Color
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
@@ -343,7 +342,6 @@ class IluminacionFragment : Fragment() {
             dbController.DataDAO().updateData(this.dataIlum)
             this.generateDataStringAndSend(this.dataIlum)
         }
-
     }
 
     private fun generateDataStringAndSend(data: DataEntity) {
@@ -363,9 +361,36 @@ class IluminacionFragment : Fragment() {
         vIlum.add(data.luzMesitaDch.toString())
         vIlum.add(data.luzOficina.toString())
         vIlum.add(data.luzGaming.toString())
-        vIlum.add(data.luzR.toString())
-        vIlum.add(data.luzG.toString())
-        vIlum.add(data.luzB.toString())
+        if (dbController.DataDAO().getData().luzR < 10) {
+            vIlum.add("00${data.luzR.toString()}")
+        }
+        else if (dbController.DataDAO().getData().luzR < 100) {
+            vIlum.add("0${data.luzR.toString()}")
+        }
+        else {
+            vIlum.add(data.luzR.toString())
+        }
+        if (dbController.DataDAO().getData().luzG < 10) {
+            vIlum.add("00${data.luzG.toString()}")
+        }
+        else if (dbController.DataDAO().getData().luzG < 100) {
+            vIlum.add("0${data.luzG.toString()}")
+        }
+        else {
+            vIlum.add(data.luzG.toString())
+        }
+        if (dbController.DataDAO().getData().luzB < 10) {
+            vIlum.add("00${data.luzB.toString()}")
+        }
+        else if (dbController.DataDAO().getData().luzB < 100) {
+            vIlum.add("0${data.luzB.toString()}")
+        }
+        else {
+            vIlum.add(data.luzB.toString())
+        }
+        //vIlum.add(data.luzR.toString())
+        //vIlum.add(data.luzG.toString())
+        //vIlum.add(data.luzB.toString())
         vIlum.add(data.luzGaraje.toString())
         vIlum.add(data.luzJardin.toString())
         vIlum.add(data.luzPorche.toString())

@@ -7,6 +7,10 @@ import androidx.room.PrimaryKey
 @Entity
 data class DataEntity(
 
+    // SEGURIDAD
+    @ColumnInfo(name = "segInt") var segInt: Int,
+    @ColumnInfo(name = "segExt") var segExt: Int,
+
     // ILUMINACIÓN
     @ColumnInfo(name = "luzSala") var luzSala: Int,
     @ColumnInfo(name = "luzComedor") var luzComedor: Int,
@@ -29,8 +33,11 @@ data class DataEntity(
     @ColumnInfo(name = "luzJardin") var luzJardin: Int,
     @ColumnInfo(name = "luzTendedero") var luzTendedero: Int,
 
-    // SEGURIDAD
-    @ColumnInfo(name = "segInt") var segInt: Int,
-    @ColumnInfo(name = "segExt") var segExt: Int,
+    @ColumnInfo(name = "pParcela") var pParcela: Int,
+    @ColumnInfo(name = "pGaraje") var pGaraje: Int,
+    @ColumnInfo(name = "vSalon") var vSalon: Int,
+    @ColumnInfo(name = "vDormitorio") var vDormitorio: Int,
+    @ColumnInfo(name = "vOficina") var vOficina: Int,
+
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // First Column
 )

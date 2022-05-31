@@ -58,9 +58,9 @@ class IluminacionFragment : Fragment() {
         binding.seekBarRed.max = 255
         binding.seekBarGreen.max = 255
         binding.seekBarBlue.max = 255
-        // Actualizar data
+        // ACTUALIZAR DATA
         this.dataIlum = dbController.DataDAO().getData()
-        // Todos las variables de Iluminación
+        // TODAS LAS VARIABLES DE ILUMINACIÓN
         binding.switchIluminacionSala.isChecked = this.dataIlum.luzSala == 1
         binding.switchIluminacionComedor.isChecked = this.dataIlum.luzComedor == 1
         binding.switchIluminacionAmbiente.isChecked = this.dataIlum.luzAmbiente == 1
@@ -109,7 +109,9 @@ class IluminacionFragment : Fragment() {
             dataOutputStream.close() // Cierra el final del flujo de salida cuando se termina
 
             println("Cerrando socket")
+            val activity: IluminacionFragment = this
             socket.close()
+
         } catch (e: SocketException) {
             e.printStackTrace()
             val activity: IluminacionFragment = this

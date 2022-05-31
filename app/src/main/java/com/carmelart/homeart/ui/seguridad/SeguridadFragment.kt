@@ -54,11 +54,12 @@ class SeguridadFragment : Fragment() {
         seguridadViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
         // SWITCHES
         this.bindingManagement()
-        // Actualizar data
+        // ACTUALIZAR DATA
         this.dataSeg = dbController.DataDAO().getData()
-        // Todos las variables de Seguridad
+        // TODAS LA VARIABLES DE SEGURIDAD
         binding.switchSeguridadInt.isChecked = this.dataSeg.segInt == 1
         binding.switchSeguridadExt.isChecked = this.dataSeg.segExt == 1
         return root
@@ -146,6 +147,6 @@ class SeguridadFragment : Fragment() {
             Toast.LENGTH_SHORT
         )
             .show()*/
-        sendDataToServer("a;$vSeg;$token\n") // a[..., ..., ...] + token
+        sendDataToServer("s;$vSeg;$token\n") // a[..., ..., ...] + token
     }
 }

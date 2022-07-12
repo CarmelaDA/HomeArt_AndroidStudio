@@ -6,13 +6,212 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_exterior"
+        android:id="@+id/text_parcela_ext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
-        android:layout_marginEnd="168dp"
-        android:text="@string/textview"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/parcela"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_jardin_ext" />
+
+    <Switch
+        android:id="@+id/switch_puerta_parcela_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="109dp"
+        android:text="@string/puerta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_parcela_ext"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <ToggleButton
+        android:id="@+id/toggle_puerta_parcela_ext"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_puertas_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_parcela_ext" />
+
+    <Switch
+        android:id="@+id/switch_iluminacion_jardin_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="74dp"
+        android:text="@string/iluminacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_jardin_ext"
+        tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+    <ToggleButton
+        android:id="@+id/toggle_iluminacion_jardin_ext"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_iluminacion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_jardin_ext" />
+
+    <TextView
+        android:id="@+id/text_jardin_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/jardin"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_porche_ext"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/text_porche_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/porche"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_tendedero_ext"
+        tools:ignore="TextContrastCheck" />
+
+    <ToggleButton
+        android:id="@+id/toggle_iluminacion_porche_ext"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_iluminacion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_porche_ext" />
+
+    <Switch
+        android:id="@+id/switch_iluminacion_porche_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="74dp"
+        android:text="@string/iluminacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_porche_ext"
+        tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+    <Switch
+        android:id="@+id/switch_iluminacion_tendedero_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="74dp"
+        android:text="@string/iluminacion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_toldo_tendedero_ext"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <ToggleButton
+        android:id="@+id/toggle_iluminacion_tendedero_ext"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/toggle_iluminacion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_toldo_ext" />
+
+    <Switch
+        android:id="@+id/switch_toldo_tendedero_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="118dp"
+        android:text="@string/toldo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_tendedero"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <ToggleButton
+        android:id="@+id/toggle_toldo_ext"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_persianas_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_tendedero" />
+
+    <TextView
+        android:id="@+id/text_tendedero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/tendedero"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

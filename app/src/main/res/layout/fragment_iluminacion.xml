@@ -18,7 +18,49 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1645dp">
+                android:layout_height="1713dp">
+
+                <TextView
+                    android:id="@+id/toggle_manual_ilum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="39dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/secular_one"
+                    android:text="@string/manual"
+                    android:textColor="#000000"
+                    app:layout_constraintEnd_toStartOf="@+id/switch_modo_ilum"
+                    app:layout_constraintTop_toBottomOf="@+id/text_huerto" />
+
+                <Switch
+                    android:id="@+id/switch_modo_ilum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="100dp"
+                    android:checked="false"
+                    android:fontFamily="@font/secular_one"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:scrollbarSize="10dp"
+                    android:switchPadding="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_huerto"
+                    tools:ignore="DuplicateSpeakableTextCheck" />
+
+                <TextView
+                    android:id="@+id/toggle_automatico_ilum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="39dp"
+                    android:fontFamily="@font/secular_one"
+                    android:text="@string/automatico"
+                    android:textColor="#000000"
+                    app:layout_constraintStart_toEndOf="@+id/switch_modo_ilum"
+                    app:layout_constraintTop_toBottomOf="@+id/text_huerto" />
 
                 <ToggleButton
                     android:id="@+id/toggle_iluminacion_tendedero"
@@ -591,7 +633,7 @@
                     android:switchPadding="113dp"
                     android:text="@string/jardin"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_huerto"
+                    app:layout_constraintTop_toBottomOf="@+id/switch_modo_ilum"
                     tools:ignore="DuplicateSpeakableTextCheck" />
 
                 <Switch
@@ -621,7 +663,7 @@
                     android:textOff=""
                     android:textOn=""
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_huerto" />
+                    app:layout_constraintTop_toBottomOf="@+id/switch_modo_ilum" />
 
                 <SeekBar
                     android:id="@+id/seekBar_green"
@@ -656,7 +698,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="R"
+                    android:text="@string/r"
                     app:layout_constraintEnd_toStartOf="@+id/seekBar_red"
                     app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_gaming" />
 
@@ -666,7 +708,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="B"
+                    android:text="@string/b"
                     app:layout_constraintEnd_toStartOf="@+id/seekBar_blue"
                     app:layout_constraintTop_toBottomOf="@+id/G_text" />
 
@@ -676,7 +718,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="G"
+                    android:text="@string/g"
                     app:layout_constraintEnd_toStartOf="@+id/seekBar_green"
                     app:layout_constraintTop_toBottomOf="@+id/r_text" />
 

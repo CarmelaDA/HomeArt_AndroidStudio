@@ -10,12 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.carmelart.homeart.R
+
 import com.carmelart.homeart.databinding.FragmentVentanasBinding
 import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.dbController
-import com.carmelart.homeart.ui.seguridad.SeguridadFragment
-import kotlinx.coroutines.delay
+
 import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -43,6 +42,7 @@ class VentanasFragment : Fragment() {
                 this,
                 ViewModelProvider.NewInstanceFactory()
             ).get(VentanasViewModel::class.java)
+
         _binding = FragmentVentanasBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -94,7 +94,9 @@ class VentanasFragment : Fragment() {
             dataOutputStream.close() // Cierra el final del flujo de salida cuando se termina
 
             println("Cerrando socket")
+            val activity: VentanasFragment = this
             socket.close()
+
         } catch (e: SocketException) {
             e.printStackTrace()
             val activity: VentanasFragment = this

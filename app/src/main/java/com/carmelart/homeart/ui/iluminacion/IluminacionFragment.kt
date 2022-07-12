@@ -12,9 +12,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.carmelart.homeart.database.DataEntity
+
 import com.carmelart.homeart.databinding.FragmentIluminacionBinding
+import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.dbController
+
 import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -44,6 +46,7 @@ class IluminacionFragment : Fragment() {
             ).get(IluminacionViewModel::class.java)
         _binding = FragmentIluminacionBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
         // TEXTOS
         val textView: TextView = binding.textSalon
         iluminacionViewModel.text.observe(viewLifecycleOwner, Observer {
@@ -82,6 +85,14 @@ class IluminacionFragment : Fragment() {
         binding.switchIluminacionPorche.isChecked = this.dataIlum.luzPorche == 1
         binding.switchIluminacionTendedero.isChecked = this.dataIlum.luzTendedero == 1
 
+        // MODO MANUAL/AUTOMÁTICO
+        binding.switchModoIlum.setOnCheckedChangeListener { _, isChecked ->
+            // Añadir lectura de LDR para encendido y apagado automático
+            Toast.makeText(
+                getActivity(), "Iluminación en función de la luz exterior.",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
         return root
     }
 
@@ -363,6 +374,7 @@ class IluminacionFragment : Fragment() {
         vIlum.add(data.luzMesitaDch.toString())
         vIlum.add(data.luzOficina.toString())
         vIlum.add(data.luzGaming.toString())
+
         if (dbController.DataDAO().getData().luzR < 10) {
             vIlum.add("00${data.luzR.toString()}")
         }
@@ -390,21 +402,11 @@ class IluminacionFragment : Fragment() {
         else {
             vIlum.add(data.luzB.toString())
         }
-        //vIlum.add(data.luzR.toString())
-        //vIlum.add(data.luzG.toString())
-        //vIlum.add(data.luzB.toString())
+
         vIlum.add(data.luzGaraje.toString())
         vIlum.add(data.luzJardin.toString())
         vIlum.add(data.luzPorche.toString())
         vIlum.add(data.luzTendedero.toString())
-
-        //vectorDatos.add(data.id.toString())
-        /*Toast.makeText(
-            requireActivity(),
-            type + vectorDatos.toString(),
-            Toast.LENGTH_SHORT
-        )
-            .show()*/
 
         sendDataToServer("i;$vIlum;$token\n") // i[..., ..., ...] + token
     }

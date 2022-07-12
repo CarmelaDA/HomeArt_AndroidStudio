@@ -94,7 +94,9 @@ class SeguridadFragment : Fragment() {
             dataOutputStream.close() // Cierra el final del flujo de salida cuando se termina
 
             println("Cerrando socket")
+            val activity: SeguridadFragment = this
             socket.close()
+
         } catch (e: SocketException) {
             e.printStackTrace()
             val activity: SeguridadFragment = this
@@ -137,16 +139,11 @@ class SeguridadFragment : Fragment() {
 
     fun generateDataStringAndSend(data: DataEntity) {
         var vSeg: MutableList<String> = mutableListOf()
+
         // Todos los datos de Iluminación en el orden deseado
         vSeg.add(data.segInt.toString())
         vSeg.add(data.segExt.toString())
-        //vectorDatos.add(data.id.toString())
-        /*Toast.makeText(
-            requireActivity(),
-            type + vectorDatos.toString(),
-            Toast.LENGTH_SHORT
-        )
-            .show()*/
-        sendDataToServer("s;$vSeg;$token\n") // a[..., ..., ...] + token
+
+        sendDataToServer("s;$vSeg;$token\n") // s[..., ..., ...] + token
     }
 }

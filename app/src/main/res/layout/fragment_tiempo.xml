@@ -5,370 +5,275 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/azul"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ToggleButton
+        android:id="@+id/toggle_calefactor_int"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/toggle_calefaccion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_int" />
+
+    <ToggleButton
+        android:id="@+id/toggle_ventilador_int"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_ventilador_bg"
+        android:clickable="false"
+        android:ellipsize="none"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_int_dat" />
+
+    <TextView
+        android:id="@+id/text_temp_int"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/temperatura"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_tiempo_interior" />
+
+    <Switch
+        android:id="@+id/switch_ventilador_int"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="77dp"
+        android:text="@string/ventilador"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_hum_int_dat"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Switch
+        android:id="@+id/switch_calefaccion_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="70dp"
+        android:text="@string/calefaccion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_ext"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/toggle_automatico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/automatico"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/switch_modo"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="925dp">
+    <TextView
+        android:id="@+id/text_hum_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="98dp"
+        android:text="@string/humedad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_tiempo_exterior" />
 
-                <Switch
-                    android:id="@+id/switch_calefaccion_int"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="64dp"
-                    android:checked="false"
-                    android:fontFamily="sans-serif-medium"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:scrollbarSize="10dp"
-                    android:switchPadding="70dp"
-                    android:text="@string/calefaccion"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_int"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
+    <TextView
+        android:id="@+id/toggle_manual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/manual"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/switch_modo"
+        app:layout_constraintTop_toTopOf="parent" />
 
-                <ToggleButton
-                    android:id="@+id/toggle_ventilador_int"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/toggle_ventilador_bg"
-                    android:clickable="false"
-                    android:ellipsize="none"
-                    android:gravity="center|center_horizontal|center_vertical"
-                    android:textOff=""
-                    android:textOn=""
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_temp_int_dat" />
+    <TextView
+        android:id="@+id/text_hum_int_dat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="111dp"
+        android:text="62,5 %"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_hum_int" />
 
-                <TextView
-                    android:id="@+id/text_hum_huerto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="127dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="127dp"
-                    android:text="@string/humedad_de_tierra"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_tiempo_huerto" />
+    <Switch
+        android:id="@+id/switch_ventilador_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="77dp"
+        android:text="@string/ventilador"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_ext_dat"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <ToggleButton
-                    android:id="@+id/toggle_riego_huerto"
-                    android:layout_width="38dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="65dp"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/toggle_riego_bg"
-                    android:clickable="false"
-                    android:textOff=""
-                    android:textOn=""
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_dat" />
+    <TextView
+        android:id="@+id/text_hum_int"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="98dp"
+        android:text="@string/humedad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_tiempo_interior" />
 
-                <Switch
-                    android:id="@+id/switch_ventilador_ext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="64dp"
-                    android:checked="false"
-                    android:fontFamily="sans-serif-medium"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:scrollbarSize="10dp"
-                    android:switchPadding="77dp"
-                    android:text="@string/ventilador"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_temp_ext_dat"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
+    <TextView
+        android:id="@+id/text_tiempo_exterior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="150dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/exterior"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_calefaccion_int" />
 
-                <TextView
-                    android:id="@+id/toggle_manual"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="44dp"
-                    android:layout_marginEnd="34dp"
-                    android:fontFamily="@font/secular_one"
-                    android:text="@string/manual"
-                    android:textColor="#000000"
-                    app:layout_constraintEnd_toStartOf="@+id/switch_modo"
-                    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/text_temp_ext_dat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="10dp"
+        android:text="37,9 ºC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_ext" />
 
-                <TextView
-                    android:id="@+id/text_hum_int"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="98dp"
-                    android:text="@string/humedad"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_tiempo_interior" />
+    <TextView
+        android:id="@+id/text_temp_ext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/temperatura"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_tiempo_exterior" />
 
-                <TextView
-                    android:id="@+id/text_temp_int"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="84dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/temperatura"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_tiempo_interior" />
+    <Switch
+        android:id="@+id/switch_calefaccion_int"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="70dp"
+        android:text="@string/calefaccion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_int"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <TextView
-                    android:id="@+id/text_hum_ext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="98dp"
-                    android:text="@string/humedad"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_tiempo_exterior" />
+    <ToggleButton
+        android:id="@+id/toggle_calefactor_ext"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/toggle_calefaccion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_ext" />
 
-                <Switch
-                    android:id="@+id/switch_modo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:checked="false"
-                    android:fontFamily="@font/secular_one"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:scrollbarSize="10dp"
-                    android:switchPadding="30dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
+    <ToggleButton
+        android:id="@+id/toggle_ventilador_ext"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_ventilador_bg"
+        android:clickable="false"
+        android:gravity="center"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_ext_dat" />
 
-                <Switch
-                    android:id="@+id/switch_ventilador_int"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="64dp"
-                    android:checked="false"
-                    android:fontFamily="sans-serif-medium"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:scrollbarSize="10dp"
-                    android:switchPadding="77dp"
-                    android:text="@string/ventilador"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_temp_int_dat"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
+    <Switch
+        android:id="@+id/switch_modo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:checked="false"
+        android:fontFamily="@font/secular_one"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-                <Switch
-                    android:id="@+id/switch_calefaccion_ext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="64dp"
-                    android:checked="false"
-                    android:fontFamily="sans-serif-medium"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:scrollbarSize="10dp"
-                    android:switchPadding="70dp"
-                    android:text="@string/calefaccion"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_ext"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
+    <TextView
+        android:id="@+id/text_hum_ext_dat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="111dp"
+        android:text="73,8 %"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_hum_ext" />
 
-                <TextView
-                    android:id="@+id/text_temp_int_dat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="110dp"
-                    android:layout_marginTop="10dp"
-                    android:text="21,4 ºC"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_temp_int" />
+    <TextView
+        android:id="@+id/text_temp_int_dat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="10dp"
+        android:text="21,4 ºC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_temp_int" />
 
-                <TextView
-                    android:id="@+id/text_tiempo_exterior"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="150dp"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/exterior"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/switch_calefaccion_int" />
-
-                <TextView
-                    android:id="@+id/text_temp_ext_dat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="110dp"
-                    android:layout_marginTop="10dp"
-                    android:text="37,9 ºC"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_temp_ext" />
-
-                <TextView
-                    android:id="@+id/text_hum_huerto_dat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="176dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="176dp"
-                    android:text="93,2 %"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto" />
-
-                <TextView
-                    android:id="@+id/text_temp_ext"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="84dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/temperatura"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_tiempo_exterior" />
-
-                <TextView
-                    android:id="@+id/text_tiempo_interior"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="152dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="152dp"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/interior"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/switch_modo" />
-
-                <TextView
-                    android:id="@+id/text_hum_ext_dat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="110dp"
-                    android:text="73,8 %"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_hum_ext" />
-
-                <ToggleButton
-                    android:id="@+id/toggle_calefactor_int"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginTop="13dp"
-                    android:background="@drawable/toggle_calefaccion_bg"
-                    android:clickable="false"
-                    android:textOff=""
-                    android:textOn=""
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_int" />
-
-                <TextView
-                    android:id="@+id/text_tiempo_huerto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="158dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="158dp"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/huerto"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/switch_calefaccion_ext" />
-
-                <TextView
-                    android:id="@+id/toggle_automatico"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="44dp"
-                    android:fontFamily="@font/secular_one"
-                    android:text="@string/automatico"
-                    android:textColor="#000000"
-                    app:layout_constraintStart_toEndOf="@+id/switch_modo"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ToggleButton
-                    android:id="@+id/toggle_ventilador_ext"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginTop="32dp"
-                    android:background="@drawable/toggle_ventilador_bg"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:textOff=""
-                    android:textOn=""
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_temp_ext_dat" />
-
-                <ToggleButton
-                    android:id="@+id/toggle_calefactor_ext"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginTop="13dp"
-                    android:background="@drawable/toggle_calefaccion_bg"
-                    android:clickable="false"
-                    android:textOff=""
-                    android:textOn=""
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_ext" />
-
-                <TextView
-                    android:id="@+id/text_hum_int_dat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="110dp"
-                    android:text="62,5 %"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_hum_int" />
-
-                <Switch
-                    android:id="@+id/switch_riego_huerto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="64dp"
-                    android:checked="false"
-                    android:fontFamily="sans-serif-medium"
-                    android:minWidth="48dp"
-                    android:minHeight="48dp"
-                    android:scrollbarSize="10dp"
-                    android:switchPadding="122dp"
-                    android:text="@string/riego"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_dat"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
-    </ScrollView>
+    <TextView
+        android:id="@+id/text_tiempo_interior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="152dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/interior"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_modo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

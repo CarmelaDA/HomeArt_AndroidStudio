@@ -72,5 +72,10 @@
     <string name="jardin">JARDÍN</string>
     <string name="porche">PORCHE</string>
     <string name="tendedero">TENDEDERO</string>
+    <string name="iluminacion">ILUMINACIÓN</string>
+    <string name="toldo">TOLDO</string>
+    <string name="r">R</string>
+    <string name="b">B</string>
+    <string name="g">G</string>
 
 </resources>

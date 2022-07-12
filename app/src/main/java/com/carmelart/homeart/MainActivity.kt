@@ -12,7 +12,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.room.Room
 import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.databinding.ActivityMainBinding
@@ -36,10 +35,11 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_home,
                 R.id.nav_seguridad,
-                R.id.nav_ventanas,
-                R.id.nav_exterior,
                 R.id.nav_iluminacion,
-                R.id.nav_tiempo
+                R.id.nav_ventanas,
+                R.id.nav_tiempo ,
+                R.id.nav_exterior,
+
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -52,13 +52,22 @@ class MainActivity : AppCompatActivity() {
 
         dbController.DataDAO().addData(DataEntity(
 
+            // Seguridad
             0 , 0,
 
+            // Iluminación
             0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0,0, 0, 0,
             0, 0, 0,0, 0, 0,
 
+            // Puertas y ventanas
             0, 0, 0, 0, 0,
+
+            // Tiempo
+            0,0,0,0,0,
+
+            // Exterior
+            0,
 
         )) // Inicializar todas las variables a 0
     }
@@ -74,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.ajustes -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -86,7 +95,6 @@ class MainActivity : AppCompatActivity() {
 }
 
 // Funciones de extensión
-
 val Fragment.dbController: DataDb
     get() = (requireActivity() as MainActivity).dbController
 

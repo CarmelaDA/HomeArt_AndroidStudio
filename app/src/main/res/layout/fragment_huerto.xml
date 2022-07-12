@@ -1,16 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_huerto"
+        android:id="@+id/toggle_automatico_huerto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="416dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/automatico"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/switch_modo_huerto"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/toggle_manual_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/manual"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/switch_modo_huerto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch_modo_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:checked="false"
+        android:fontFamily="@font/secular_one"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/text_huerto_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="158dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/huerto"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_modo_huerto" />
+
+    <TextView
+        android:id="@+id/text_hum_huerto_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="127dp"
+        android:text="@string/humedad_de_tierra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_huerto_huerto" />
+
+    <TextView
+        android:id="@+id/text_hum_huerto_dat_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="176dp"
+        android:text="93,2 %"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_huerto" />
+
+    <ToggleButton
+        android:id="@+id/toggle_riego_huerto_huerto"
+        android:layout_width="38dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_riego_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_dat_huerto" />
+
+    <Switch
+        android:id="@+id/switch_riego_huerto_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="122dp"
+        android:text="@string/riego"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_dat_huerto"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

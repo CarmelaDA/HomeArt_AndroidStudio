@@ -33,11 +33,28 @@ data class DataEntity(
     @ColumnInfo(name = "luzJardin") var luzJardin: Int,
     @ColumnInfo(name = "luzTendedero") var luzTendedero: Int,
 
+    // PUERTAS Y VENTANAS
     @ColumnInfo(name = "pParcela") var pParcela: Int,
     @ColumnInfo(name = "pGaraje") var pGaraje: Int,
     @ColumnInfo(name = "vSalon") var vSalon: Int,
     @ColumnInfo(name = "vDormitorio") var vDormitorio: Int,
     @ColumnInfo(name = "vOficina") var vOficina: Int,
+
+    // TIEMPO
+    @ColumnInfo(name = "tVentInt") var tVentInt: Int,
+    @ColumnInfo(name = "tCalefInt") var tCalefInt: Int,
+    @ColumnInfo(name = "tVentExt") var tVentExt: Int,
+    @ColumnInfo(name = "tCalefExt") var tCalefExt: Int,
+
+    // EXTERIOR
+    @ColumnInfo(name = "tTendedero") var tTendedero: Int,
+    //...@ColumnInfo(name = "luzTendedero") var luzTendedero: Int,
+    //...@ColumnInfo(name = "luzPorche") var luzPorche: Int,
+    //...@ColumnInfo(name = "luzJardin") var luzJardin: Int,
+    //...@ColumnInfo(name = "pParcela") var pParcela: Int,
+
+    // HUERTO
+    @ColumnInfo(name = "rHuerto") var rHuerto: Int,
 
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // First Column
 )

@@ -6,20 +6,20 @@
     android:layout_height="match_parent">
 
     <ToggleButton
-        android:id="@+id/toggle_calefactor_int"
+        android:id="@+id/toggle_ventilador_dormitorio"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="13dp"
-        android:background="@drawable/toggle_calefaccion_bg"
+        android:background="@drawable/toggle_ventilador_bg"
         android:clickable="false"
         android:textOff=""
         android:textOn=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_int" />
+        app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_salon" />
 
     <ToggleButton
-        android:id="@+id/toggle_ventilador_int"
+        android:id="@+id/toggle_ventilador_salon"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="68dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_tiempo_interior" />
 
     <Switch
-        android:id="@+id/switch_ventilador_int"
+        android:id="@+id/switch_ventilador_salon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -54,14 +54,14 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:scrollbarSize="10dp"
-        android:switchPadding="77dp"
-        android:text="@string/ventilador"
+        android:switchPadding="75dp"
+        android:text="VENT. SALÓN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_hum_int_dat"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Switch
-        android:id="@+id/switch_calefaccion_ext"
+        android:id="@+id/switch_calefaccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -73,7 +73,7 @@
         android:switchPadding="70dp"
         android:text="@string/calefaccion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_ext"
+        app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_oficina"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
@@ -121,20 +121,19 @@
         app:layout_constraintTop_toBottomOf="@+id/text_hum_int" />
 
     <Switch
-        android:id="@+id/switch_ventilador_ext"
+        android:id="@+id/switch_ventilador_oficina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="64dp"
         android:checked="false"
         android:fontFamily="sans-serif-medium"
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:scrollbarSize="10dp"
-        android:switchPadding="77dp"
-        android:text="@string/ventilador"
+        android:switchPadding="66dp"
+        android:text="VENT. OFICINA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp_ext_dat"
+        app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_dormitorio"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
@@ -159,8 +158,9 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_calefaccion_int" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_calefaccion" />
 
     <TextView
         android:id="@+id/text_temp_ext_dat"
@@ -183,7 +183,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_tiempo_exterior" />
 
     <Switch
-        android:id="@+id/switch_calefaccion_int"
+        android:id="@+id/switch_ventilador_dormitorio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -192,14 +192,14 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:scrollbarSize="10dp"
-        android:switchPadding="70dp"
-        android:text="@string/calefaccion"
+        android:switchPadding="35dp"
+        android:text="VENT. DORMITORIO"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_int"
+        app:layout_constraintTop_toBottomOf="@+id/switch_ventilador_salon"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <ToggleButton
-        android:id="@+id/toggle_calefactor_ext"
+        android:id="@+id/toggle_calefactor"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="68dp"
@@ -209,21 +209,21 @@
         android:textOff=""
         android:textOn=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_ext" />
+        app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_oficina" />
 
     <ToggleButton
-        android:id="@+id/toggle_ventilador_ext"
+        android:id="@+id/toggle_ventilador_oficina"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="13dp"
         android:background="@drawable/toggle_ventilador_bg"
         android:clickable="false"
         android:gravity="center"
         android:textOff=""
         android:textOn=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_temp_ext_dat" />
+        app:layout_constraintTop_toBottomOf="@+id/toggle_ventilador_dormitorio" />
 
     <Switch
         android:id="@+id/switch_modo"

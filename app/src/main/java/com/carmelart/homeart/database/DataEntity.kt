@@ -3,6 +3,7 @@ package com.carmelart.homeart.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.carmelart.homeart.databinding.FragmentOficinaBinding
 
 @Entity
 data class DataEntity(
@@ -41,10 +42,10 @@ data class DataEntity(
     @ColumnInfo(name = "vOficina") var vOficina: Int,
 
     // TIEMPO
-    @ColumnInfo(name = "tVentInt") var tVentInt: Int,
-    @ColumnInfo(name = "tCalefInt") var tCalefInt: Int,
-    @ColumnInfo(name = "tVentExt") var tVentExt: Int,
-    @ColumnInfo(name = "tCalefExt") var tCalefExt: Int,
+    @ColumnInfo(name = "tVentSalon") var tVentSalon: Int,
+    @ColumnInfo(name = "tVentDorm") var tVentDorm: Int,
+    @ColumnInfo(name = "tVentOfi") var tVentOfi: Int,
+    @ColumnInfo(name = "tCalef") var tCalef: Int,
 
     // EXTERIOR
     @ColumnInfo(name = "tTendedero") var tTendedero: Int,

@@ -15,9 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.carmelart.homeart.databinding.FragmentSalonBinding
 import com.carmelart.homeart.database.DataEntity
-import com.carmelart.homeart.databinding.FragmentIluminacionBinding
 import com.carmelart.homeart.dbController
-import com.carmelart.homeart.ui.iluminacion.IluminacionFragment
 
 import java.io.DataOutputStream
 import java.net.InetSocketAddress
@@ -181,6 +179,6 @@ class SalonFragment : Fragment() {
         vSalon.add(data.luzComedor.toString())
         vSalon.add(data.vSalon.toString())
 
-        sendDataToServer("l;$vSalon;$token\n") // l[..., ..., ...] + token
+        sendDataToServer("n;$vSalon;$token\n") // n[..., ..., ...] + token
     }
 }

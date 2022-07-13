@@ -6,6 +6,35 @@
     android:layout_height="match_parent">
 
     <Switch
+        android:id="@+id/switch_iluminacion_recibidor_salon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="91dp"
+        android:text="@string/recibidor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_ambiente_salon"
+        tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+    <ToggleButton
+        android:id="@+id/toggle_iluminacion_recibidor_salon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/toggle_iluminacion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_ambiente_salon" />
+
+    <Switch
         android:id="@+id/switch_cortinas_salon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +46,7 @@
         android:minHeight="48dp"
         android:scrollbarSize="10dp"
         android:switchPadding="93dp"
-        android:text="CORTINAS"
+        android:text="@string/cortinas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_ventana_salon"
         tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
@@ -48,7 +77,7 @@
         android:switchPadding="92dp"
         android:text="@string/ambiente"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_sala_salon"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_comedor_salon"
         tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
 
     <ToggleButton
@@ -62,10 +91,10 @@
         android:textOff=""
         android:textOn=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_ambiente_salon" />
+        app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_sala_salon" />
 
     <TextView
-        android:id="@+id/text_iluminacion_salon"
+        android:id="@+id/text_iluminacion_cocina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -90,7 +119,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_comedor_salon" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_recibidor_salon" />
 
     <Switch
         android:id="@+id/switch_television_salon"
@@ -104,7 +133,7 @@
         android:minHeight="48dp"
         android:scrollbarSize="10dp"
         android:switchPadding="83dp"
-        android:text="TELEVISIÓN"
+        android:text="@string/television"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_salon_salon"
         tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
@@ -129,7 +158,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="100dp"
-        android:text="@string/salon"
+        android:text="@string/entretenimiento"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,8 +178,9 @@
         android:switchPadding="59dp"
         android:text="@string/sala_de_estar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_iluminacion_salon"
-        tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/text_iluminacion_cocina"
+        tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck"
+        android:layout_width="wrap_content" />
 
     <ToggleButton
         android:id="@+id/toggle_iluminacion_ambiente_salon"
@@ -163,7 +193,7 @@
         android:textOff=""
         android:textOn=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_sala_salon" />
+        app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_comedor_salon" />
 
     <ToggleButton
         android:id="@+id/toggle_iluminacion_sala_salon"
@@ -176,7 +206,7 @@
         android:textOff=""
         android:textOn=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_iluminacion_salon" />
+        app:layout_constraintTop_toBottomOf="@+id/text_iluminacion_cocina" />
 
     <Switch
         android:id="@+id/switch_iluminacion_comedor_salon"
@@ -191,6 +221,6 @@
         android:switchPadding="95dp"
         android:text="@string/comedor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_ambiente_salon"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_sala_salon"
         tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

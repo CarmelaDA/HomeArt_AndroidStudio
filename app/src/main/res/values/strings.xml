@@ -6,7 +6,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+            <string name="action_settings">Ajustes</string>
 
     <!-- MENÚS -->
     <string name="menu_home">Home</string>
@@ -16,7 +16,7 @@
     <string name="menu_tiempo">Tiempo</string>
     <string name="menu_iluminacion">Iluminación</string>
     <string name="menu_cocina">Cocina</string>
-    <string name="menu_salon">Salon</string>
+    <string name="menu_salon">Salón</string>
     <string name="menu_bano">Baño</string>
     <string name="menu_dormitorio">Dormitorio</string>
     <string name="menu_oficina">Oficina</string>
@@ -77,5 +77,8 @@
     <string name="r">R</string>
     <string name="b">B</string>
     <string name="g">G</string>
+    <string name="cortinas">CORTINAS</string>
+    <string name="television">TELEVISIÓN</string>
+    <string name="entretenimiento">ENTRETENIMIENTO</string>
 
 </resources>

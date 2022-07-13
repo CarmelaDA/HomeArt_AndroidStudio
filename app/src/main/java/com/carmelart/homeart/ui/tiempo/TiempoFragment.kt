@@ -57,19 +57,19 @@ class TiempoFragment : Fragment() {
         // ACTUALIZAR DATA
         this.dataTiempo = dbController.DataDAO().getData()
         // TODAS LAS VARIABLES DE TIEMPO
-        binding.switchVentiladorInt.isChecked = this.dataTiempo.tVentInt == 1
-        binding.switchCalefaccionInt.isChecked = this.dataTiempo.tCalefInt == 1
-        binding.switchVentiladorExt.isChecked = this.dataTiempo.tVentExt == 1
-        binding.switchCalefaccionExt.isChecked = this.dataTiempo.tCalefExt == 1
+        binding.switchVentiladorSalon.isChecked = this.dataTiempo.tVentSalon == 1
+        binding.switchVentiladorDormitorio.isChecked = this.dataTiempo.tVentDorm == 1
+        binding.switchVentiladorOficina.isChecked = this.dataTiempo.tVentOfi == 1
+        binding.switchCalefaccion.isChecked = this.dataTiempo.tCalef == 1
 
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModo.setOnCheckedChangeListener { _, isChecked ->
 
             // Bloqueo de Switches
-            binding.switchVentiladorInt.isEnabled = !isChecked
-            binding.switchVentiladorExt.isEnabled = !isChecked
-            binding.switchCalefaccionInt.isEnabled = !isChecked
-            binding.switchCalefaccionExt.isEnabled = !isChecked
+            binding.switchVentiladorSalon.isEnabled = !isChecked
+            binding.switchVentiladorDormitorio.isEnabled = !isChecked
+            binding.switchVentiladorOficina.isEnabled = !isChecked
+            binding.switchCalefaccion.isEnabled = !isChecked
         }
 
         return root
@@ -125,42 +125,42 @@ class TiempoFragment : Fragment() {
     }
 
     private fun bindingManagement() {
-        binding.switchVentiladorInt.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleVentiladorInt.isChecked = isChecked
+        binding.switchVentiladorSalon.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleVentiladorSalon.isChecked = isChecked
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataTiempo.tVentInt = ledValue
+            this.dataTiempo.tVentSalon = ledValue
             dbController.DataDAO().updateData(this.dataTiempo)
             this.generateDataStringAndSend(this.dataTiempo)
         }
 
-        binding.switchCalefaccionInt.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleCalefactorInt.isChecked = isChecked
+        binding.switchVentiladorDormitorio.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleVentiladorDormitorio.isChecked = isChecked
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataTiempo.tCalefInt = ledValue
+            this.dataTiempo.tVentDorm = ledValue
             dbController.DataDAO().updateData(this.dataTiempo)
             this.generateDataStringAndSend(this.dataTiempo)
         }
 
-        binding.switchVentiladorExt.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleVentiladorExt.isChecked = isChecked
+        binding.switchVentiladorOficina.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleVentiladorOficina.isChecked = isChecked
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataTiempo.tVentExt = ledValue
+            this.dataTiempo.tVentOfi = ledValue
             dbController.DataDAO().updateData(this.dataTiempo)
             this.generateDataStringAndSend(this.dataTiempo)
         }
 
-        binding.switchCalefaccionExt.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleCalefactorExt.isChecked = isChecked
+        binding.switchCalefaccion.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleCalefactor.isChecked = isChecked
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataTiempo.tCalefExt = ledValue
+            this.dataTiempo.tCalef = ledValue
             dbController.DataDAO().updateData(this.dataTiempo)
             this.generateDataStringAndSend(this.dataTiempo)
         }
@@ -170,11 +170,10 @@ class TiempoFragment : Fragment() {
         var vTiempo: MutableList<String> = mutableListOf()
 
         // Todos los datos de Tiempo en el orden deseado
-        vTiempo.add(data.tVentInt.toString())
-        vTiempo.add(data.tCalefInt.toString())
-        vTiempo.add(data.tVentExt.toString())
-        vTiempo.add(data.tCalefExt.toString())
-        vTiempo.add(data.rHuerto.toString())
+        vTiempo.add(data.tVentSalon.toString())
+        vTiempo.add(data.tVentDorm.toString())
+        vTiempo.add(data.tVentOfi.toString())
+        vTiempo.add(data.tCalef.toString())
 
         sendDataToServer("t;$vTiempo;$token\n") // t[..., ..., ...] + token
     }

@@ -7,6 +7,16 @@
         <entry key="..\:/Users/Carmen/AndroidStudioProjects/HomeArt/app/src/main/res/layout/content_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Carmen/AndroidStudioProjects/HomeArt/app/src/main/res/layout/nav_header_main.xml" value="0.264" />
         <entry key="..\:/Users/Carmen/AndroidStudioProjects/HomeArt/app/src/main/res/menu/activity_main_drawer.xml" value="0.536" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_calefaccion.xml" value="0.16" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_calefaccion_bg.xml" value="0.16" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_iluminacion_bg.xml" value="0.16" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_puertas.xml" value="0.16" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_riego.xml" value="0.16" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_riego_bg.xml" value="0.16" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_huerto.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_iluminacion.xml" value="0.33" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_salon.xml" value="0.33" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_ventanas.xml" value="0.33" />
         <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2703125" />

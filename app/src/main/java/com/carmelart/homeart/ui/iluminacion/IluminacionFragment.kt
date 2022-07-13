@@ -44,6 +44,7 @@ class IluminacionFragment : Fragment() {
                 this,
                 ViewModelProvider.NewInstanceFactory()
             ).get(IluminacionViewModel::class.java)
+
         _binding = FragmentIluminacionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -88,6 +89,12 @@ class IluminacionFragment : Fragment() {
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModoIlum.setOnCheckedChangeListener { _, isChecked ->
             // Añadir lectura de LDR para encendido y apagado automático
+
+            // Bloqueo de Switches
+            binding.switchIluminacionJardin.isEnabled = !isChecked
+            binding.switchIluminacionPorche.isEnabled = !isChecked
+            binding.switchIluminacionTendedero.isEnabled = !isChecked
+
             Toast.makeText(
                 getActivity(), "Iluminación en función de la luz exterior.",
                 Toast.LENGTH_SHORT

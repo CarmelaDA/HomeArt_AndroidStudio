@@ -64,9 +64,15 @@ class MainActivity : AppCompatActivity() {
             0, 0, 0, 0, 0,
 
             // Tiempo
-            0,0,0,0,0,
+            0,0,0,0,
 
             // Exterior
+            0,
+
+            // Salón
+            0,
+
+            // Huerto
             0,
 
         )) // Inicializar todas las variables a 0

@@ -53,6 +53,13 @@ data class DataEntity(
     //...@ColumnInfo(name = "luzJardin") var luzJardin: Int,
     //...@ColumnInfo(name = "pParcela") var pParcela: Int,
 
+    // SALÓN
+    @ColumnInfo(name = "sTelevision") var sTelevision: Int,
+    //...@ColumnInfo(name = "luzSala") var luzSala: Int,
+    //...@ColumnInfo(name = "luzComedor") var luzComedor: Int,
+    //...@ColumnInfo(name = "luzAmbiente") var luzAmbiente: Int,
+    //...@ColumnInfo(name = "vSalon") var vSalon: Int,
+
     // HUERTO
     @ColumnInfo(name = "rHuerto") var rHuerto: Int,
 

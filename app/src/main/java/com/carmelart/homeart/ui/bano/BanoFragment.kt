@@ -5,8 +5,6 @@ import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SeekBar
-import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -15,9 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.carmelart.homeart.databinding.FragmentBanoBinding
 import com.carmelart.homeart.database.DataEntity
-import com.carmelart.homeart.databinding.FragmentCocinaBinding
 import com.carmelart.homeart.dbController
-import com.carmelart.homeart.ui.cocina.CocinaFragment
 
 import java.io.DataOutputStream
 import java.net.InetSocketAddress

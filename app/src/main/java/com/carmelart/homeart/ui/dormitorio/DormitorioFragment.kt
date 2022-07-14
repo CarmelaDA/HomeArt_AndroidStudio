@@ -169,6 +169,6 @@ class DormitorioFragment : Fragment() {
         vDormitorio.add(data.luzMesitaDch.toString())
         vDormitorio.add(data.vDormitorio.toString())
 
-        sendDataToServer("d;$vDormitorio;$token\n") // d[..., ..., ...] + token
+        sendDataToServer("r;$vDormitorio;$token\n") // r[..., ..., ...] + token
     }
 }

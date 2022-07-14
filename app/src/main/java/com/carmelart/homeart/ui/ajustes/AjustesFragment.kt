@@ -1,4 +1,4 @@
-package com.carmelart.homeart.ui.garaje
+package com.carmelart.homeart.ui.ajustes
 
 import android.os.Bundle
 import android.os.StrictMode
@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
-import com.carmelart.homeart.databinding.FragmentGarajeBinding
+import com.carmelart.homeart.databinding.FragmentAjustesBinding
 import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.dbController
 
@@ -22,11 +22,11 @@ import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
 
-class GarajeFragment : Fragment() {
+class AjustesFragment : Fragment() {
 
-    private lateinit var garajeViewModel: GarajeViewModel
-    private lateinit var dataGaraje: DataEntity
-    private var _binding: FragmentGarajeBinding? = null
+    private lateinit var ajustesViewModel: AjustesViewModel
+    private lateinit var dataAjustes: DataEntity
+    private var _binding: FragmentAjustesBinding? = null
     private val binding get() = _binding!!
     private val timeout = 1000
     private val token = "fe5g8e2a5f4e85d2e85a7c5"
@@ -39,27 +39,27 @@ class GarajeFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
-        garajeViewModel =
+        ajustesViewModel =
             ViewModelProvider(
                 this,
                 ViewModelProvider.NewInstanceFactory()
-            ).get(GarajeViewModel::class.java)
+            ).get(AjustesViewModel::class.java)
 
-        _binding = FragmentGarajeBinding.inflate(inflater, container, false)
+        _binding = FragmentAjustesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         // TEXTOS
-        val textView: TextView = binding.textIluminacionGarajeGaraje
-        garajeViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textAjustes
+        ajustesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         // SWITCHES
         this.bindingManagement()
         // ACTUALIZAR DATA
-        this.dataGaraje = dbController.DataDAO().getData()
-        // TODAS LAS VARIABLES DE COCINA
-        binding.switchIluminacionGeneralGaraje.isChecked = this.dataGaraje.luzGaraje == 1
-        binding.switchPuertaGarajeGaraje.isChecked = this.dataGaraje.pGaraje == 1
+        this.dataAjustes = dbController.DataDAO().getData()
+        // TODAS LAS VARIABLES DE BAÑO
+        //binding.switchIluminacionGeneralBano.isChecked = this.dataBano.luzBano == 1
+        //binding.switchIluminacionEspejoBano.isChecked = this.dataBano.luzEspejo == 1
 
         return root
     }
@@ -88,19 +88,19 @@ class GarajeFragment : Fragment() {
             dataOutputStream.close() // Cierra el final del flujo de salida cuando se termina
 
             println("Cerrando socket")
-            val activity: GarajeFragment = this
+            val activity: AjustesFragment = this
             socket.close()
 
         } catch (e: SocketException) {
             e.printStackTrace()
-            val activity: GarajeFragment = this
+            val activity: AjustesFragment = this
             Toast.makeText(
                 getActivity(), "Conexión Wi-Fi fallida",
                 Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
             e.printStackTrace()
-            val activity: GarajeFragment = this
+            val activity: AjustesFragment = this
             Toast.makeText(
                 getActivity(), "Servidor caído",
                 Toast.LENGTH_SHORT
@@ -115,34 +115,34 @@ class GarajeFragment : Fragment() {
 
     private fun bindingManagement() {
 
-        binding.switchIluminacionGeneralGaraje.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionGeneralGaraje.isChecked = isChecked
+        /*binding.switchIluminacionGeneralBano.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionGeneralBano.isChecked = isChecked
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataGaraje.luzGaraje = ledValue
-            dbController.DataDAO().updateData(this.dataGaraje)
-            this.generateDataStringAndSend(this.dataGaraje)
+            this.dataBano.luzBano = ledValue
+            dbController.DataDAO().updateData(this.dataBano)
+            this.generateDataStringAndSend(this.dataBano)
         }
 
-        binding.switchPuertaGarajeGaraje.setOnCheckedChangeListener { _, isChecked ->
-            binding.togglePuertaGarajeGaraje.isChecked = isChecked
+        binding.switchIluminacionEspejoBano.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleIluminacionEspejoBano.isChecked = isChecked
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataGaraje.pGaraje = ledValue
-            dbController.DataDAO().updateData(this.dataGaraje)
-            this.generateDataStringAndSend(this.dataGaraje)
-        }
+            this.dataBano.luzEspejo = ledValue
+            dbController.DataDAO().updateData(this.dataBano)
+            this.generateDataStringAndSend(this.dataBano)
+        }*/
     }
 
     private fun generateDataStringAndSend(data: DataEntity) {
-        var vGaraje: MutableList<String> = mutableListOf()
+        var vAjustes: MutableList<String> = mutableListOf()
 
-        // Todos los datos de Cocina en el orden deseado
-        vGaraje.add(data.luzGaraje.toString())
-        vGaraje.add(data.pGaraje.toString())
+        // Todos los datos de Baño en el orden deseado
+        vAjustes.add(data.luzBano.toString())
+        //vBano.add(data.luzEspejo.toString())
 
-        sendDataToServer("j;$vGaraje;$token\n") // j[..., ..., ...] + token
+        sendDataToServer("a;$vAjustes;$token\n") // a[..., ..., ...] + token
     }
 }

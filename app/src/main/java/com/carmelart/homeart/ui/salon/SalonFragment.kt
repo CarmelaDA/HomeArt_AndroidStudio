@@ -57,7 +57,7 @@ class SalonFragment : Fragment() {
         this.bindingManagement()
         // ACTUALIZAR DATA
         this.dataSalon = dbController.DataDAO().getData()
-        // TODAS LAS VARIABLES DE ILUMINACIÓN
+        // TODAS LAS VARIABLES DE SALÓN
         binding.switchTelevisionSalon.isChecked = this.dataSalon.sTelevision == 1
         binding.switchIluminacionSalaSalon.isChecked = this.dataSalon.luzSala == 1
         binding.switchIluminacionAmbienteSalon.isChecked = this.dataSalon.luzAmbiente == 1
@@ -172,7 +172,7 @@ class SalonFragment : Fragment() {
     private fun generateDataStringAndSend(data: DataEntity) {
         var vSalon: MutableList<String> = mutableListOf()
 
-        // Todos los datos de Iluminación en el orden deseado
+        // Todos los datos de Salón en el orden deseado
         vSalon.add(data.sTelevision.toString())
         vSalon.add(data.luzSala.toString())
         vSalon.add(data.luzAmbiente.toString())

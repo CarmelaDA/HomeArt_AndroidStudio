@@ -55,7 +55,7 @@ class VentanasFragment : Fragment() {
         this.bindingManagement()
         // ACTUALIZAR DATA
         this.dataVent = dbController.DataDAO().getData()
-        // TODAS LA VARIABLES DE SEGURIDAD
+        // TODAS LAS VARIABLES DE VENTANAS
         binding.switchPuertaParcela.isChecked = this.dataVent.pParcela == 1
         binding.switchPuertaGaraje.isChecked = this.dataVent.pGaraje == 1
         binding.switchVentanaSalon.isChecked = this.dataVent.vSalon == 1
@@ -171,7 +171,7 @@ class VentanasFragment : Fragment() {
 
     fun generateDataStringAndSend(zona: Char, data: DataEntity) {
         var vVent: MutableList<String> = mutableListOf()
-        // Todos los datos de Iluminación en el orden deseado
+        // Todos los datos de Ventanas en el orden deseado
 
         vVent.add(data.pParcela.toString())
         vVent.add(data.pGaraje.toString())

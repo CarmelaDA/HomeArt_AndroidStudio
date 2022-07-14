@@ -15,10 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.carmelart.homeart.databinding.FragmentCocinaBinding
 import com.carmelart.homeart.database.DataEntity
-import com.carmelart.homeart.databinding.FragmentSalonBinding
 import com.carmelart.homeart.dbController
-import com.carmelart.homeart.ui.salon.SalonFragment
-import com.carmelart.homeart.ui.salon.SalonViewModel
 
 import java.io.DataOutputStream
 import java.net.InetSocketAddress
@@ -60,7 +57,7 @@ class CocinaFragment : Fragment() {
         this.bindingManagement()
         // ACTUALIZAR DATA
         this.dataCocina = dbController.DataDAO().getData()
-        // TODAS LAS VARIABLES DE ILUMINACIÓN
+        // TODAS LAS VARIABLES DE COCINA
         binding.switchIluminacionGeneralCocina.isChecked = this.dataCocina.luzCocina == 1
         binding.switchIluminacionFregaderoCocina.isChecked = this.dataCocina.luzFregadero == 1
 
@@ -142,7 +139,7 @@ class CocinaFragment : Fragment() {
     private fun generateDataStringAndSend(data: DataEntity) {
         var vCocina: MutableList<String> = mutableListOf()
 
-        // Todos los datos de Iluminación en el orden deseado
+        // Todos los datos de Cocina en el orden deseado
         vCocina.add(data.luzCocina.toString())
         vCocina.add(data.luzFregadero.toString())
 

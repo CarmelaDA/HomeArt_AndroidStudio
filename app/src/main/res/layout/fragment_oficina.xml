@@ -1,16 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_oficina"
+        android:id="@+id/r_text_ofi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="380dp"
-        android:text="TextView"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/r"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_red_ofi"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_gaming_ofi" />
+
+    <TextView
+        android:id="@+id/g_text_ofi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/g"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_green_ofi"
+        app:layout_constraintTop_toBottomOf="@+id/r_text_ofi" />
+
+    <TextView
+        android:id="@+id/text_ventana_ofi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/ventana"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_blue_ofi" />
+
+    <ToggleButton
+        android:id="@+id/toggle_cortina_oficina"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_persianas_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ventana_ofi" />
+
+    <Switch
+        android:id="@+id/switch_cortina_oficina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="95dp"
+        android:text="@string/cortinas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ventana_ofi"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Switch
+        android:id="@+id/switch_iluminacion_gaming_ofi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="67dp"
+        android:text="@string/zona_gaming"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_general_ofi"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/text_oficina_oficina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/oficina"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggle_iluminacion_general_ofi"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_iluminacion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_oficina_oficina" />
+
+    <Switch
+        android:id="@+id/switch_iluminacion_general_ofi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="64dp"
+        android:checked="false"
+        android:fontFamily="sans-serif-medium"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:scrollbarSize="10dp"
+        android:switchPadding="100dp"
+        android:text="@string/general"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_oficina_oficina"
+        tools:ignore="DuplicateSpeakableTextCheck,DuplicateClickableBoundsCheck" />
+
+    <ToggleButton
+        android:id="@+id/toggle_iluminacion_gaming_ofi"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/toggle_iluminacion_bg"
+        android:clickable="false"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toggle_iluminacion_general_ofi" />
+
+    <TextView
+        android:id="@+id/b_text_ofi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/b"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_blue_ofi"
+        app:layout_constraintTop_toBottomOf="@+id/g_text_ofi" />
+
+    <SeekBar
+        android:id="@+id/seekBar_blue_ofi"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_green_ofi" />
+
+    <SeekBar
+        android:id="@+id/seekBar_green_ofi"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar_red_ofi" />
+
+    <SeekBar
+        android:id="@+id/seekBar_red_ofi"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_iluminacion_gaming_ofi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

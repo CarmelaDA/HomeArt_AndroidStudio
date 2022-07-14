@@ -56,7 +56,7 @@ class ExteriorFragment : Fragment() {
         this.bindingManagement()
         // ACTUALIZAR DATA
         this.dataExt = dbController.DataDAO().getData()
-        // TODAS LA VARIABLES DE EXTERIOR
+        // TODAS LAS VARIABLES DE EXTERIOR
         binding.switchToldoTendederoExt.isChecked = this.dataExt.tTendedero == 1
         binding.switchIluminacionTendederoExt.isChecked = this.dataExt.luzTendedero == 1
         binding.switchIluminacionPorcheExt.isChecked = this.dataExt.luzPorche == 1
@@ -172,7 +172,7 @@ class ExteriorFragment : Fragment() {
     fun generateDataStringAndSend(zona: Char, data: DataEntity) {
         var vExt: MutableList<String> = mutableListOf()
 
-        // Todos los datos de Iluminación en el orden deseado
+        // Todos los datos de Exterior en el orden deseado
         vExt.add(data.tTendedero.toString())
         vExt.add(data.luzTendedero.toString())
         vExt.add(data.luzPorche.toString())

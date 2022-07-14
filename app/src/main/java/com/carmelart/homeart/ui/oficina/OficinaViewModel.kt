@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class OficinaViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is oficina Fragment"
+        value = "ILUMINACIÓN"
     }
     val text: LiveData<String> = _text
 }

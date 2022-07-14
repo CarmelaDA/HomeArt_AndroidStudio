@@ -140,7 +140,7 @@ class SeguridadFragment : Fragment() {
     fun generateDataStringAndSend(data: DataEntity) {
         var vSeg: MutableList<String> = mutableListOf()
 
-        // Todos los datos de Iluminación en el orden deseado
+        // Todos los datos de Seguridad en el orden deseado
         vSeg.add(data.segInt.toString())
         vSeg.add(data.segExt.toString())
 

@@ -56,7 +56,7 @@ class HuertoFragment : Fragment() {
         this.bindingManagement()
         // ACTUALIZAR DATA
         this.dataHuerto = dbController.DataDAO().getData()
-        // TODAS LA VARIABLES DE SEGURIDAD
+        // TODAS LA VARIABLES DE HUERTO
         binding.switchRiegoHuertoHuerto.isChecked = this.dataHuerto.rHuerto == 1
 
         // MODO MANUAL/AUTOMÁTICO
@@ -131,7 +131,7 @@ class HuertoFragment : Fragment() {
     private fun generateDataStringAndSend(data: DataEntity) {
         var vHuerto: MutableList<String> = mutableListOf()
 
-        // Todos los datos de Tiempo en el orden deseado
+        // Todos los datos de Huerto en el orden deseado
         vHuerto.add(data.rHuerto.toString())
 
         sendDataToServer("h;$vHuerto;$token\n") // h[..., ..., ...] + token

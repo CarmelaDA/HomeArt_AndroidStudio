@@ -13,15 +13,22 @@
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_puertas.xml" value="0.16" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_riego.xml" value="0.16" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/drawable/toggle_riego_bg.xml" value="0.16" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/app_bar_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_ajustes.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_bano.xml" value="0.31567028985507245" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_cocina.xml" value="0.33" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_dormitorio.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_garaje.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_home.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_huerto.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_iluminacion.xml" value="0.33" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_oficina.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_salon.xml" value="0.33" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_seguridad.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_tiempo.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/fragment_ventanas.xml" value="0.33" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/layout/nav_header_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/Mario/Documents/github/HomeArt_AndroidStudio/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
         <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2703125" />
         <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/_CARMELA_/UPM/TFG/HomeArt/HomeArt/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2703125" />

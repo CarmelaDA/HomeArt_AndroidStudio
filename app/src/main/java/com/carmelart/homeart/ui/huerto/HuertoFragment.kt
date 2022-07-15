@@ -61,8 +61,23 @@ class HuertoFragment : Fragment() {
 
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModoHuerto.setOnCheckedChangeListener { _, isChecked ->
+
+            if (binding.switchModoHuerto.isChecked == true){
+                Toast.makeText(
+                    getActivity(), "Consulte la configuración del huerto para una mejor experiencia.",
+                    Toast.LENGTH_LONG
+                ).show()
+                Toast.makeText(
+                    getActivity(), "Humedad deseada:\n 30% - 50%",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            else{
+
+            }
+
             // Bloqueo de Switches
-            binding.switchRiegoHuertoHuerto.isEnabled = !isChecked
+            //binding.switchRiegoHuertoHuerto.isEnabled = !isChecked
         }
         return root
     }

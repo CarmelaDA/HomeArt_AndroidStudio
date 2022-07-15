@@ -65,11 +65,25 @@ class TiempoFragment : Fragment() {
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModo.setOnCheckedChangeListener { _, isChecked ->
 
+            if (binding.switchModo.isChecked == true){
+                Toast.makeText(
+                    getActivity(), "Automatización única del ventilador del salón y la calefacción central.",
+                    Toast.LENGTH_LONG
+                ).show()
+                Toast.makeText(
+                    getActivity(), "Consulte la configuración del termostato para una mejor experiencia.",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            else{
+
+            }
+
             // Bloqueo de Switches
-            binding.switchVentiladorSalon.isEnabled = !isChecked
-            binding.switchVentiladorDormitorio.isEnabled = !isChecked
-            binding.switchVentiladorOficina.isEnabled = !isChecked
-            binding.switchCalefaccion.isEnabled = !isChecked
+            //binding.switchVentiladorSalon.isEnabled = !isChecked
+            //binding.switchVentiladorDormitorio.isEnabled = !isChecked
+            //binding.switchVentiladorOficina.isEnabled = !isChecked
+            //binding.switchCalefaccion.isEnabled = !isChecked
         }
 
         return root

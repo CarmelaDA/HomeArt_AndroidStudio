@@ -62,6 +62,25 @@ class SeguridadFragment : Fragment() {
         // TODAS LA VARIABLES DE SEGURIDAD
         binding.switchSeguridadInt.isChecked = this.dataSeg.segInt == 1
         binding.switchSeguridadExt.isChecked = this.dataSeg.segExt == 1
+
+        // MODO MANUAL/AUTOMÁTICO
+        binding.switchModoSeguridad.setOnCheckedChangeListener { _, isChecked ->
+
+            if (binding.switchModoSeguridad.isChecked == true){
+                Toast.makeText(
+                    getActivity(), "Horario alarma:\n 22:00h - 7:00h",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+            else{
+
+            }
+
+            // Bloqueo de Switches
+            //binding.switchSeguridadInt.isEnabled = !isChecked
+            //binding.switchSeguridadExt.isEnabled = !isChecked
+        }
+
         return root
     }
 

@@ -1,19 +1,17 @@
-package com.carmelart.homeart.ui.ajustes
+package com.carmelart.homeart.ui.configuracion
 
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SeekBar
-import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
-import com.carmelart.homeart.databinding.FragmentAjustesBinding
+import com.carmelart.homeart.databinding.FragmentConfiguracionBinding
 import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.dbController
 
@@ -22,11 +20,11 @@ import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
 
-class AjustesFragment : Fragment() {
+class ConfiguracionFragment : Fragment() {
 
-    private lateinit var ajustesViewModel: AjustesViewModel
+    private lateinit var ajustesViewModel: ConfiguracionViewModel
     private lateinit var dataAjustes: DataEntity
-    private var _binding: FragmentAjustesBinding? = null
+    private var _binding: FragmentConfiguracionBinding? = null
     private val binding get() = _binding!!
     private val timeout = 1000
     private val token = "fe5g8e2a5f4e85d2e85a7c5"
@@ -43,16 +41,16 @@ class AjustesFragment : Fragment() {
             ViewModelProvider(
                 this,
                 ViewModelProvider.NewInstanceFactory()
-            ).get(AjustesViewModel::class.java)
+            ).get(ConfiguracionViewModel::class.java)
 
-        _binding = FragmentAjustesBinding.inflate(inflater, container, false)
+        _binding = FragmentConfiguracionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         // TEXTOS
-        val textView: TextView = binding.textAjustes
-        ajustesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        //val textView: TextView = binding.textConfiguracion
+        //ajustesViewModel.text.observe(viewLifecycleOwner, Observer {
+        //    textView.text = it
+        //})
         // SWITCHES
         this.bindingManagement()
         // ACTUALIZAR DATA
@@ -88,19 +86,19 @@ class AjustesFragment : Fragment() {
             dataOutputStream.close() // Cierra el final del flujo de salida cuando se termina
 
             println("Cerrando socket")
-            val activity: AjustesFragment = this
+            val activity: ConfiguracionFragment = this
             socket.close()
 
         } catch (e: SocketException) {
             e.printStackTrace()
-            val activity: AjustesFragment = this
+            val activity: ConfiguracionFragment = this
             Toast.makeText(
                 getActivity(), "Conexión Wi-Fi fallida",
                 Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
             e.printStackTrace()
-            val activity: AjustesFragment = this
+            val activity: ConfiguracionFragment = this
             Toast.makeText(
                 getActivity(), "Servidor caído",
                 Toast.LENGTH_SHORT

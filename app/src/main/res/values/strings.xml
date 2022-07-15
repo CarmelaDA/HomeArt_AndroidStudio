@@ -82,5 +82,6 @@
     <string name="television">TELEVISIÓN</string>
     <string name="entretenimiento">ENTRETENIMIENTO</string>
     <string name="item">Item</string>
+    <string name="configuracion">CONFIGURACIÓN</string>
 
 </resources>

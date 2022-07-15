@@ -12,8 +12,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import android.view.MenuItem
-import android.view.View
-import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.databinding.ActivityMainBinding
@@ -94,15 +92,19 @@ class MainActivity : AppCompatActivity() {
         }
     }*/
 
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.ajustes -> true
+            R.id.butt_configuracion -> {
+                val navController = findNavController(R.id.nav_host_fragment_content_main)
+                navController.navigate(R.id.nav_configuracion)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
-    }*/
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)

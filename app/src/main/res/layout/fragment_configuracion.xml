@@ -27,7 +27,7 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="40dp"
         android:fontFamily="sans-serif-medium"
-        android:text="PERMITIR NOTIFICACIONES"
+        android:text="@string/permitir_notificaciones"
         android:textAllCaps="true"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,5 +56,41 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_dialog_info"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/butt_encendido_alarma"
+        android:layout_width="105dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="25dp"
+        android:onClick="selectHoraEncendido"
+        android:text="@string/encendido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion" />
+
+    <Button
+        android:id="@+id/butt_apagado_alarma"
+        android:layout_width="105dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="80dp"
+        android:clickable="true"
+        android:text="@string/apagado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion" />
+
+    <EditText
+        android:id="@+id/text_encendido_alarma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="22dp"
+        android:autofillHints="start"
+        android:clickable="false"
+        android:ems="5"
+        android:focusable="false"
+        android:hint="@string/alarma"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/butt_encendido_alarma" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

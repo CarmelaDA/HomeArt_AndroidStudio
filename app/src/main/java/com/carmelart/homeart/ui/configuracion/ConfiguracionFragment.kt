@@ -1,15 +1,19 @@
 package com.carmelart.homeart.ui.configuracion
 
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+//import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.carmelart.homeart.TimePicker
 
 import com.carmelart.homeart.databinding.FragmentConfiguracionBinding
 import com.carmelart.homeart.database.DataEntity
@@ -143,4 +147,5 @@ class ConfiguracionFragment : Fragment() {
 
         sendDataToServer("a;$vAjustes;$token\n") // a[..., ..., ...] + token
     }
+
 }

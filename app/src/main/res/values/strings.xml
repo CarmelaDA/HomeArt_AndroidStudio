@@ -83,5 +83,8 @@
     <string name="entretenimiento">ENTRETENIMIENTO</string>
     <string name="item">Item</string>
     <string name="configuracion">CONFIGURACIÓN</string>
+    <string name="permitir_notificaciones">Permitir notificaciones</string>
+    <string name="encendido">ENCENDIDO</string>
+    <string name="apagado">APAGADO</string>
 
 </resources>

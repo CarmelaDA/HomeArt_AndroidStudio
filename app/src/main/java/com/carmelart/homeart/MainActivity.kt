@@ -1,25 +1,25 @@
 package com.carmelart.homeart
 
-import android.annotation.SuppressLint
-import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.navigation.NavigationView
+import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import android.view.MenuItem
-import android.view.View
-import android.widget.EditText
 import androidx.room.Room
-
+import com.carmelart.homeart.database.DataDb
 import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.databinding.ActivityMainBinding
-import com.carmelart.homeart.database.DataDb
+import com.carmelart.homeart.ui.configuracion.ConfiguracionFragment
+import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var dbController: DataDb
 
-    var tEncendido:EditText? = null
+    //private var tEncendido: EditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,11 +81,31 @@ class MainActivity : AppCompatActivity() {
             // Huerto
             0,
 
+            // Horarios
+            "--:--", "--:--",
+
         )) // Inicializar todas las variables a 0
 
         // TEXTOS HORARIOS
-        tEncendido = findViewById(R.id.text_encendido_alarma)
+        //tEncendido?.setOnClickListener{selectHoraEncendido()}
+        //tEncendido = findViewById(R.id.editText_encendido_alarma)
+        //tEncendido?.setOnClickListener{selectHoraEncendido()}
     }
+
+    /*fun selectHoraEncendido(view: View){
+        val hora = TimePicker{mostrarResultado(it)}
+        hora.show(supportFragmentManager, "TimePicker")
+    }
+
+    private fun mostrarResultado(time: String){
+
+
+        /*Toast.makeText(
+            this, "$time h",
+            Toast.LENGTH_SHORT
+        ).show()
+        tEncendido?.setText(time)*/
+    }*/
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -118,15 +138,6 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
-    fun selectHoraEncendido(view: View){
-        val hora = TimePicker{hora, minuto -> mostrarResultado(hora, minuto)}
-        hora.show(supportFragmentManager, "TimePicker")
-    }
-
-    private fun mostrarResultado(hora: Int, minuto: Int){
-        tEncendido?.setText("$hora:$minuto")
     }
 }
 

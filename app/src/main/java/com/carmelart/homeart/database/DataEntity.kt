@@ -64,5 +64,9 @@ data class DataEntity(
     // HUERTO
     @ColumnInfo(name = "rHuerto") var rHuerto: Int,
 
+    // HORARIOS
+    @ColumnInfo(name = "tEncendidoAlarma") var tEncendidoAlarma: String,
+    @ColumnInfo(name = "tApagadoAlarma") var tApagadoAlarma: String,
+
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // First Column
 )

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 //import android.widget.TimePicker
 import android.widget.Toast
@@ -23,8 +24,9 @@ import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
+import javax.net.ssl.ManagerFactoryParameters
 
-class ConfiguracionFragment : Fragment() {
+class ConfiguracionFragment() : Fragment() {
 
     private lateinit var ajustesViewModel: ConfiguracionViewModel
     private lateinit var dataAjustes: DataEntity
@@ -55,6 +57,7 @@ class ConfiguracionFragment : Fragment() {
         //ajustesViewModel.text.observe(viewLifecycleOwner, Observer {
         //    textView.text = it
         //})
+
         // SWITCHES
         this.bindingManagement()
         // ACTUALIZAR DATA
@@ -63,6 +66,7 @@ class ConfiguracionFragment : Fragment() {
         //binding.switchIluminacionGeneralBano.isChecked = this.dataBano.luzBano == 1
         //binding.switchIluminacionEspejoBano.isChecked = this.dataBano.luzEspejo == 1
 
+        binding.editTextEncendidoAlarma.setOnClickListener{selectHoraEncendido()}
         return root
     }
 
@@ -148,4 +152,16 @@ class ConfiguracionFragment : Fragment() {
         sendDataToServer("a;$vAjustes;$token\n") // a[..., ..., ...] + token
     }
 
+    private fun selectHoraEncendido(){
+        val hora = TimePicker{mostrarResultado(it)}
+        hora.show(parentFragmentManager, "TimePicker")
+    }
+
+    private fun mostrarResultado(time: String){
+        Toast.makeText(
+            activity, "$time h",
+            Toast.LENGTH_SHORT
+        ).show()
+        binding.editTextEncendidoAlarma.setText(time)
+    }
 }

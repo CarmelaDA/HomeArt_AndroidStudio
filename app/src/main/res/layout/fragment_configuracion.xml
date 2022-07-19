@@ -7,7 +7,68 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/text_configuracion"
+        android:id="@+id/text_configuracion_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="142dp"
+        android:fontFamily="sans-serif-black"
+        android:linksClickable="false"
+        android:text="HUERTO"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_apagado_alarma" />
+
+    <TextView
+        android:id="@+id/text_maximo_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="20dp"
+        android:text="RH MÁXIMO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_minimo_huerto" />
+
+    <EditText
+        android:id="@+id/editText_minimo_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="90dp"
+        android:textSize="15sp"
+        android:ems="3"
+        android:hint=" RH % "
+        android:inputType="numberSigned"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_huerto" />
+
+    <EditText
+        android:id="@+id/editText_maximo_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="92dp"
+        android:ems="3"
+        android:hint=" RH % "
+        android:inputType="numberSigned"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_minimo_huerto" />
+
+    <TextView
+        android:id="@+id/text_minimo_huerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="25dp"
+        android:text="RH MÍNIMO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_huerto" />
+
+    <TextView
+        android:id="@+id/text_configuracion_alarma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="142dp"
@@ -62,17 +123,17 @@
         android:id="@+id/text_encendido_alarma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="25dp"
         android:text="@string/encendido"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_configuracion" />
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_alarma" />
 
     <TextView
         android:id="@+id/text_apagado_alarma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="90dp"
         android:layout_marginTop="20dp"
         android:text="@string/apagado"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,29 +143,45 @@
         android:id="@+id/editText_encendido_alarma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="90dp"
-        android:ems="5"
         android:clickable="false"
+        android:ems="4"
         android:focusable="false"
-        android:hint="hh:mm"
+        android:hint="  hh:mm "
         android:inputType="time"
-        android:textSize="14sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_configuracion" />
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_alarma"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/editText_apagado_alarma"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-3dp"
         android:layout_marginEnd="90dp"
-        android:ems="5"
-        android:hint="hh:mm"
         android:clickable="false"
+        android:ems="4"
         android:focusable="false"
-        android:textSize="14sp"
+        android:hint="  hh:mm"
         android:inputType="time"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_encendido_alarma" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_encendido_alarma"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/butt_guardar_configuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="226dp"
+        android:text="GUARDAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

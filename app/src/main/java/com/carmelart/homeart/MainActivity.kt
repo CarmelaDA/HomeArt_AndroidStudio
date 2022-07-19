@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var dbController: DataDb
 
-    //private var tEncendido: EditText? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -82,30 +80,13 @@ class MainActivity : AppCompatActivity() {
             0,
 
             // Horarios
-            "--:--", "--:--",
+            " ", " ",
+
+            // Huerto
+            0, 0,
 
         )) // Inicializar todas las variables a 0
-
-        // TEXTOS HORARIOS
-        //tEncendido?.setOnClickListener{selectHoraEncendido()}
-        //tEncendido = findViewById(R.id.editText_encendido_alarma)
-        //tEncendido?.setOnClickListener{selectHoraEncendido()}
     }
-
-    /*fun selectHoraEncendido(view: View){
-        val hora = TimePicker{mostrarResultado(it)}
-        hora.show(supportFragmentManager, "TimePicker")
-    }
-
-    private fun mostrarResultado(time: String){
-
-
-        /*Toast.makeText(
-            this, "$time h",
-            Toast.LENGTH_SHORT
-        ).show()
-        tEncendido?.setText(time)*/
-    }*/
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -122,9 +103,6 @@ class MainActivity : AppCompatActivity() {
     }*/
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.butt_configuracion -> {
                 val navController = findNavController(R.id.nav_host_fragment_content_main)

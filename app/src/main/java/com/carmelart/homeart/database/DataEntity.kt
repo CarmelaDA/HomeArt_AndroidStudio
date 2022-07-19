@@ -3,7 +3,6 @@ package com.carmelart.homeart.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.carmelart.homeart.databinding.FragmentOficinaBinding
 
 @Entity
 data class DataEntity(
@@ -67,6 +66,10 @@ data class DataEntity(
     // HORARIOS
     @ColumnInfo(name = "tEncendidoAlarma") var tEncendidoAlarma: String,
     @ColumnInfo(name = "tApagadoAlarma") var tApagadoAlarma: String,
+
+    // HUMEDAD
+    @ColumnInfo(name = "hMinHuerto") var hMinHuerto: Int,
+    @ColumnInfo(name = "hMaxHuerto") var hMaxHuerto: Int,
 
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // First Column
 )

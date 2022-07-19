@@ -4,12 +4,14 @@ import android.app.Dialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.NumberPicker
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
 
 import java.util.*
 
 class TimePicker(val listener: (String) -> Unit) : DialogFragment(), TimePickerDialog.OnTimeSetListener{
+
 
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -21,8 +23,10 @@ class TimePicker(val listener: (String) -> Unit) : DialogFragment(), TimePickerD
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        if(minute<10) listener("$hourOfDay:0$minute h")
-        else listener("$hourOfDay:$minute h")
+        if(hourOfDay<10) listener("  0$hourOfDay:$minute h")
+        else if(minute<10) listener("  $hourOfDay:0$minute h")
+        else if((hourOfDay<10)&&(minute<10)) listener("  0$hourOfDay:0$minute h")
+        else listener(" $hourOfDay:$minute h")
     }
 
 }

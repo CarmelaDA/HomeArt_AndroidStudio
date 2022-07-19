@@ -1,15 +1,13 @@
 package com.carmelart.homeart.ui.configuracion
 
+import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-//import android.widget.TimePicker
+
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -24,7 +22,7 @@ import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
-import javax.net.ssl.ManagerFactoryParameters
+
 
 class ConfiguracionFragment() : Fragment() {
 
@@ -35,6 +33,7 @@ class ConfiguracionFragment() : Fragment() {
     private val timeout = 1000
     private val token = "fe5g8e2a5f4e85d2e85a7c5"
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -63,10 +62,19 @@ class ConfiguracionFragment() : Fragment() {
         // ACTUALIZAR DATA
         this.dataAjustes = dbController.DataDAO().getData()
         // TODAS LAS VARIABLES DE BAÑO
-        //binding.switchIluminacionGeneralBano.isChecked = this.dataBano.luzBano == 1
-        //binding.switchIluminacionEspejoBano.isChecked = this.dataBano.luzEspejo == 1
-
+        //binding.editTextMinimoHuerto.getText() = this.dataAjustes.hMinHuerto == 1
+        binding.editTextMinimoHuerto.setText(" " + this.dataAjustes.hMinHuerto.toString() + " %")
+        binding.editTextMaximoHuerto.setText(" " + this.dataAjustes.hMaxHuerto.toString() + " %")
+        //binding.editTextMaximoHuerto.isEnabled = this.dataAjustes.hMaxHuerto == 1
+        //binding.editTextApagadoAlarma.text = this.dataAjustes.tApagadoAlarma == "1"
+        //binding.editTextMinimoHuerto.text = this.dataAjustes.hMinHuerto == 1
+        //binding.editTextMaximoHuerto.text = this.dataAjustes.hMaxHuerto == 1
+        // HORARIOS
         binding.editTextEncendidoAlarma.setOnClickListener{selectHoraEncendido()}
+        binding.editTextApagadoAlarma.setOnClickListener{selectHoraApagado()}
+        // HUMEDAD
+        //binding.editTextMinimoHuerto.setOnClickListener{selectMinHuerto()}
+        //binding.editTextMaximoHuerto.setOnClickListener{selectMaxHuerto()}
         return root
     }
 
@@ -121,6 +129,22 @@ class ConfiguracionFragment() : Fragment() {
 
     private fun bindingManagement() {
 
+        /*binding.editTextMinimoHuerto.setOnClickListener{
+            /*val min = binding.editTextMinimoHuerto.text.toString().toInt()
+            //binding.editTextMinimoHuerto.setText(" $min %")
+            this.dataAjustes.hMinHuerto = min
+            dbController.DataDAO().updateData(this.dataAjustes)*/
+        }
+
+
+        binding.editTextMaximoHuerto.setOnClickListener{
+            /*val max = binding.editTextMaximoHuerto.text.toString().toInt()
+            this.dataAjustes.hMaxHuerto = max
+            dbController.DataDAO().updateData(this.dataAjustes)*/
+        }*/
+
+
+
         /*binding.switchIluminacionGeneralBano.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionGeneralBano.isChecked = isChecked
             var ledValue = 0
@@ -152,16 +176,31 @@ class ConfiguracionFragment() : Fragment() {
         sendDataToServer("a;$vAjustes;$token\n") // a[..., ..., ...] + token
     }
 
+    // HORARIOS
     private fun selectHoraEncendido(){
-        val hora = TimePicker{mostrarResultado(it)}
+        val hora = TimePicker{mostrarHoraEncendido(it)}
         hora.show(parentFragmentManager, "TimePicker")
     }
-
-    private fun mostrarResultado(time: String){
-        Toast.makeText(
-            activity, "$time h",
-            Toast.LENGTH_SHORT
-        ).show()
+    private fun mostrarHoraEncendido(time: String){
         binding.editTextEncendidoAlarma.setText(time)
+        this.dataAjustes.tEncendidoAlarma = time
     }
+    private fun selectHoraApagado(){
+        val hora = TimePicker{mostrarHoraApagado(it)}
+        hora.show(parentFragmentManager, "TimePicker")
+    }
+    private fun mostrarHoraApagado(time: String){
+        binding.editTextApagadoAlarma.setText(time)
+        this.dataAjustes.tApagadoAlarma = time
+    }
+
+    // HUERTO
+    /*private fun selectMinHuerto(){
+        val min = binding.editTextMinimoHuerto.text.toString()//.toInt()
+        //this.dataAjustes.hMinHuerto = min
+    }
+    private fun selectMaxHuerto(){
+        val max = binding.editTextMaximoHuerto.text.toString()//.toInt()
+        //this.dataAjustes.hMaxHuerto = max
+    }*/
 }

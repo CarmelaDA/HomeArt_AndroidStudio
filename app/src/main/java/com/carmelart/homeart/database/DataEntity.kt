@@ -68,8 +68,8 @@ data class DataEntity(
     @ColumnInfo(name = "tApagadoAlarma") var tApagadoAlarma: String,
 
     // HUMEDAD
-    @ColumnInfo(name = "hMinHuerto") var hMinHuerto: Int,
-    @ColumnInfo(name = "hMaxHuerto") var hMaxHuerto: Int,
+    @ColumnInfo(name = "rhMinHuerto") var rhMinHuerto: Int,
+    @ColumnInfo(name = "rhMaxHuerto") var rhMaxHuerto: Int,
 
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // First Column
 )

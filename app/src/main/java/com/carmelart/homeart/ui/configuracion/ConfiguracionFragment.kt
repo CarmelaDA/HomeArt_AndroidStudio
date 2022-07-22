@@ -7,8 +7,10 @@ import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.NumberPicker
 
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -33,7 +35,6 @@ class ConfiguracionFragment() : Fragment() {
     private val timeout = 1000
     private val token = "fe5g8e2a5f4e85d2e85a7c5"
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -62,19 +63,25 @@ class ConfiguracionFragment() : Fragment() {
         // ACTUALIZAR DATA
         this.dataAjustes = dbController.DataDAO().getData()
         // TODAS LAS VARIABLES DE BAÑO
-        //binding.editTextMinimoHuerto.getText() = this.dataAjustes.hMinHuerto == 1
-        binding.editTextMinimoHuerto.setText(" " + this.dataAjustes.hMinHuerto.toString() + " %")
-        binding.editTextMaximoHuerto.setText(" " + this.dataAjustes.hMaxHuerto.toString() + " %")
-        //binding.editTextMaximoHuerto.isEnabled = this.dataAjustes.hMaxHuerto == 1
-        //binding.editTextApagadoAlarma.text = this.dataAjustes.tApagadoAlarma == "1"
-        //binding.editTextMinimoHuerto.text = this.dataAjustes.hMinHuerto == 1
-        //binding.editTextMaximoHuerto.text = this.dataAjustes.hMaxHuerto == 1
+
+
         // HORARIOS
         binding.editTextEncendidoAlarma.setOnClickListener{selectHoraEncendido()}
         binding.editTextApagadoAlarma.setOnClickListener{selectHoraApagado()}
         // HUMEDAD
-        //binding.editTextMinimoHuerto.setOnClickListener{selectMinHuerto()}
-        //binding.editTextMaximoHuerto.setOnClickListener{selectMaxHuerto()}
+        binding.pickerRhMinimo.minValue = 0
+        binding.pickerRhMinimo.maxValue = 100
+        binding.pickerRhMaximo.minValue = 0
+        binding.pickerRhMaximo.maxValue = 100
+        binding.pickerRhMinimo.value = 0
+        binding.pickerRhMaximo.value = 100
+        binding.pickerRhMinimo.setOnValueChangedListener { _, _, newVal ->
+            selectMinHuerto(newVal)
+        }
+        binding.pickerRhMaximo.setOnValueChangedListener { _, _, newVal ->
+            selectMaxHuerto(newVal)
+        }
+
         return root
     }
 
@@ -195,12 +202,31 @@ class ConfiguracionFragment() : Fragment() {
     }
 
     // HUERTO
-    /*private fun selectMinHuerto(){
-        val min = binding.editTextMinimoHuerto.text.toString()//.toInt()
-        //this.dataAjustes.hMinHuerto = min
+    private fun selectMinHuerto(nVal: Int){
+        val min = binding.pickerRhMinimo.value
+        val max = binding.pickerRhMaximo.value
+        if(min>=max){
+            Toast.makeText(
+                activity, "%RH MÍNIMO debe ser MENOR que %RH MÁXIMO",
+                Toast.LENGTH_SHORT
+            ).show()
+            binding.pickerRhMinimo.value = 0
+            binding.pickerRhMaximo.value = 100
+        }
+        this.dataAjustes.rhMinHuerto = nVal
     }
-    private fun selectMaxHuerto(){
-        val max = binding.editTextMaximoHuerto.text.toString()//.toInt()
-        //this.dataAjustes.hMaxHuerto = max
-    }*/
+    private fun selectMaxHuerto(nVal: Int){
+        val min = binding.pickerRhMinimo.value
+        val max = binding.pickerRhMaximo.value
+        if(min>=max){
+            Toast.makeText(
+                activity, "%RH MÍNIMO debe ser MENOR que %RH MÁXIMO",
+                Toast.LENGTH_SHORT
+            ).show()
+            binding.pickerRhMinimo.value = 0
+            binding.pickerRhMaximo.value = 100
+        }
+        this.dataAjustes.rhMinHuerto = nVal
+    }
+
 }

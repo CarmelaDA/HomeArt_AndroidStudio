@@ -62,13 +62,15 @@ class HuertoFragment : Fragment() {
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModoHuerto.setOnCheckedChangeListener { _, isChecked ->
 
-            if (binding.switchModoHuerto.isChecked == true){
+            if (binding.switchModoHuerto.isChecked){
                 Toast.makeText(
-                    getActivity(), "Consulte la configuración del huerto para una mejor experiencia.",
+                    activity, "Consulte la configuración del huerto para una mejor experiencia.",
                     Toast.LENGTH_LONG
                 ).show()
+                val min = this.dataHuerto.rhMinHuerto
+                val max = this.dataHuerto.rhMaxHuerto
                 Toast.makeText(
-                    getActivity(), "Humedad deseada:\n 30% - 50%",
+                    activity, "Humedad deseada:\n $min% - $max%",
                     Toast.LENGTH_LONG
                 ).show()
             }
@@ -106,21 +108,18 @@ class HuertoFragment : Fragment() {
             dataOutputStream.close() // Cierra el final del flujo de salida cuando se termina
 
             println("Cerrando socket")
-            val activity: HuertoFragment = this
             socket.close()
 
         } catch (e: SocketException) {
             e.printStackTrace()
-            val activity: HuertoFragment = this
             Toast.makeText(
-                getActivity(), "Conexión Wi-Fi fallida",
+                activity, "Conexión Wi-Fi fallida",
                 Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
             e.printStackTrace()
-            val activity: HuertoFragment = this
             Toast.makeText(
-                getActivity(), "Servidor caído",
+                activity, "Servidor caído",
                 Toast.LENGTH_SHORT
             ).show()
         }

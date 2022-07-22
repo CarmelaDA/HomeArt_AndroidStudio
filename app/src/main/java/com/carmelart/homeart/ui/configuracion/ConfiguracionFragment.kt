@@ -1,7 +1,11 @@
 package com.carmelart.homeart.ui.configuracion
 
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.app.TimePickerDialog
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
@@ -10,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.NumberPicker
 
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -24,6 +29,7 @@ import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
+import kotlin.math.log
 
 
 class ConfiguracionFragment() : Fragment() {
@@ -62,25 +68,40 @@ class ConfiguracionFragment() : Fragment() {
         this.bindingManagement()
         // ACTUALIZAR DATA
         this.dataAjustes = dbController.DataDAO().getData()
-        // TODAS LAS VARIABLES DE BAÑO
-
+        // TODAS LAS VARIABLES DE CONFIGURACIÓN
 
         // HORARIOS
-        binding.editTextEncendidoAlarma.setOnClickListener{selectHoraEncendido()}
-        binding.editTextApagadoAlarma.setOnClickListener{selectHoraApagado()}
+        binding.editTextEncendidoAlarma.setOnClickListener { selectHoraEncendido() }
+        binding.editTextApagadoAlarma.setOnClickListener { selectHoraApagado() }
+        binding.editTextApagadoAlarma.setText(this.dataAjustes.tEncendidoAlarma)
+        binding.editTextEncendidoAlarma.setText(this.dataAjustes.tApagadoAlarma)
         // HUMEDAD
         binding.pickerRhMinimo.minValue = 0
         binding.pickerRhMinimo.maxValue = 100
         binding.pickerRhMaximo.minValue = 0
         binding.pickerRhMaximo.maxValue = 100
-        binding.pickerRhMinimo.value = 0
-        binding.pickerRhMaximo.value = 100
+
+        if (this.dataAjustes.rhMinHuerto == 0) {
+            binding.pickerRhMinimo.value = 30
+        } else {
+            binding.pickerRhMinimo.value = this.dataAjustes.rhMinHuerto
+        }
+
+        if (this.dataAjustes.rhMaxHuerto == 0) {
+            binding.pickerRhMaximo.value = 50
+        } else {
+            binding.pickerRhMaximo.value = this.dataAjustes.rhMaxHuerto
+        }
+
         binding.pickerRhMinimo.setOnValueChangedListener { _, _, newVal ->
             selectMinHuerto(newVal)
         }
         binding.pickerRhMaximo.setOnValueChangedListener { _, _, newVal ->
             selectMaxHuerto(newVal)
         }
+
+        // Notificaciones
+        //binding.button.setOnClickListener()
 
         return root
     }
@@ -109,21 +130,18 @@ class ConfiguracionFragment() : Fragment() {
             dataOutputStream.close() // Cierra el final del flujo de salida cuando se termina
 
             println("Cerrando socket")
-            val activity: ConfiguracionFragment = this
             socket.close()
 
         } catch (e: SocketException) {
             e.printStackTrace()
-            val activity: ConfiguracionFragment = this
             Toast.makeText(
-                getActivity(), "Conexión Wi-Fi fallida",
+                activity, "Conexión Wi-Fi fallida",
                 Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
             e.printStackTrace()
-            val activity: ConfiguracionFragment = this
             Toast.makeText(
-                getActivity(), "Servidor caído",
+                activity, "Servidor caído",
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -151,7 +169,6 @@ class ConfiguracionFragment() : Fragment() {
         }*/
 
 
-
         /*binding.switchIluminacionGeneralBano.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionGeneralBano.isChecked = isChecked
             var ledValue = 0
@@ -171,6 +188,11 @@ class ConfiguracionFragment() : Fragment() {
             dbController.DataDAO().updateData(this.dataBano)
             this.generateDataStringAndSend(this.dataBano)
         }*/
+
+        /*Toast.makeText(
+            activity, this.dataAjustes.rhMinHuerto,
+            Toast.LENGTH_SHORT
+        ).show()*/
     }
 
     private fun generateDataStringAndSend(data: DataEntity) {
@@ -184,49 +206,55 @@ class ConfiguracionFragment() : Fragment() {
     }
 
     // HORARIOS
-    private fun selectHoraEncendido(){
-        val hora = TimePicker{mostrarHoraEncendido(it)}
+    private fun selectHoraEncendido() {
+        val hora = TimePicker { mostrarHoraEncendido(it) }
         hora.show(parentFragmentManager, "TimePicker")
     }
-    private fun mostrarHoraEncendido(time: String){
+
+    private fun mostrarHoraEncendido(time: String) {
         binding.editTextEncendidoAlarma.setText(time)
         this.dataAjustes.tEncendidoAlarma = time
     }
-    private fun selectHoraApagado(){
-        val hora = TimePicker{mostrarHoraApagado(it)}
+
+    private fun selectHoraApagado() {
+        val hora = TimePicker { mostrarHoraApagado(it) }
         hora.show(parentFragmentManager, "TimePicker")
     }
-    private fun mostrarHoraApagado(time: String){
+
+    private fun mostrarHoraApagado(time: String) {
         binding.editTextApagadoAlarma.setText(time)
         this.dataAjustes.tApagadoAlarma = time
     }
 
     // HUERTO
-    private fun selectMinHuerto(nVal: Int){
+    private fun selectMinHuerto(nVal: Int) {
         val min = binding.pickerRhMinimo.value
         val max = binding.pickerRhMaximo.value
-        if(min>=max){
+        if (min >= max) {
             Toast.makeText(
                 activity, "%RH MÍNIMO debe ser MENOR que %RH MÁXIMO",
                 Toast.LENGTH_SHORT
             ).show()
-            binding.pickerRhMinimo.value = 0
-            binding.pickerRhMaximo.value = 100
+            binding.pickerRhMinimo.value = 30
         }
         this.dataAjustes.rhMinHuerto = nVal
+        dbController.DataDAO().updateData(this.dataAjustes)
+
     }
-    private fun selectMaxHuerto(nVal: Int){
+
+    private fun selectMaxHuerto(nVal: Int) {
         val min = binding.pickerRhMinimo.value
         val max = binding.pickerRhMaximo.value
-        if(min>=max){
+        if (min >= max) {
             Toast.makeText(
                 activity, "%RH MÍNIMO debe ser MENOR que %RH MÁXIMO",
                 Toast.LENGTH_SHORT
             ).show()
-            binding.pickerRhMinimo.value = 0
-            binding.pickerRhMaximo.value = 100
+            binding.pickerRhMaximo.value = 50
         }
-        this.dataAjustes.rhMinHuerto = nVal
+        this.dataAjustes.rhMaxHuerto = nVal
+        dbController.DataDAO().updateData(this.dataAjustes)
     }
+
 
 }

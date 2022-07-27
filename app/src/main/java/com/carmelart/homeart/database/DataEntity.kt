@@ -66,10 +66,14 @@ data class DataEntity(
     // HORARIOS
     @ColumnInfo(name = "tEncendidoAlarma") var tEncendidoAlarma: String,
     @ColumnInfo(name = "tApagadoAlarma") var tApagadoAlarma: String,
+    @ColumnInfo(name = "bEncendidoAlarma") var bEncendidoAlarma: Boolean,
+    @ColumnInfo(name = "bApagadoAlarma") var bApagadoAlarma: Boolean,
 
     // HUMEDAD
     @ColumnInfo(name = "rhMinHuerto") var rhMinHuerto: Int,
     @ColumnInfo(name = "rhMaxHuerto") var rhMaxHuerto: Int,
+    @ColumnInfo(name = "bMinHuerto") var bMinHuerto: Boolean,
+    @ColumnInfo(name = "bMaxHuerto") var bMaxHuerto: Boolean,
 
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // First Column
 )

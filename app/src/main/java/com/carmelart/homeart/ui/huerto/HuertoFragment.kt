@@ -63,19 +63,26 @@ class HuertoFragment : Fragment() {
         binding.switchModoHuerto.setOnCheckedChangeListener { _, isChecked ->
 
             if (binding.switchModoHuerto.isChecked){
-                Toast.makeText(
-                    activity, "Consulte la configuración del huerto para una mejor experiencia.",
-                    Toast.LENGTH_LONG
-                ).show()
                 val min = this.dataHuerto.rhMinHuerto
                 val max = this.dataHuerto.rhMaxHuerto
-                Toast.makeText(
-                    activity, "Humedad deseada:\n $min% - $max%",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            else{
 
+                if((!this.dataHuerto.bMinHuerto)||(!this.dataHuerto.bMaxHuerto)){
+                    Toast.makeText(
+                        activity, "Se requieren acciones en la configuración.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    binding.switchModoHuerto.isChecked = false
+                }
+                else {
+                    Toast.makeText(
+                        activity, "Humedad deseada:\n $min% - $max%",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    Toast.makeText(
+                        activity, "Consulte la configuración del huerto para una mejor experiencia.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
 
             // Bloqueo de Switches

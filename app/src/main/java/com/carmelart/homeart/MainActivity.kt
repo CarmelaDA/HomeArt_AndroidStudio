@@ -79,10 +79,10 @@ class MainActivity : AppCompatActivity() {
             0,
 
             // Horarios
-            " ", " ",
+            "", "", bEncendidoAlarma = false, bApagadoAlarma = false,
 
             // Huerto
-            0, 0,
+            0, 0, bMinHuerto = false, bMaxHuerto = false,
 
         )) // Inicializar todas las variables a 0
     }

@@ -65,16 +65,18 @@ class ConfiguracionFragment() : Fragment() {
         //})
 
         // SWITCHES
-        this.bindingManagement()
+        //this.bindingManagement()
         // ACTUALIZAR DATA
         this.dataAjustes = dbController.DataDAO().getData()
+
         // TODAS LAS VARIABLES DE CONFIGURACIÓN
 
         // HORARIOS
         binding.editTextEncendidoAlarma.setOnClickListener { selectHoraEncendido() }
         binding.editTextApagadoAlarma.setOnClickListener { selectHoraApagado() }
-        binding.editTextApagadoAlarma.setText(this.dataAjustes.tEncendidoAlarma)
-        binding.editTextEncendidoAlarma.setText(this.dataAjustes.tApagadoAlarma)
+        binding.editTextEncendidoAlarma.setText(this.dataAjustes.tEncendidoAlarma)
+        binding.editTextApagadoAlarma.setText(this.dataAjustes.tApagadoAlarma)
+
         // HUMEDAD
         binding.pickerRhMinimo.minValue = 0
         binding.pickerRhMinimo.maxValue = 100
@@ -100,7 +102,7 @@ class ConfiguracionFragment() : Fragment() {
             selectMaxHuerto(newVal)
         }
 
-        // Notificaciones
+        // NOTIFICACIONES
         //binding.button.setOnClickListener()
 
         return root
@@ -152,58 +154,18 @@ class ConfiguracionFragment() : Fragment() {
         _binding = null
     }
 
-    private fun bindingManagement() {
+    /*private fun bindingManagement() {
 
-        /*binding.editTextMinimoHuerto.setOnClickListener{
-            /*val min = binding.editTextMinimoHuerto.text.toString().toInt()
-            //binding.editTextMinimoHuerto.setText(" $min %")
-            this.dataAjustes.hMinHuerto = min
-            dbController.DataDAO().updateData(this.dataAjustes)*/
-        }
+    }*/
 
-
-        binding.editTextMaximoHuerto.setOnClickListener{
-            /*val max = binding.editTextMaximoHuerto.text.toString().toInt()
-            this.dataAjustes.hMaxHuerto = max
-            dbController.DataDAO().updateData(this.dataAjustes)*/
-        }*/
-
-
-        /*binding.switchIluminacionGeneralBano.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionGeneralBano.isChecked = isChecked
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataBano.luzBano = ledValue
-            dbController.DataDAO().updateData(this.dataBano)
-            this.generateDataStringAndSend(this.dataBano)
-        }
-
-        binding.switchIluminacionEspejoBano.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleIluminacionEspejoBano.isChecked = isChecked
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataBano.luzEspejo = ledValue
-            dbController.DataDAO().updateData(this.dataBano)
-            this.generateDataStringAndSend(this.dataBano)
-        }*/
-
-        /*Toast.makeText(
-            activity, this.dataAjustes.rhMinHuerto,
-            Toast.LENGTH_SHORT
-        ).show()*/
-    }
-
-    private fun generateDataStringAndSend(data: DataEntity) {
+    /*private fun generateDataStringAndSend(data: DataEntity) {
         var vAjustes: MutableList<String> = mutableListOf()
 
         // Todos los datos de Baño en el orden deseado
-        vAjustes.add(data.luzBano.toString())
-        //vBano.add(data.luzEspejo.toString())
+        //vAjustes.add(data.tEncendidoAlarma.toString())
 
         sendDataToServer("a;$vAjustes;$token\n") // a[..., ..., ...] + token
-    }
+    }*/
 
     // HORARIOS
     private fun selectHoraEncendido() {
@@ -212,8 +174,10 @@ class ConfiguracionFragment() : Fragment() {
     }
 
     private fun mostrarHoraEncendido(time: String) {
-        binding.editTextEncendidoAlarma.setText(time)
+        binding.editTextEncendidoAlarma.setText("$time")
         this.dataAjustes.tEncendidoAlarma = time
+        this.dataAjustes.bEncendidoAlarma = true
+        dbController.DataDAO().updateData(this.dataAjustes)
     }
 
     private fun selectHoraApagado() {
@@ -222,8 +186,10 @@ class ConfiguracionFragment() : Fragment() {
     }
 
     private fun mostrarHoraApagado(time: String) {
-        binding.editTextApagadoAlarma.setText(time)
+        binding.editTextApagadoAlarma.setText("$time")
         this.dataAjustes.tApagadoAlarma = time
+        this.dataAjustes.bApagadoAlarma = true
+        dbController.DataDAO().updateData(this.dataAjustes)
     }
 
     // HUERTO
@@ -238,6 +204,7 @@ class ConfiguracionFragment() : Fragment() {
             binding.pickerRhMinimo.value = 30
         }
         this.dataAjustes.rhMinHuerto = nVal
+        this.dataAjustes.bMinHuerto = true
         dbController.DataDAO().updateData(this.dataAjustes)
 
     }
@@ -253,8 +220,7 @@ class ConfiguracionFragment() : Fragment() {
             binding.pickerRhMaximo.value = 50
         }
         this.dataAjustes.rhMaxHuerto = nVal
+        this.dataAjustes.bMaxHuerto = true
         dbController.DataDAO().updateData(this.dataAjustes)
     }
-
-
 }

@@ -12,8 +12,6 @@ import java.util.*
 
 class TimePicker(val listener: (String) -> Unit) : DialogFragment(), TimePickerDialog.OnTimeSetListener{
 
-
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val c = Calendar.getInstance()
         val hora = c.get(Calendar.HOUR_OF_DAY)
@@ -26,7 +24,7 @@ class TimePicker(val listener: (String) -> Unit) : DialogFragment(), TimePickerD
         if(hourOfDay<10) listener("  0$hourOfDay:$minute h")
         else if(minute<10) listener("  $hourOfDay:0$minute h")
         else if((hourOfDay<10)&&(minute<10)) listener("  0$hourOfDay:0$minute h")
-        else listener(" $hourOfDay:$minute h")
+        else listener("  $hourOfDay:$minute h")
     }
 
 }

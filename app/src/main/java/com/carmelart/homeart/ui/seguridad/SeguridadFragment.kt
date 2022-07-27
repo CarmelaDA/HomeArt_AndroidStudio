@@ -64,16 +64,26 @@ class SeguridadFragment : Fragment() {
         binding.switchSeguridadExt.isChecked = this.dataSeg.segExt == 1
 
         // MODO MANUAL/AUTOMÁTICO
-        binding.switchModoSeguridad.setOnCheckedChangeListener { _, isChecked ->
+        binding.switchModoSeguridad.setOnCheckedChangeListener { _, _ ->
 
-            if (binding.switchModoSeguridad.isChecked == true){
-                Toast.makeText(
-                    getActivity(), "Horario alarma:\n 22:00h - 7:00h",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            else{
-
+            if (binding.switchModoSeguridad.isChecked){
+                if((!this.dataSeg.bEncendidoAlarma)||(!this.dataSeg.bApagadoAlarma)){
+                    Toast.makeText(
+                        activity, "Se requieren acciones en la configuración.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    binding.switchModoSeguridad.isChecked = false
+                }
+                else {
+                    Toast.makeText(
+                        activity, "Horario alarma:\n${this.dataSeg.tEncendidoAlarma} - ${this.dataSeg.tApagadoAlarma}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    Toast.makeText(
+                        activity, "Consulte la configuración de las alarmas para una mejor experiencia.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
 
             // Bloqueo de Switches
@@ -118,16 +128,14 @@ class SeguridadFragment : Fragment() {
 
         } catch (e: SocketException) {
             e.printStackTrace()
-            val activity: SeguridadFragment = this
             Toast.makeText(
-                getActivity(), "Conexión Wi-Fi fallida",
+                activity, "Conexión Wi-Fi fallida",
                 Toast.LENGTH_SHORT
             ).show()
         } catch (e: Exception) {
             e.printStackTrace()
-            val activity: SeguridadFragment = this
             Toast.makeText(
-                getActivity(), "Servidor caído",
+                activity, "Servidor caído",
                 Toast.LENGTH_SHORT
             ).show()
         }

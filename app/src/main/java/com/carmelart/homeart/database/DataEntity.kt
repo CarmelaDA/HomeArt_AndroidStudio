@@ -32,6 +32,7 @@ data class DataEntity(
     @ColumnInfo(name = "luzPorche") var luzPorche: Int,
     @ColumnInfo(name = "luzJardin") var luzJardin: Int,
     @ColumnInfo(name = "luzTendedero") var luzTendedero: Int,
+    @ColumnInfo(name = "luzAuto") var luzAuto: Int,
 
     // PUERTAS Y VENTANAS
     @ColumnInfo(name = "pParcela") var pParcela: Int,
@@ -52,6 +53,7 @@ data class DataEntity(
     //...@ColumnInfo(name = "luzPorche") var luzPorche: Int,
     //...@ColumnInfo(name = "luzJardin") var luzJardin: Int,
     //...@ColumnInfo(name = "pParcela") var pParcela: Int,
+    //...@ColumnInfo(name = "luzAuto") var luzAuto: Int,
 
     // SALÓN
     @ColumnInfo(name = "sTelevision") var sTelevision: Int,

@@ -85,6 +85,7 @@ class IluminacionFragment : Fragment() {
         binding.switchIluminacionJardin.isChecked = this.dataIlum.luzJardin == 1
         binding.switchIluminacionPorche.isChecked = this.dataIlum.luzPorche == 1
         binding.switchIluminacionTendedero.isChecked = this.dataIlum.luzTendedero == 1
+        binding.switchModoIlum.isChecked = this.dataIlum.luzAuto == 1
 
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModoIlum.setOnCheckedChangeListener { _, isChecked ->
@@ -99,6 +100,13 @@ class IluminacionFragment : Fragment() {
                 getActivity(), "Iluminación en función de la luz exterior.",
                 Toast.LENGTH_SHORT
             ).show()
+
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzAuto = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
         }
         return root
     }
@@ -414,6 +422,7 @@ class IluminacionFragment : Fragment() {
         vIlum.add(data.luzJardin.toString())
         vIlum.add(data.luzPorche.toString())
         vIlum.add(data.luzTendedero.toString())
+        vIlum.add(data.luzAuto.toString())
 
         sendDataToServer("i;$vIlum;$token\n") // i[..., ..., ...] + token
     }

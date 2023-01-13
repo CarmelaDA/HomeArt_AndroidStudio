@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             // Iluminación
             0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0,0, 0, 0,
-            0, 0, 0,0, 0, 0,
+            0, 0, 0,0, 0, 0, 0,
 
             // Puertas y ventanas
             0, 0, 0, 0, 0,

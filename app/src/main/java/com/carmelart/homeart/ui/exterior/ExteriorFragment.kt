@@ -62,6 +62,29 @@ class ExteriorFragment : Fragment() {
         binding.switchIluminacionPorcheExt.isChecked = this.dataExt.luzPorche == 1
         binding.switchIluminacionJardinExt.isChecked = this.dataExt.luzJardin == 1
         binding.switchPuertaParcelaExt.isChecked = this.dataExt.pParcela == 1
+        binding.switchModoExt.isChecked = this.dataExt.luzAuto == 1
+
+        // MODO MANUAL/AUTOMÁTICO
+        binding.switchModoExt.setOnCheckedChangeListener { _, isChecked ->
+            // Añadir lectura de LDR para encendido y apagado automático
+
+            // Bloqueo de Switches
+            binding.switchIluminacionJardinExt.isEnabled = !isChecked
+            binding.switchIluminacionPorcheExt.isEnabled = !isChecked
+            binding.switchIluminacionTendederoExt.isEnabled = !isChecked
+
+            Toast.makeText(
+                getActivity(), "Iluminación en función de la luz exterior.",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataExt.luzAuto = ledValue
+            dbController.DataDAO().updateData(this.dataExt)
+            this.generateDataStringAndSend('p', this.dataExt)
+        }
 
         return root
     }
@@ -124,7 +147,7 @@ class ExteriorFragment : Fragment() {
                 ventValue = 1
             this.dataExt.tTendedero = ventValue
             dbController.DataDAO().updateData(this.dataExt)
-            this.generateDataStringAndSend('p', this.dataExt)
+            this.generateDataStringAndSend('R', this.dataExt)
         }
 
         binding.switchIluminacionTendederoExt.setOnCheckedChangeListener { _, isChecked ->
@@ -134,7 +157,7 @@ class ExteriorFragment : Fragment() {
                 ventValue = 1
             this.dataExt.luzTendedero = ventValue
             dbController.DataDAO().updateData(this.dataExt)
-            this.generateDataStringAndSend('p', this.dataExt)
+            this.generateDataStringAndSend('e', this.dataExt)
         }
 
         binding.switchIluminacionPorcheExt.setOnCheckedChangeListener { _, isChecked ->
@@ -144,7 +167,7 @@ class ExteriorFragment : Fragment() {
                 ventValue = 1
             this.dataExt.luzPorche = ventValue
             dbController.DataDAO().updateData(this.dataExt)
-            this.generateDataStringAndSend('p', this.dataExt)
+            this.generateDataStringAndSend('e', this.dataExt)
         }
 
         binding.switchIluminacionJardinExt.setOnCheckedChangeListener { _, isChecked ->
@@ -154,7 +177,7 @@ class ExteriorFragment : Fragment() {
                 ventValue = 1
             this.dataExt.luzJardin = ventValue
             dbController.DataDAO().updateData(this.dataExt)
-            this.generateDataStringAndSend('p', this.dataExt)
+            this.generateDataStringAndSend('e', this.dataExt)
         }
 
         binding.switchPuertaParcelaExt.setOnCheckedChangeListener { _, isChecked ->
@@ -164,7 +187,7 @@ class ExteriorFragment : Fragment() {
                 ventValue = 1
             this.dataExt.pParcela = ventValue
             dbController.DataDAO().updateData(this.dataExt)
-            this.generateDataStringAndSend('p', this.dataExt)
+            this.generateDataStringAndSend('P', this.dataExt)
         }
     }
 
@@ -178,7 +201,8 @@ class ExteriorFragment : Fragment() {
         vExt.add(data.luzPorche.toString())
         vExt.add(data.luzJardin.toString())
         vExt.add(data.pParcela.toString())
+        vExt.add(data.luzAuto.toString())
 
-        sendDataToServer("e;$vExt;$token\n") // e[..., ..., ...] + token
+        sendDataToServer("$zona;$vExt;$token\n") // zona[..., ..., ...] + token
     }
 }

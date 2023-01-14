@@ -61,6 +61,7 @@ class TiempoFragment : Fragment() {
         binding.switchVentiladorDormitorio.isChecked = this.dataTiempo.tVentDorm == 1
         binding.switchVentiladorOficina.isChecked = this.dataTiempo.tVentOfi == 1
         binding.switchCalefaccion.isChecked = this.dataTiempo.tCalef == 1
+        binding.switchModo.isChecked = this.dataTiempo.tAuto == 1
 
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModo.setOnCheckedChangeListener { _, isChecked ->

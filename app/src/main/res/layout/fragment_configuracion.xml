@@ -7,6 +7,62 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/text_encendido_vent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/encendido_ventilacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_termostato" />
+
+    <TextView
+        android:id="@+id/text_apagado_vent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/apagado_ventilacion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_encendido_vent" />
+
+    <TextView
+        android:id="@+id/text_apagado_calef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/apagado_calefaccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_encendido_calef" />
+
+    <TextView
+        android:id="@+id/text_encendido_calef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/encendido_calefaccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_apagado_vent" />
+
+    <TextView
+        android:id="@+id/text_configuracion_termostato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="142dp"
+        android:fontFamily="sans-serif-black"
+        android:linksClickable="false"
+        android:text="@string/termostato"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/picker_rh_maximo" />
+
+    <TextView
         android:id="@+id/text_configuracion_huerto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -162,6 +218,49 @@
         android:layout_marginEnd="105dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_maximo_huerto" />
+
+    <EditText
+        android:id="@+id/editText_Enc_Vent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="50dp"
+        android:ems="4"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_termostato" />
+
+    <EditText
+        android:id="@+id/editText_Enc_Calef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:ems="4"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_Apag_Vent" />
+
+    <EditText
+        android:id="@+id/editText_Apag_Vent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:layout_marginEnd="50dp"
+        android:ems="4"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_Enc_Vent" />
+
+    <EditText
+        android:id="@+id/editText_Apag_Vent2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:layout_marginEnd="50dp"
+        android:ems="4"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_Enc_Calef" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -86,5 +86,10 @@
     <string name="permitir_notificaciones">Permitir notificaciones</string>
     <string name="encendido">ENCENDIDO</string>
     <string name="apagado">APAGADO</string>
+    <string name="termostato">TERMOSTATO</string>
+    <string name="encendido_ventilacion">ENCENDIDO VENTILACIÓN</string>
+    <string name="apagado_ventilacion">APAGADO VENTILACIÓN</string>
+    <string name="encendido_calefaccion">ENCENDIDO CALEFACCIÓN</string>
+    <string name="apagado_calefaccion">APAGADO CALEFACCIÓN</string>
 
 </resources>

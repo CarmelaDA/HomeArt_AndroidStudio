@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             0, 0, 0, 0, 0,
 
             // Tiempo
-            0,0, 0, 0,
+            0,0, 0, 0, 0,
 
             // Exterior
             0,

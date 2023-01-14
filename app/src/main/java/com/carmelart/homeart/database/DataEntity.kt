@@ -10,6 +10,7 @@ data class DataEntity(
     // SEGURIDAD
     @ColumnInfo(name = "segInt") var segInt: Int,
     @ColumnInfo(name = "segExt") var segExt: Int,
+    @ColumnInfo(name = "segAuto") var segAuto: Int,
 
     // ILUMINACIÓN
     @ColumnInfo(name = "luzSala") var luzSala: Int,

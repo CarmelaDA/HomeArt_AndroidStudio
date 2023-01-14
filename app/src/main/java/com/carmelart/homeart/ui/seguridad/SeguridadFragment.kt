@@ -62,11 +62,12 @@ class SeguridadFragment : Fragment() {
         // TODAS LA VARIABLES DE SEGURIDAD
         binding.switchSeguridadInt.isChecked = this.dataSeg.segInt == 1
         binding.switchSeguridadExt.isChecked = this.dataSeg.segExt == 1
+        binding.switchModoSeguridad.isChecked = this.dataSeg.segAuto == 1
 
         // MODO MANUAL/AUTOMÁTICO
-        binding.switchModoSeguridad.setOnCheckedChangeListener { _, _ ->
+        binding.switchModoSeguridad.setOnCheckedChangeListener { _, isChecked ->
 
-            if (binding.switchModoSeguridad.isChecked){
+            //if (binding.switchModoSeguridad.isChecked){
                 if((!this.dataSeg.bEncendidoAlarma)||(!this.dataSeg.bApagadoAlarma)){
                     Toast.makeText(
                         activity, "Se requieren acciones en la configuración.",
@@ -84,11 +85,18 @@ class SeguridadFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-            }
+            //}
 
             // Bloqueo de Switches
-            //binding.switchSeguridadInt.isEnabled = !isChecked
-            //binding.switchSeguridadExt.isEnabled = !isChecked
+            binding.switchSeguridadInt.isEnabled = !isChecked
+            binding.switchSeguridadExt.isEnabled = !isChecked
+
+            var segValue = 0
+            if (isChecked)
+                segValue = 1
+            this.dataSeg.segAuto = segValue
+            dbController.DataDAO().updateData(this.dataSeg)
+            this.generateDataStringAndSend(this.dataSeg)
         }
 
         return root
@@ -170,6 +178,7 @@ class SeguridadFragment : Fragment() {
         // Todos los datos de Seguridad en el orden deseado
         vSeg.add(data.segInt.toString())
         vSeg.add(data.segExt.toString())
+        vSeg.add(data.segAuto.toString())
 
         sendDataToServer("s;$vSeg;$token\n") // s[..., ..., ...] + token
     }

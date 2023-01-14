@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         dbController.DataDAO().addData(DataEntity(
 
             // Seguridad
-            0 , 0,
+            0 , 0, 0,
 
             // Iluminación
             0, 0, 0, 0, 0, 0, 0,

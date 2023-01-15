@@ -4,23 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textAlignment="center"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/text_encendido_vent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="25dp"
         android:text="@string/encendido_ventilacion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_configuracion_termostato" />
 
     <TextView
+        android:id="@+id/text_grados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="70dp"
+        android:text="ºC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_termostato" />
+
+    <TextView
+        android:id="@+id/text_grados2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:text="ºC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grados" />
+
+    <TextView
+        android:id="@+id/text_grados3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="70dp"
+        android:text="ºC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grados2" />
+
+    <TextView
+        android:id="@+id/text_grados4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="70dp"
+        android:text="ºC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_grados3" />
+
+    <TextView
         android:id="@+id/text_apagado_vent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="20dp"
         android:text="@string/apagado_ventilacion"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +71,7 @@
         android:id="@+id/text_apagado_calef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="20dp"
         android:text="@string/apagado_calefaccion"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,8 +81,8 @@
         android:id="@+id/text_encendido_calef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="30dp"
         android:text="@string/encendido_calefaccion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_apagado_vent" />
@@ -60,7 +101,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/picker_rh_maximo" />
+        app:layout_constraintTop_toBottomOf="@+id/text_apagado_alarma" />
 
     <TextView
         android:id="@+id/text_configuracion_huerto"
@@ -74,8 +115,9 @@
         android:text="HUERTO"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_apagado_alarma" />
+        app:layout_constraintTop_toBottomOf="@+id/text_apagado_calef" />
 
     <TextView
         android:id="@+id/text_maximo_huerto"
@@ -220,47 +262,80 @@
         app:layout_constraintTop_toBottomOf="@+id/text_maximo_huerto" />
 
     <EditText
-        android:id="@+id/editText_Enc_Vent"
+        android:id="@+id/editText_vent_encendido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="50dp"
-        android:ems="4"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="85dp"
+        android:clickable="false"
+        android:cursorVisible="true"
+        android:ellipsize="none"
+        android:ems="3"
+        android:gravity="center"
+        android:hint="29.5"
         android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_termostato" />
+        app:layout_constraintTop_toBottomOf="@+id/text_configuracion_termostato"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editText_Enc_Calef"
+        android:id="@+id/editText_calef_encendido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:ems="4"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="85dp"
+        android:clickable="false"
+        android:cursorVisible="true"
+        android:ellipsize="none"
+        android:ems="3"
+        android:gravity="center"
+        android:hint="18.5"
         android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Apag_Vent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_vent_apagado"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editText_Apag_Vent"
+        android:id="@+id/editText_calef_apagado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-7dp"
-        android:layout_marginEnd="50dp"
-        android:ems="4"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="85dp"
+        android:clickable="false"
+        android:cursorVisible="true"
+        android:ellipsize="none"
+        android:ems="3"
+        android:gravity="center"
+        android:hint="22.5"
         android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Enc_Vent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_calef_encendido"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <EditText
-        android:id="@+id/editText_Apag_Vent2"
+        android:id="@+id/editText_vent_apagado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-7dp"
-        android:layout_marginEnd="50dp"
-        android:ems="4"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="85dp"
+        android:clickable="false"
+        android:cursorVisible="true"
+        android:ellipsize="none"
+        android:ems="3"
+        android:gravity="center"
+        android:hint="23.5"
         android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Enc_Calef" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_vent_encendido"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

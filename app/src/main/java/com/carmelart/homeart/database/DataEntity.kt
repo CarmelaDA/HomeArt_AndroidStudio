@@ -79,5 +79,11 @@ data class DataEntity(
     @ColumnInfo(name = "bMinHuerto") var bMinHuerto: Boolean,
     @ColumnInfo(name = "bMaxHuerto") var bMaxHuerto: Boolean,
 
+    // TERMOSTATO
+    @ColumnInfo(name = "ventEnc") var ventEnc: String,
+    @ColumnInfo(name = "ventApa") var ventApa: String,
+    @ColumnInfo(name = "calefEnc") var calefEnc: String,
+    @ColumnInfo(name = "calefApa") var calefApa: String,
+
     @PrimaryKey(autoGenerate = true) val id: Int = 0 // First Column
 )

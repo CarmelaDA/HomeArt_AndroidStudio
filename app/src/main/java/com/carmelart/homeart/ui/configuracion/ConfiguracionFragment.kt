@@ -1,23 +1,13 @@
 package com.carmelart.homeart.ui.configuracion
 
-import android.annotation.SuppressLint
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.TimePickerDialog
-import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.NumberPicker
 
 import android.widget.Toast
-import androidx.core.app.NotificationCompat
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.carmelart.homeart.TimePicker
 
@@ -29,7 +19,6 @@ import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
-import kotlin.math.log
 
 
 class ConfiguracionFragment() : Fragment() {
@@ -66,6 +55,7 @@ class ConfiguracionFragment() : Fragment() {
 
         // SWITCHES
         //this.bindingManagement()
+
         // ACTUALIZAR DATA
         this.dataAjustes = dbController.DataDAO().getData()
 
@@ -100,6 +90,54 @@ class ConfiguracionFragment() : Fragment() {
         }
         binding.pickerRhMaximo.setOnValueChangedListener { _, _, newVal ->
             selectMaxHuerto(newVal)
+        }
+
+        // TERMOSTATO
+        binding.editTextVentEncendido.setText(this.dataAjustes.ventEnc)
+        binding.editTextVentApagado.setText(this.dataAjustes.ventApa)
+        binding.editTextCalefEncendido.setText(this.dataAjustes.calefEnc)
+        binding.editTextCalefApagado.setText(this.dataAjustes.calefApa)
+
+        /*if (this.dataAjustes.ventEnc == "") {
+            binding.editTextVentEncendido.setText(29.5.toString())
+        } else {
+            binding.editTextVentEncendido.setText(this.dataAjustes.ventEnc)
+        }
+        if (this.dataAjustes.ventApa == "") {
+            binding.editTextVentApagado.setText(23.5.toString())
+        } else {
+            binding.editTextVentApagado.setText(this.dataAjustes.ventApa)
+        }
+        if (this.dataAjustes.calefEnc == "") {
+            binding.editTextCalefEncendido.setText(18.5.toString())
+        } else {
+            binding.editTextCalefEncendido.setText(this.dataAjustes.calefEnc)
+        }
+        if (this.dataAjustes.calefApa == "") {
+            binding.editTextCalefApagado.setText(22.5.toString())
+        } else {
+            binding.editTextCalefApagado.setText(this.dataAjustes.calefApa)
+        }*/
+
+        binding.editTextVentEncendido.setOnClickListener{
+            val ventEnc = binding.editTextVentEncendido.text.toString()
+            this.dataAjustes.ventEnc = ventEnc
+            dbController.DataDAO().updateData(this.dataAjustes)
+        }
+        binding.editTextVentApagado.setOnClickListener{
+            val ventApa = binding.editTextVentApagado.text.toString()
+            this.dataAjustes.ventApa = ventApa
+            dbController.DataDAO().updateData(this.dataAjustes)
+        }
+        binding.editTextCalefEncendido.setOnClickListener{
+            val calefEnc = binding.editTextCalefEncendido.text.toString()
+            this.dataAjustes.calefEnc = calefEnc
+            dbController.DataDAO().updateData(this.dataAjustes)
+        }
+        binding.editTextCalefApagado.setOnClickListener{
+            val calefApa = binding.editTextCalefApagado.text.toString()
+            this.dataAjustes.calefApa = calefApa
+            dbController.DataDAO().updateData(this.dataAjustes)
         }
 
         // NOTIFICACIONES
@@ -206,7 +244,6 @@ class ConfiguracionFragment() : Fragment() {
         this.dataAjustes.rhMinHuerto = nVal
         this.dataAjustes.bMinHuerto = true
         dbController.DataDAO().updateData(this.dataAjustes)
-
     }
 
     private fun selectMaxHuerto(nVal: Int) {
@@ -223,4 +260,8 @@ class ConfiguracionFragment() : Fragment() {
         this.dataAjustes.bMaxHuerto = true
         dbController.DataDAO().updateData(this.dataAjustes)
     }
+
+    // TERMOSTATO
+
+
 }

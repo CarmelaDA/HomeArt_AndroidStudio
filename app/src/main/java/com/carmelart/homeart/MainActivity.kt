@@ -84,6 +84,9 @@ class MainActivity : AppCompatActivity() {
             // Huerto
             0, 0, bMinHuerto = false, bMaxHuerto = false,
 
+            // Termostato
+            "", "", "", "",
+
         )) // Inicializar todas las variables a 0
     }
 

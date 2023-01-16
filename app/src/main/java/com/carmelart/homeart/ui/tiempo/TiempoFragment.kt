@@ -54,6 +54,7 @@ class TiempoFragment : Fragment() {
         })
         // SWITCHES
         this.bindingManagement()
+
         // ACTUALIZAR DATA
         this.dataTiempo = dbController.DataDAO().getData()
         // TODAS LAS VARIABLES DE TIEMPO
@@ -81,10 +82,8 @@ class TiempoFragment : Fragment() {
             }
 
             // Bloqueo de Switches
-            //binding.switchVentiladorSalon.isEnabled = !isChecked
-            //binding.switchVentiladorDormitorio.isEnabled = !isChecked
-            //binding.switchVentiladorOficina.isEnabled = !isChecked
-            //binding.switchCalefaccion.isEnabled = !isChecked
+            binding.switchVentiladorSalon.isEnabled = !isChecked
+            binding.switchCalefaccion.isEnabled = !isChecked
         }
 
         return root

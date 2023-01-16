@@ -98,7 +98,7 @@ class ConfiguracionFragment() : Fragment() {
         binding.editTextCalefEncendido.setText(this.dataAjustes.calefEnc)
         binding.editTextCalefApagado.setText(this.dataAjustes.calefApa)
 
-        /*if (this.dataAjustes.ventEnc == "") {
+        if (this.dataAjustes.ventEnc == "") {
             binding.editTextVentEncendido.setText(29.5.toString())
         } else {
             binding.editTextVentEncendido.setText(this.dataAjustes.ventEnc)
@@ -117,7 +117,7 @@ class ConfiguracionFragment() : Fragment() {
             binding.editTextCalefApagado.setText(22.5.toString())
         } else {
             binding.editTextCalefApagado.setText(this.dataAjustes.calefApa)
-        }*/
+        }
 
         binding.editTextVentEncendido.setOnClickListener{
             val ventEnc = binding.editTextVentEncendido.text.toString()

@@ -73,6 +73,7 @@ class OficinaFragment : Fragment() {
         binding.seekBarRedOfi.progress = this.dataOfi.luzR
         binding.seekBarGreenOfi.progress = this.dataOfi.luzG
         binding.seekBarBlueOfi.progress = this.dataOfi.luzB
+        binding.switchCortinaOficina.isChecked = this.dataOfi.vOficina == 1
 
         return root
     }
@@ -135,7 +136,7 @@ class OficinaFragment : Fragment() {
                 ledValue = 1
             this.dataOfi.luzOficina = ledValue
             dbController.DataDAO().updateData(this.dataOfi)
-            this.generateDataStringAndSend(this.dataOfi)
+            this.generateDataStringAndSend('f', this.dataOfi)
         }
 
         binding.switchIluminacionGamingOfi.setOnCheckedChangeListener { _, isChecked ->
@@ -151,7 +152,7 @@ class OficinaFragment : Fragment() {
                 ledValue = 1
             this.dataOfi.luzGaming = ledValue
             dbController.DataDAO().updateData(this.dataOfi)
-            this.generateDataStringAndSend(this.dataOfi)
+            this.generateDataStringAndSend('f', this.dataOfi)
         }
 
         binding.seekBarRedOfi.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
@@ -161,7 +162,7 @@ class OficinaFragment : Fragment() {
 
                 dataOfi.luzR = seekBar.progress
                 dbController.DataDAO().updateData(dataOfi)
-                generateDataStringAndSend(dataOfi)
+                generateDataStringAndSend('f', dataOfi)
             }
         })
 
@@ -172,7 +173,7 @@ class OficinaFragment : Fragment() {
 
                 dataOfi.luzG = seekBar.progress
                 dbController.DataDAO().updateData(dataOfi)
-                generateDataStringAndSend(dataOfi)
+                generateDataStringAndSend('f', dataOfi)
             }
         })
 
@@ -183,12 +184,22 @@ class OficinaFragment : Fragment() {
 
                 dataOfi.luzB = seekBar.progress
                 dbController.DataDAO().updateData(dataOfi)
-                generateDataStringAndSend(dataOfi)
+                generateDataStringAndSend('f', dataOfi)
             }
         })
+
+        binding.switchCortinaOficina.setOnCheckedChangeListener { _, isChecked ->
+            binding.toggleCortinaOficina.isChecked = isChecked
+            var ventValue = 0
+            if (isChecked)
+                ventValue = 1
+            this.dataOfi.vOficina = ventValue
+            dbController.DataDAO().updateData(this.dataOfi)
+            this.generateDataStringAndSend('F', this.dataOfi)
+        }
     }
 
-    private fun generateDataStringAndSend(data: DataEntity) {
+    private fun generateDataStringAndSend(zona: Char, data: DataEntity) {
         var vOfi: MutableList<String> = mutableListOf()
 
         // Todos los datos de Oficina en el orden deseado
@@ -223,6 +234,8 @@ class OficinaFragment : Fragment() {
             vOfi.add(data.luzB.toString())
         }
 
-        sendDataToServer("f;$vOfi;$token\n") // f[..., ..., ...] + token
+        vOfi.add(data.vOficina.toString())
+
+        sendDataToServer("$zona;$vOfi;$token\n") // zona[..., ..., ...] + token
     }
 }

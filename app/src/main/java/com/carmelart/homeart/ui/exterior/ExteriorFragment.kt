@@ -72,6 +72,7 @@ class ExteriorFragment : Fragment() {
             binding.switchIluminacionJardinExt.isEnabled = !isChecked
             binding.switchIluminacionPorcheExt.isEnabled = !isChecked
             binding.switchIluminacionTendederoExt.isEnabled = !isChecked
+            binding.switchToldoTendederoExt.isEnabled = !isChecked
 
             Toast.makeText(
                 getActivity(), "Iluminación en función de la luz exterior.",
@@ -83,7 +84,7 @@ class ExteriorFragment : Fragment() {
                 ledValue = 1
             this.dataExt.luzAuto = ledValue
             dbController.DataDAO().updateData(this.dataExt)
-            this.generateDataStringAndSend('p', this.dataExt)
+            this.generateDataStringAndSend('e', this.dataExt)
         }
 
         return root

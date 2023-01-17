@@ -126,7 +126,7 @@ class DormitorioFragment : Fragment() {
                 ledValue = 1
             this.dataDormitorio.luzDormitorio = ledValue
             dbController.DataDAO().updateData(this.dataDormitorio)
-            this.generateDataStringAndSend(this.dataDormitorio)
+            this.generateDataStringAndSend('r', this.dataDormitorio)
         }
 
         binding.switchIluminacionMesitaizqDorm.setOnCheckedChangeListener { _, isChecked ->
@@ -136,7 +136,7 @@ class DormitorioFragment : Fragment() {
                 ledValue = 1
             this.dataDormitorio.luzMesitaIzq = ledValue
             dbController.DataDAO().updateData(this.dataDormitorio)
-            this.generateDataStringAndSend(this.dataDormitorio)
+            this.generateDataStringAndSend('r', this.dataDormitorio)
         }
 
         binding.switchIluminacionMesitadchDorm.setOnCheckedChangeListener { _, isChecked ->
@@ -146,7 +146,7 @@ class DormitorioFragment : Fragment() {
                 ledValue = 1
             this.dataDormitorio.luzMesitaDch = ledValue
             dbController.DataDAO().updateData(this.dataDormitorio)
-            this.generateDataStringAndSend(this.dataDormitorio)
+            this.generateDataStringAndSend('r', this.dataDormitorio)
         }
 
         binding.switchCortinasDorm.setOnCheckedChangeListener { _, isChecked ->
@@ -156,11 +156,11 @@ class DormitorioFragment : Fragment() {
                 ledValue = 1
             this.dataDormitorio.vDormitorio = ledValue
             dbController.DataDAO().updateData(this.dataDormitorio)
-            this.generateDataStringAndSend(this.dataDormitorio)
+            this.generateDataStringAndSend('D', this.dataDormitorio)
         }
     }
 
-    private fun generateDataStringAndSend(data: DataEntity) {
+    private fun generateDataStringAndSend(zona: Char, data: DataEntity) {
         var vDormitorio: MutableList<String> = mutableListOf()
 
         // Todos los datos de Dormitorio en el orden deseado
@@ -169,6 +169,6 @@ class DormitorioFragment : Fragment() {
         vDormitorio.add(data.luzMesitaDch.toString())
         vDormitorio.add(data.vDormitorio.toString())
 
-        sendDataToServer("r;$vDormitorio;$token\n") // r[..., ..., ...] + token
+        sendDataToServer("$zona;$vDormitorio;$token\n") // zona[..., ..., ...] + token
     }
 }

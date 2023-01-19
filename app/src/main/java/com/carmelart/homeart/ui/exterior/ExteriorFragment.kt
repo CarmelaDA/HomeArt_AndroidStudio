@@ -64,29 +64,6 @@ class ExteriorFragment : Fragment() {
         binding.switchPuertaParcelaExt.isChecked = this.dataExt.pParcela == 1
         binding.switchModoExt.isChecked = this.dataExt.luzAuto == 1
 
-        // MODO MANUAL/AUTOMÁTICO
-        binding.switchModoExt.setOnCheckedChangeListener { _, isChecked ->
-            // Añadir lectura de LDR para encendido y apagado automático
-
-            // Bloqueo de Switches
-            binding.switchIluminacionJardinExt.isEnabled = !isChecked
-            binding.switchIluminacionPorcheExt.isEnabled = !isChecked
-            binding.switchIluminacionTendederoExt.isEnabled = !isChecked
-            binding.switchToldoTendederoExt.isEnabled = !isChecked
-
-            Toast.makeText(
-                getActivity(), "Iluminación en función de la luz exterior.",
-                Toast.LENGTH_SHORT
-            ).show()
-
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataExt.luzAuto = ledValue
-            dbController.DataDAO().updateData(this.dataExt)
-            this.generateDataStringAndSend('e', this.dataExt)
-        }
-
         return root
     }
 
@@ -140,6 +117,29 @@ class ExteriorFragment : Fragment() {
     }
 
     fun bindingManagement() {
+
+        // MODO MANUAL/AUTOMÁTICO
+        binding.switchModoExt.setOnCheckedChangeListener { _, isChecked ->
+            // Añadir lectura de LDR para encendido y apagado automático
+
+            // Bloqueo de Switches
+            binding.switchIluminacionJardinExt.isEnabled = !isChecked
+            binding.switchIluminacionPorcheExt.isEnabled = !isChecked
+            binding.switchIluminacionTendederoExt.isEnabled = !isChecked
+            binding.switchToldoTendederoExt.isEnabled = !isChecked
+
+            Toast.makeText(
+                getActivity(), "Iluminación en función de la luz exterior.",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataExt.luzAuto = ledValue
+            dbController.DataDAO().updateData(this.dataExt)
+            this.generateDataStringAndSend('e', this.dataExt)
+        }
 
         binding.switchToldoTendederoExt.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleToldoExt.isChecked = isChecked

@@ -98,22 +98,22 @@ class ConfiguracionFragment() : Fragment() {
         binding.editTextCalefEncendido.setText(this.dataAjustes.calefEnc)
         binding.editTextCalefApagado.setText(this.dataAjustes.calefApa)
 
-        if (this.dataAjustes.ventEnc == "") {
+        if (this.dataAjustes.ventEnc == "00.0") {
             binding.editTextVentEncendido.setText(29.5.toString())
         } else {
             binding.editTextVentEncendido.setText(this.dataAjustes.ventEnc)
         }
-        if (this.dataAjustes.ventApa == "") {
+        if (this.dataAjustes.ventApa == "00.0") {
             binding.editTextVentApagado.setText(23.5.toString())
         } else {
             binding.editTextVentApagado.setText(this.dataAjustes.ventApa)
         }
-        if (this.dataAjustes.calefEnc == "") {
+        if (this.dataAjustes.calefEnc == "00.0") {
             binding.editTextCalefEncendido.setText(18.5.toString())
         } else {
             binding.editTextCalefEncendido.setText(this.dataAjustes.calefEnc)
         }
-        if (this.dataAjustes.calefApa == "") {
+        if (this.dataAjustes.calefApa == "00.0") {
             binding.editTextCalefApagado.setText(22.5.toString())
         } else {
             binding.editTextCalefApagado.setText(this.dataAjustes.calefApa)
@@ -123,21 +123,25 @@ class ConfiguracionFragment() : Fragment() {
             val ventEnc = binding.editTextVentEncendido.text.toString()
             this.dataAjustes.ventEnc = ventEnc
             dbController.DataDAO().updateData(this.dataAjustes)
+            this.generateDataStringAndSend(this.dataAjustes)
         }
         binding.editTextVentApagado.setOnClickListener{
             val ventApa = binding.editTextVentApagado.text.toString()
             this.dataAjustes.ventApa = ventApa
             dbController.DataDAO().updateData(this.dataAjustes)
+            this.generateDataStringAndSend(this.dataAjustes)
         }
         binding.editTextCalefEncendido.setOnClickListener{
             val calefEnc = binding.editTextCalefEncendido.text.toString()
             this.dataAjustes.calefEnc = calefEnc
             dbController.DataDAO().updateData(this.dataAjustes)
+            this.generateDataStringAndSend(this.dataAjustes)
         }
         binding.editTextCalefApagado.setOnClickListener{
             val calefApa = binding.editTextCalefApagado.text.toString()
             this.dataAjustes.calefApa = calefApa
             dbController.DataDAO().updateData(this.dataAjustes)
+            this.generateDataStringAndSend(this.dataAjustes)
         }
 
         // NOTIFICACIONES
@@ -196,14 +200,19 @@ class ConfiguracionFragment() : Fragment() {
 
     }*/
 
-    /*private fun generateDataStringAndSend(data: DataEntity) {
+    fun generateDataStringAndSend(data: DataEntity) {
         var vAjustes: MutableList<String> = mutableListOf()
 
         // Todos los datos de Baño en el orden deseado
-        //vAjustes.add(data.tEncendidoAlarma.toString())
+        vAjustes.add(data.ventEnc.toString())
+        vAjustes.add(data.ventApa.toString())
+        vAjustes.add(data.calefEnc.toString())
+        vAjustes.add(data.calefApa.toString())
+        vAjustes.add(data.rhMinHuerto.toString())
+        vAjustes.add(data.rhMaxHuerto.toString())
 
         sendDataToServer("a;$vAjustes;$token\n") // a[..., ..., ...] + token
-    }*/
+    }
 
     // HORARIOS
     private fun selectHoraEncendido() {
@@ -244,6 +253,7 @@ class ConfiguracionFragment() : Fragment() {
         this.dataAjustes.rhMinHuerto = nVal
         this.dataAjustes.bMinHuerto = true
         dbController.DataDAO().updateData(this.dataAjustes)
+        this.generateDataStringAndSend(this.dataAjustes)
     }
 
     private fun selectMaxHuerto(nVal: Int) {
@@ -259,9 +269,6 @@ class ConfiguracionFragment() : Fragment() {
         this.dataAjustes.rhMaxHuerto = nVal
         this.dataAjustes.bMaxHuerto = true
         dbController.DataDAO().updateData(this.dataAjustes)
+        this.generateDataStringAndSend(this.dataAjustes)
     }
-
-    // TERMOSTATO
-
-
 }

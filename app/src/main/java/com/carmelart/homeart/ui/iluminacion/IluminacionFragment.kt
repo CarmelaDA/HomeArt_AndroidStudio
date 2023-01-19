@@ -87,27 +87,6 @@ class IluminacionFragment : Fragment() {
         binding.switchIluminacionTendedero.isChecked = this.dataIlum.luzTendedero == 1
         binding.switchModoIlum.isChecked = this.dataIlum.luzAuto == 1
 
-        // MODO MANUAL/AUTOMÁTICO
-        binding.switchModoIlum.setOnCheckedChangeListener { _, isChecked ->
-            // Añadir lectura de LDR para encendido y apagado automático
-
-            // Bloqueo de Switches
-            binding.switchIluminacionJardin.isEnabled = !isChecked
-            binding.switchIluminacionPorche.isEnabled = !isChecked
-            binding.switchIluminacionTendedero.isEnabled = !isChecked
-
-            Toast.makeText(
-                getActivity(), "Iluminación en función de la luz exterior.",
-                Toast.LENGTH_SHORT
-            ).show()
-
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataIlum.luzAuto = ledValue
-            dbController.DataDAO().updateData(this.dataIlum)
-            this.generateDataStringAndSend(this.dataIlum)
-        }
         return root
     }
 
@@ -161,6 +140,27 @@ class IluminacionFragment : Fragment() {
     }
 
     private fun bindingManagement() {
+
+        // MODO MANUAL/AUTOMÁTICO
+        binding.switchModoIlum.setOnCheckedChangeListener { _, isChecked ->
+
+            // Bloqueo de Switches
+            binding.switchIluminacionJardin.isEnabled = !isChecked
+            binding.switchIluminacionPorche.isEnabled = !isChecked
+            binding.switchIluminacionTendedero.isEnabled = !isChecked
+
+            Toast.makeText(
+                getActivity(), "Iluminación en función de la luz exterior.",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            var ledValue = 0
+            if (isChecked)
+                ledValue = 1
+            this.dataIlum.luzAuto = ledValue
+            dbController.DataDAO().updateData(this.dataIlum)
+            this.generateDataStringAndSend(this.dataIlum)
+        }
 
         binding.switchIluminacionSala.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleIluminacionSala.isChecked = isChecked

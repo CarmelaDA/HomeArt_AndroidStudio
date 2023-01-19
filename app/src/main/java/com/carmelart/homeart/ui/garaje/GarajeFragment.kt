@@ -122,7 +122,7 @@ class GarajeFragment : Fragment() {
                 ledValue = 1
             this.dataGaraje.luzGaraje = ledValue
             dbController.DataDAO().updateData(this.dataGaraje)
-            this.generateDataStringAndSend(this.dataGaraje)
+            this.generateDataStringAndSend('j', this.dataGaraje)
         }
 
         binding.switchPuertaGarajeGaraje.setOnCheckedChangeListener { _, isChecked ->
@@ -132,17 +132,17 @@ class GarajeFragment : Fragment() {
                 ledValue = 1
             this.dataGaraje.pGaraje = ledValue
             dbController.DataDAO().updateData(this.dataGaraje)
-            this.generateDataStringAndSend(this.dataGaraje)
+            this.generateDataStringAndSend('J', this.dataGaraje)
         }
     }
 
-    private fun generateDataStringAndSend(data: DataEntity) {
+    private fun generateDataStringAndSend(zona: Char, data: DataEntity) {
         var vGaraje: MutableList<String> = mutableListOf()
 
         // Todos los datos de Cocina en el orden deseado
         vGaraje.add(data.luzGaraje.toString())
         vGaraje.add(data.pGaraje.toString())
 
-        sendDataToServer("j;$vGaraje;$token\n") // j[..., ..., ...] + token
+        sendDataToServer("$zona;$vGaraje;$token\n") // j[..., ..., ...] + token
     }
 }

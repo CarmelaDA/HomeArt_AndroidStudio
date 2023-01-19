@@ -59,35 +59,6 @@ class HuertoFragment : Fragment() {
         // TODAS LA VARIABLES DE HUERTO
         binding.switchRiegoHuertoHuerto.isChecked = this.dataHuerto.rHuerto == 1
 
-        // MODO MANUAL/AUTOMÁTICO
-        binding.switchModoHuerto.setOnCheckedChangeListener { _, isChecked ->
-
-            if (binding.switchModoHuerto.isChecked){
-                val min = this.dataHuerto.rhMinHuerto
-                val max = this.dataHuerto.rhMaxHuerto
-
-                if((!this.dataHuerto.bMinHuerto)||(!this.dataHuerto.bMaxHuerto)){
-                    Toast.makeText(
-                        activity, "Se requieren acciones en la configuración.",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    binding.switchModoHuerto.isChecked = false
-                }
-                else {
-                    Toast.makeText(
-                        activity, "Humedad deseada:\n $min% - $max%",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    Toast.makeText(
-                        activity, "Consulte la configuración del huerto para una mejor experiencia.",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-
-            // Bloqueo de Switches
-            //binding.switchRiegoHuertoHuerto.isEnabled = !isChecked
-        }
         return root
     }
 
@@ -138,6 +109,37 @@ class HuertoFragment : Fragment() {
     }
 
     private fun bindingManagement() {
+
+        // MODO MANUAL/AUTOMÁTICO
+        binding.switchModoHuerto.setOnCheckedChangeListener { _, isChecked ->
+
+            if (binding.switchModoHuerto.isChecked){
+                val min = this.dataHuerto.rhMinHuerto
+                val max = this.dataHuerto.rhMaxHuerto
+
+                if((!this.dataHuerto.bMinHuerto)||(!this.dataHuerto.bMaxHuerto)){
+                    Toast.makeText(
+                        activity, "Se requieren acciones en la configuración.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    binding.switchModoHuerto.isChecked = false
+                }
+                else {
+                    Toast.makeText(
+                        activity, "Humedad deseada:\n $min% - $max%",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    Toast.makeText(
+                        activity, "Consulte la configuración del huerto para una mejor experiencia.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+
+            // Bloqueo de Switches
+            binding.switchRiegoHuertoHuerto.isEnabled = !isChecked
+        }
+
         binding.switchRiegoHuertoHuerto.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleRiegoHuertoHuerto.isChecked = isChecked
             var ledValue = 0

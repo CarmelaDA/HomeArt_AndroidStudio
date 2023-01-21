@@ -5,6 +5,7 @@ import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -62,7 +63,8 @@ class ExteriorFragment : Fragment() {
         binding.switchIluminacionPorcheExt.isChecked = this.dataExt.luzPorche == 1
         binding.switchIluminacionJardinExt.isChecked = this.dataExt.luzJardin == 1
         binding.switchPuertaParcelaExt.isChecked = this.dataExt.pParcela == 1
-        binding.switchModoExt.isChecked = this.dataExt.luzAuto == 1
+        binding.switchModoExt.isChecked = this.dataExt.tenAuto == 1
+        binding.switchModoIlumExt.isChecked = this.dataExt.luzAuto == 1
 
         return root
     }
@@ -118,20 +120,62 @@ class ExteriorFragment : Fragment() {
 
     fun bindingManagement() {
 
-        // MODO MANUAL/AUTOMÁTICO
+        // MODO ROPA TENDIDA
+        binding.checkBoxRopa.setOnClickListener{
+
+            var ropaValue = 0
+
+            if(binding.checkBoxRopa.isChecked){
+
+                Toast.makeText(
+                    getActivity(), "Ropa tendida.",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                ropaValue = 1
+            }
+
+            else{
+
+                Toast.makeText(
+                    getActivity(), "Ropa destendida.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            this.dataExt.tRopa = ropaValue
+            dbController.DataDAO().updateData(this.dataExt)
+            this.generateDataStringAndSend('e', this.dataExt)
+        }
+
+        // MODO MANUAL/AUTOMÁTICO TENDEDERO
         binding.switchModoExt.setOnCheckedChangeListener { _, isChecked ->
+            // Añadir lectura de LDR para encendido y apagado automático
+
+            // Bloqueo de Switches
+            binding.switchToldoTendederoExt.isEnabled = !isChecked
+
+            Toast.makeText(
+                getActivity(), "Toldo en función de la lluvia.",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            var tenValue = 0
+            if (isChecked)
+                tenValue = 1
+            this.dataExt.tenAuto = tenValue
+            dbController.DataDAO().updateData(this.dataExt)
+            this.generateDataStringAndSend('e', this.dataExt)
+        }
+
+        // MODO MANUAL/AUTOMÁTICO LUCES
+        binding.switchModoIlumExt.setOnCheckedChangeListener { _, isChecked ->
             // Añadir lectura de LDR para encendido y apagado automático
 
             // Bloqueo de Switches
             binding.switchIluminacionJardinExt.isEnabled = !isChecked
             binding.switchIluminacionPorcheExt.isEnabled = !isChecked
             binding.switchIluminacionTendederoExt.isEnabled = !isChecked
-            binding.switchToldoTendederoExt.isEnabled = !isChecked
-
-            Toast.makeText(
-                getActivity(), "Iluminación en función de la luz exterior.",
-                Toast.LENGTH_SHORT
-            ).show()
 
             var ledValue = 0
             if (isChecked)
@@ -202,7 +246,8 @@ class ExteriorFragment : Fragment() {
         vExt.add(data.luzPorche.toString())
         vExt.add(data.luzJardin.toString())
         vExt.add(data.pParcela.toString())
-        vExt.add(data.luzAuto.toString())
+        vExt.add(data.tenAuto.toString())
+        vExt.add(data.tRopa.toString())
 
         sendDataToServer("$zona;$vExt;$token\n") // zona[..., ..., ...] + token
     }

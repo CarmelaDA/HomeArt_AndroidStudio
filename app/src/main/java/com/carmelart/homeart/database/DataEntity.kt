@@ -55,7 +55,8 @@ data class DataEntity(
     //...@ColumnInfo(name = "luzPorche") var luzPorche: Int,
     //...@ColumnInfo(name = "luzJardin") var luzJardin: Int,
     //...@ColumnInfo(name = "pParcela") var pParcela: Int,
-    //...@ColumnInfo(name = "luzAuto") var luzAuto: Int,
+    @ColumnInfo(name = "tenAuto") var tenAuto: Int,
+    @ColumnInfo(name = "tRopa") var tRopa: Int,
 
     // SALÓN
     @ColumnInfo(name = "sTelevision") var sTelevision: Int,
@@ -66,7 +67,7 @@ data class DataEntity(
 
     // HUERTO
     @ColumnInfo(name = "rHuerto") var rHuerto: Int,
-
+    @ColumnInfo(name = "rAuto") var rAuto: Int,
     // HORARIOS
     @ColumnInfo(name = "tEncendidoAlarma") var tEncendidoAlarma: String,
     @ColumnInfo(name = "tApagadoAlarma") var tApagadoAlarma: String,

@@ -113,6 +113,13 @@ class HuertoFragment : Fragment() {
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModoHuerto.setOnCheckedChangeListener { _, isChecked ->
 
+            var autoValue = 0
+            if (isChecked)
+                autoValue = 1
+            this.dataHuerto.rAuto = autoValue
+            dbController.DataDAO().updateData(this.dataHuerto)
+            this.generateDataStringAndSend(this.dataHuerto)
+
             if (binding.switchModoHuerto.isChecked){
                 val min = this.dataHuerto.rhMinHuerto
                 val max = this.dataHuerto.rhMaxHuerto
@@ -142,10 +149,10 @@ class HuertoFragment : Fragment() {
 
         binding.switchRiegoHuertoHuerto.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleRiegoHuertoHuerto.isChecked = isChecked
-            var ledValue = 0
+            var riegoValue = 0
             if (isChecked)
-                ledValue = 1
-            this.dataHuerto.rHuerto = ledValue
+                riegoValue = 1
+            this.dataHuerto.rHuerto = riegoValue
             dbController.DataDAO().updateData(this.dataHuerto)
             this.generateDataStringAndSend(this.dataHuerto)
         }
@@ -156,6 +163,7 @@ class HuertoFragment : Fragment() {
 
         // Todos los datos de Huerto en el orden deseado
         vHuerto.add(data.rHuerto.toString())
+        vHuerto.add(data.rAuto.toString())
 
         sendDataToServer("h;$vHuerto;$token\n") // h[..., ..., ...] + token
     }

@@ -121,6 +121,13 @@ class TiempoFragment : Fragment() {
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModo.setOnCheckedChangeListener { _, isChecked ->
 
+            var autoValue = 0
+            if (isChecked)
+                autoValue = 1
+            this.dataTiempo.tAuto = autoValue
+            dbController.DataDAO().updateData(this.dataTiempo)
+            this.generateDataStringAndSend(this.dataTiempo)
+
             if (binding.switchModo.isChecked == true){
                 Toast.makeText(
                     getActivity(), "Automatización única del ventilador del salón y la calefacción central.",
@@ -189,6 +196,7 @@ class TiempoFragment : Fragment() {
         vTiempo.add(data.tVentDorm.toString())
         vTiempo.add(data.tVentOfi.toString())
         vTiempo.add(data.tCalef.toString())
+        vTiempo.add(data.tAuto.toString())
 
         sendDataToServer("t;$vTiempo;$token\n") // t[..., ..., ...] + token
     }

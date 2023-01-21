@@ -143,6 +143,6 @@ class GarajeFragment : Fragment() {
         vGaraje.add(data.luzGaraje.toString())
         vGaraje.add(data.pGaraje.toString())
 
-        sendDataToServer("$zona;$vGaraje;$token\n") // j[..., ..., ...] + token
+        sendDataToServer("$zona;$vGaraje;$token\n") // zona[..., ..., ...] + token
     }
 }

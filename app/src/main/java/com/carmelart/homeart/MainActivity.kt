@@ -70,13 +70,13 @@ class MainActivity : AppCompatActivity() {
             0,0, 0, 0, 0,
 
             // Exterior
-            0,
+            0, 0, 0,
 
             // Salón
             0,
 
             // Huerto
-            0,
+            0, 0,
 
             // Horarios
             "", "", bEncendidoAlarma = false, bApagadoAlarma = false,

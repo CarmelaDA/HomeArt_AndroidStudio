@@ -19,6 +19,7 @@ import com.carmelart.homeart.ui.tiempo.TiempoFragment
 import com.carmelart.homeart.ui.ventanas.VentanasFragment
 
 import java.io.DataOutputStream
+import java.io.DataInputStream
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
@@ -74,6 +75,54 @@ class ExteriorFragment : Fragment() {
         _binding = null
     }
 
+    private fun receiveDataFromSTM(){
+        try {
+            var address = "172.20.10.12"    // Actualizar de vez en cuando
+            var port = 80
+
+            // Se necesita de un HOST y un PORT, se conecta el SERVERPOCKET al puerto 7777
+            val socket = Socket()
+            socket.soTimeout = timeout
+            socket.connect(InetSocketAddress(address, port), timeout)
+            println("CONECTADO")
+
+            // Obtiene el flujo de entrada del SOCKET
+            val inputStream = socket.getInputStream()
+
+            // Crea un flujo de entrada para obtener los datos
+            val dataInputStream = DataInputStream(inputStream)
+            println("Recibiendo cadena de datos por el ServerSocket")
+
+            // Registra el MENSAJE que se quiere recibir
+            val dataSTM = dataInputStream.readUTF()
+            dataInputStream.close() // Cierra el final del flujo de entrada cuando se termina
+
+            Toast.makeText(
+                getActivity(), dataSTM,
+                Toast.LENGTH_SHORT
+            ).show()
+
+            println("Cerrando socket")
+            val activity: ExteriorFragment = this
+            socket.close()
+
+        } catch (e: SocketException) {
+            e.printStackTrace()
+            val activity: ExteriorFragment = this
+            Toast.makeText(
+                getActivity(), "Error en dataSTM",
+                Toast.LENGTH_SHORT
+            ).show()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            val activity: ExteriorFragment = this
+            Toast.makeText(
+                getActivity(), "Error en dataSTM",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
     private fun sendDataToServer(message: String) {
         try {
             var address = "172.20.10.12"    // Actualizar de vez en cuando
@@ -100,6 +149,8 @@ class ExteriorFragment : Fragment() {
             println("Cerrando socket")
             val activity: ExteriorFragment = this
             socket.close()
+
+            //receiveDataFromSTM()
 
         } catch (e: SocketException) {
             e.printStackTrace()

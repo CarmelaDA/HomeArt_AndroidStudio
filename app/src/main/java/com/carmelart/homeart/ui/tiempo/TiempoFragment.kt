@@ -1,7 +1,9 @@
 package com.carmelart.homeart.ui.tiempo
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.StrictMode
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +22,15 @@ import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
+
+import java.util.Calendar
+import java.util.Date
+import java.util.Timer
+import kotlin.concurrent.timerTask
+import kotlin.concurrent.scheduleAtFixedRate
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
+
 
 class TiempoFragment : Fragment() {
 
@@ -52,11 +63,13 @@ class TiempoFragment : Fragment() {
         tiempoViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
         // SWITCHES
         this.bindingManagement()
 
         // ACTUALIZAR DATA
         this.dataTiempo = dbController.DataDAO().getData()
+
         // TODAS LAS VARIABLES DE TIEMPO
         binding.switchVentiladorSalon.isChecked = this.dataTiempo.tVentSalon == 1
         binding.switchVentiladorDormitorio.isChecked = this.dataTiempo.tVentDorm == 1
@@ -186,6 +199,7 @@ class TiempoFragment : Fragment() {
             dbController.DataDAO().updateData(this.dataTiempo)
             this.generateDataStringAndSend(this.dataTiempo)
         }
+
     }
 
     private fun generateDataStringAndSend(data: DataEntity) {
@@ -197,6 +211,7 @@ class TiempoFragment : Fragment() {
         vTiempo.add(data.tVentOfi.toString())
         vTiempo.add(data.tCalef.toString())
         vTiempo.add(data.tAuto.toString())
+        vTiempo.add(data.tLectura.toString())
 
         sendDataToServer("t;$vTiempo;$token\n") // t[..., ..., ...] + token
     }

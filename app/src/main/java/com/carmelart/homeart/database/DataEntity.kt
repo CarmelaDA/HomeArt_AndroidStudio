@@ -48,6 +48,7 @@ data class DataEntity(
     @ColumnInfo(name = "tVentOfi") var tVentOfi: Int,
     @ColumnInfo(name = "tCalef") var tCalef: Int,
     @ColumnInfo(name = "tAuto") var tAuto: Int,
+    @ColumnInfo(name = "tLectura") var tLectura: Int,
 
     // EXTERIOR
     @ColumnInfo(name = "tTendedero") var tTendedero: Int,

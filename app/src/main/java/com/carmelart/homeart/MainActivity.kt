@@ -1,8 +1,12 @@
 package com.carmelart.homeart
 
+import android.app.Activity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -18,7 +22,14 @@ import com.carmelart.homeart.database.DataEntity
 import com.carmelart.homeart.databinding.ActivityMainBinding
 import com.carmelart.homeart.ui.configuracion.ConfiguracionFragment
 import com.google.android.material.navigation.NavigationView
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
+import java.util.Calendar
+import java.util.Date
+import java.util.Timer
+import kotlin.concurrent.timerTask
+import kotlin.concurrent.scheduleAtFixedRate
 
 class MainActivity : AppCompatActivity() {
 
@@ -67,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             0, 0, 0, 0, 0,
 
             // Tiempo
-            0,0, 0, 0, 0,
+            0,0, 0, 0, 0, 0,
 
             // Exterior
             0, 0, 0,
@@ -124,5 +135,7 @@ class MainActivity : AppCompatActivity() {
 // Funciones de extensión
 val Fragment.dbController: DataDb
     get() = (requireActivity() as MainActivity).dbController
+
+
 
 

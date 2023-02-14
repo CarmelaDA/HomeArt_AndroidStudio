@@ -59,10 +59,10 @@ class TiempoFragment : Fragment() {
         val root: View = binding.root
 
         // TEXTOS
-        val textView: TextView = binding.textTiempoInterior
+        /*val textView: TextView = binding.textTiempoInterior
         tiempoViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
-        })
+        })*/
 
         // SWITCHES
         this.bindingManagement()
@@ -71,9 +71,7 @@ class TiempoFragment : Fragment() {
         this.dataTiempo = dbController.DataDAO().getData()
 
         // TODAS LAS VARIABLES DE TIEMPO
-        binding.switchVentiladorSalon.isChecked = this.dataTiempo.tVentSalon == 1
-        binding.switchVentiladorDormitorio.isChecked = this.dataTiempo.tVentDorm == 1
-        binding.switchVentiladorOficina.isChecked = this.dataTiempo.tVentOfi == 1
+        binding.switchVentiladorSalon.isChecked = this.dataTiempo.tVentilador == 1
         binding.switchCalefaccion.isChecked = this.dataTiempo.tCalef == 1
         binding.switchModo.isChecked = this.dataTiempo.tAuto == 1
 
@@ -165,27 +163,7 @@ class TiempoFragment : Fragment() {
             var ledValue = 0
             if (isChecked)
                 ledValue = 1
-            this.dataTiempo.tVentSalon = ledValue
-            dbController.DataDAO().updateData(this.dataTiempo)
-            this.generateDataStringAndSend(this.dataTiempo)
-        }
-
-        binding.switchVentiladorDormitorio.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleVentiladorDormitorio.isChecked = isChecked
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataTiempo.tVentDorm = ledValue
-            dbController.DataDAO().updateData(this.dataTiempo)
-            this.generateDataStringAndSend(this.dataTiempo)
-        }
-
-        binding.switchVentiladorOficina.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleVentiladorOficina.isChecked = isChecked
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataTiempo.tVentOfi = ledValue
+            this.dataTiempo.tVentilador = ledValue
             dbController.DataDAO().updateData(this.dataTiempo)
             this.generateDataStringAndSend(this.dataTiempo)
         }
@@ -199,16 +177,13 @@ class TiempoFragment : Fragment() {
             dbController.DataDAO().updateData(this.dataTiempo)
             this.generateDataStringAndSend(this.dataTiempo)
         }
-
     }
 
     private fun generateDataStringAndSend(data: DataEntity) {
         var vTiempo: MutableList<String> = mutableListOf()
 
         // Todos los datos de Tiempo en el orden deseado
-        vTiempo.add(data.tVentSalon.toString())
-        vTiempo.add(data.tVentDorm.toString())
-        vTiempo.add(data.tVentOfi.toString())
+        vTiempo.add(data.tVentilador.toString())
         vTiempo.add(data.tCalef.toString())
         vTiempo.add(data.tAuto.toString())
         vTiempo.add(data.tLectura.toString())

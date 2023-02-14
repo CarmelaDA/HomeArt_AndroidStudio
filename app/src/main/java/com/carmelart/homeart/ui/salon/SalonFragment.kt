@@ -63,7 +63,6 @@ class SalonFragment : Fragment() {
         binding.switchIluminacionComedorSalon.isChecked = this.dataSalon.luzComedor == 1
         binding.switchIluminacionAmbienteSalon.isChecked = this.dataSalon.luzAmbiente == 1
         binding.switchIluminacionRecibidorSalon.isChecked = this.dataSalon.luzRecibidor == 1
-        binding.switchCortinasSalon.isChecked = this.dataSalon.vSalon == 1
 
         return root
     }
@@ -168,16 +167,6 @@ class SalonFragment : Fragment() {
             dbController.DataDAO().updateData(this.dataSalon)
             this.generateDataStringAndSend('n', this.dataSalon)
         }
-
-        binding.switchCortinasSalon.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleCortinasSalon.isChecked = isChecked
-            var ledValue = 0
-            if (isChecked)
-                ledValue = 1
-            this.dataSalon.vSalon = ledValue
-            dbController.DataDAO().updateData(this.dataSalon)
-            this.generateDataStringAndSend('N', this.dataSalon)
-        }
     }
 
     private fun generateDataStringAndSend(zona: Char, data: DataEntity) {
@@ -189,7 +178,6 @@ class SalonFragment : Fragment() {
         vSalon.add(data.luzComedor.toString())
         vSalon.add(data.luzAmbiente.toString())
         vSalon.add(data.luzRecibidor.toString())
-        vSalon.add(data.vSalon.toString())
 
         sendDataToServer("$zona;$vSalon;$token\n") // zona[..., ..., ...] + token
     }

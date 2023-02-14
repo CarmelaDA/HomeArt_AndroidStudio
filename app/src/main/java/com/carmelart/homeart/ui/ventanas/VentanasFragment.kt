@@ -58,7 +58,6 @@ class VentanasFragment : Fragment() {
         // TODAS LAS VARIABLES DE VENTANAS
         binding.switchPuertaParcela.isChecked = this.dataVent.pParcela == 1
         binding.switchPuertaGaraje.isChecked = this.dataVent.pGaraje == 1
-        binding.switchVentanaSalon.isChecked = this.dataVent.vSalon == 1
         binding.switchVentanaDormitorio.isChecked = this.dataVent.vDormitorio == 1
         binding.switchVentanaOficina.isChecked = this.dataVent.vOficina == 1
 
@@ -137,16 +136,6 @@ class VentanasFragment : Fragment() {
             this.generateDataStringAndSend('g', this.dataVent)
         }
 
-        binding.switchVentanaSalon.setOnCheckedChangeListener { _, isChecked ->
-            binding.toggleVentanaSalon.isChecked = isChecked
-            var ventValue = 0
-            if (isChecked)
-                ventValue = 1
-            this.dataVent.vSalon = ventValue
-            dbController.DataDAO().updateData(this.dataVent)
-            this.generateDataStringAndSend('l', this.dataVent)
-        }
-
         binding.switchVentanaDormitorio.setOnCheckedChangeListener { _, isChecked ->
             binding.toggleVentanaDormitorio.isChecked = isChecked
             var ventValue = 0
@@ -175,7 +164,6 @@ class VentanasFragment : Fragment() {
 
         vVent.add(data.pParcela.toString())
         vVent.add(data.pGaraje.toString())
-        vVent.add(data.vSalon.toString())
         vVent.add(data.vDormitorio.toString())
         vVent.add(data.vOficina.toString())
 

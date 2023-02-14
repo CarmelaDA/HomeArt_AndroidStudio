@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/nav_tiempo"
         android:name="com.carmelart.homeart.ui.tiempo.TiempoFragment"
-        android:label="@string/menu_tiempo"
+        android:label="@string/menu_termostato"
         tools:layout="@layout/fragment_tiempo" />
 
     <fragment

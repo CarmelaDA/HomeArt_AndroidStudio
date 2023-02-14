@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="158dp"
         android:fontFamily="sans-serif"
         android:text="@string/huerto"
@@ -61,42 +61,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch_modo_huerto" />
 
-    <TextView
-        android:id="@+id/text_hum_huerto_huerto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="127dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="127dp"
-        android:text="@string/humedad_de_tierra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_huerto_huerto" />
-
-    <TextView
-        android:id="@+id/text_hum_huerto_dat_huerto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="176dp"
-        android:text="93,2 %"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_huerto" />
-
     <ToggleButton
         android:id="@+id/toggle_riego_huerto_huerto"
         android:layout_width="38dp"
         android:layout_height="35dp"
         android:layout_marginStart="68dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="33dp"
         android:background="@drawable/toggle_riego_bg"
         android:clickable="false"
         android:textOff=""
         android:textOn=""
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_dat_huerto" />
+        app:layout_constraintTop_toBottomOf="@+id/text_huerto_huerto" />
 
     <Switch
         android:id="@+id/switch_riego_huerto_huerto"
@@ -112,6 +88,6 @@
         android:switchPadding="122dp"
         android:text="@string/riego"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_hum_huerto_dat_huerto"
+        app:layout_constraintTop_toBottomOf="@+id/text_huerto_huerto"
         tools:ignore="DuplicateSpeakableTextCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,7 @@
         <item
             android:id="@+id/nav_tiempo"
             android:icon="@drawable/icon_tiempo"
-            android:title="@string/menu_tiempo" />
+            android:title="@string/menu_termostato" />
         <item
             android:id="@+id/nav_exterior"
             android:icon="@drawable/icon_exterior_b"

@@ -38,14 +38,11 @@ data class DataEntity(
     // PUERTAS Y VENTANAS
     @ColumnInfo(name = "pParcela") var pParcela: Int,
     @ColumnInfo(name = "pGaraje") var pGaraje: Int,
-    @ColumnInfo(name = "vSalon") var vSalon: Int,
     @ColumnInfo(name = "vDormitorio") var vDormitorio: Int,
     @ColumnInfo(name = "vOficina") var vOficina: Int,
 
     // TIEMPO
-    @ColumnInfo(name = "tVentSalon") var tVentSalon: Int,
-    @ColumnInfo(name = "tVentDorm") var tVentDorm: Int,
-    @ColumnInfo(name = "tVentOfi") var tVentOfi: Int,
+    @ColumnInfo(name = "tVentilador") var tVentilador: Int,
     @ColumnInfo(name = "tCalef") var tCalef: Int,
     @ColumnInfo(name = "tAuto") var tAuto: Int,
     @ColumnInfo(name = "tLectura") var tLectura: Int,

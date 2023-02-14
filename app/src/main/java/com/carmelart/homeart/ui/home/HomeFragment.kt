@@ -131,10 +131,10 @@ class HomeFragment : Fragment() {
                 dbController.DataDAO().updateData(dataLectura)
                 generateDataStringAndSend(dataLectura)
 
-                Toast.makeText(
+                /*Toast.makeText(
                     getActivity(),"Pidiendo datos",
                     Toast.LENGTH_LONG
-                ).show()
+                ).show()*/
             }
             override fun onFinish() {
             }

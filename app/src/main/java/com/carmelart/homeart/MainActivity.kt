@@ -75,10 +75,10 @@ class MainActivity : AppCompatActivity() {
             0, 0, 0,0, 0, 0, 0,
 
             // Puertas y ventanas
-            0, 0, 0, 0, 0,
+            0, 0, 0, 0,
 
             // Tiempo
-            0,0, 0, 0, 0, 0,
+            0, 0, 0, 0,
 
             // Exterior
             0, 0, 0,

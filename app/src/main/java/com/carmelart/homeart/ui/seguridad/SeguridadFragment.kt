@@ -1,29 +1,25 @@
 package com.carmelart.homeart.ui.seguridad
 
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.Handler
 import android.os.StrictMode
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Switch
-import android.widget.CompoundButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import android.provider.CalendarContract
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.carmelart.homeart.R
-import com.carmelart.homeart.databinding.FragmentSeguridadBinding
-import androidx.appcompat.app.AppCompatActivity
 import com.carmelart.homeart.database.DataEntity
+import com.carmelart.homeart.databinding.FragmentSeguridadBinding
 import com.carmelart.homeart.dbController
-import com.carmelart.homeart.ui.iluminacion.IluminacionFragment
 import java.io.DataOutputStream
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.net.SocketException
+import java.util.*
 
 class SeguridadFragment : Fragment() {
 
@@ -67,7 +63,7 @@ class SeguridadFragment : Fragment() {
         // MODO MANUAL/AUTOMÁTICO
         binding.switchModoSeguridad.setOnCheckedChangeListener { _, isChecked ->
 
-            //if (binding.switchModoSeguridad.isChecked){
+            if (binding.switchModoSeguridad.isChecked){
                 if((!this.dataSeg.bEncendidoAlarma)||(!this.dataSeg.bApagadoAlarma)){
                     Toast.makeText(
                         activity, "Se requieren acciones en la configuración.",
@@ -76,6 +72,9 @@ class SeguridadFragment : Fragment() {
                     binding.switchModoSeguridad.isChecked = false
                 }
                 else {
+
+
+
                     Toast.makeText(
                         activity, "Horario alarma:\n${this.dataSeg.tEncendidoAlarma} - ${this.dataSeg.tApagadoAlarma}",
                         Toast.LENGTH_LONG
@@ -85,7 +84,14 @@ class SeguridadFragment : Fragment() {
                         Toast.LENGTH_LONG
                     ).show()
                 }
-            //}
+            }
+
+            dataSeg.hOnAlarma = 10 * dataSeg.tEncendidoAlarma[2].digitToInt() + dataSeg.tEncendidoAlarma[3].digitToInt()
+            dataSeg.mOnAlarma = 10 * dataSeg.tEncendidoAlarma[5].digitToInt() + dataSeg.tEncendidoAlarma[6].digitToInt()
+
+            dataSeg.hOffAlarma = 10 * dataSeg.tApagadoAlarma[2].digitToInt() + dataSeg.tApagadoAlarma[3].digitToInt()
+            dataSeg.mOffAlarma = 10 * dataSeg.tApagadoAlarma[5].digitToInt() + dataSeg.tApagadoAlarma[6].digitToInt()
+
 
             // Bloqueo de Switches
             binding.switchSeguridadInt.isEnabled = !isChecked
@@ -170,6 +176,47 @@ class SeguridadFragment : Fragment() {
             dbController.DataDAO().updateData(this.dataSeg)
             this.generateDataStringAndSend(this.dataSeg)
         }
+
+        // Alarma Automática
+
+        val c = Calendar.getInstance()
+
+        object : CountDownTimer(86400000, 60000) { // Durante 1 día, cada minuto
+
+            override fun onTick(millisUntilFinished: Long) {
+
+                /*Toast.makeText(
+                    getActivity(),"${c.get(Calendar.HOUR_OF_DAY)}||${dataSeg.hOnAlarma}",
+                    Toast.LENGTH_LONG
+                ).show()*/
+
+                Toast.makeText(
+                    getActivity(),"${dataSeg.hOnAlarma}",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                /*if ((c.get(Calendar.HOUR_OF_DAY) == dataSeg.hOnAlarma)/*&& (c.get(Calendar.MINUTE) == dataSeg.mOnAlarma)*/){ // Alarma activada
+                    Toast.makeText(
+                        getActivity(),"ALARMA ACTIVADA",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }*/
+                /*if ((c.get(Calendar.HOUR_OF_DAY) == dataSeg.hOffAlarma) && (c.get(Calendar.MINUTE) == dataSeg.mOffAlarma)){ // Alarma desactivada
+                    Toast.makeText(
+                        getActivity(),"alarma desactivada",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }*/
+
+                //dataSeg.tLectura = 1
+                //dbController.DataDAO().updateData(dataLectura)
+                //generateDataStringAndSend(dataLectura)
+            }
+
+            override fun onFinish() {
+            }
+
+        }.start()
     }
 
     fun generateDataStringAndSend(data: DataEntity) {

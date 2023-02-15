@@ -90,7 +90,8 @@ class MainActivity : AppCompatActivity() {
             0, 0,
 
             // Horarios
-            "", "", bEncendidoAlarma = false, bApagadoAlarma = false,
+            "", "", 0, 0, 0, 0,
+            bEncendidoAlarma = false, bApagadoAlarma = false,
 
             // Huerto
             0, 0, bMinHuerto = false, bMaxHuerto = false,

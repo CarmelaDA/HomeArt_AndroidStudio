@@ -70,10 +70,6 @@ data class DataEntity(
     // HORARIOS
     @ColumnInfo(name = "tEncendidoAlarma") var tEncendidoAlarma: String,
     @ColumnInfo(name = "tApagadoAlarma") var tApagadoAlarma: String,
-    @ColumnInfo(name = "hOnAlarma") var hOnAlarma: Int,
-    @ColumnInfo(name = "mOnAlarma") var mOnAlarma: Int,
-    @ColumnInfo(name = "hOffAlarma") var hOffAlarma: Int,
-    @ColumnInfo(name = "mOffAlarma") var mOffAlarma: Int,
     @ColumnInfo(name = "bEncendidoAlarma") var bEncendidoAlarma: Boolean,
     @ColumnInfo(name = "bApagadoAlarma") var bApagadoAlarma: Boolean,
 

@@ -53,8 +53,10 @@ class SeguridadFragment : Fragment() {
 
         // SWITCHES
         this.bindingManagement()
+
         // ACTUALIZAR DATA
         this.dataSeg = dbController.DataDAO().getData()
+
         // TODAS LA VARIABLES DE SEGURIDAD
         binding.switchSeguridadInt.isChecked = this.dataSeg.segInt == 1
         binding.switchSeguridadExt.isChecked = this.dataSeg.segExt == 1
@@ -72,11 +74,8 @@ class SeguridadFragment : Fragment() {
                     binding.switchModoSeguridad.isChecked = false
                 }
                 else {
-
-
-
                     Toast.makeText(
-                        activity, "Horario alarma:\n${this.dataSeg.tEncendidoAlarma} - ${this.dataSeg.tApagadoAlarma}",
+                        activity, "Horario alarma:\n${this.dataSeg.tEncendidoAlarma}   - ${this.dataSeg.tApagadoAlarma}",
                         Toast.LENGTH_LONG
                     ).show()
                     Toast.makeText(
@@ -85,13 +84,6 @@ class SeguridadFragment : Fragment() {
                     ).show()
                 }
             }
-
-            dataSeg.hOnAlarma = 10 * dataSeg.tEncendidoAlarma[2].digitToInt() + dataSeg.tEncendidoAlarma[3].digitToInt()
-            dataSeg.mOnAlarma = 10 * dataSeg.tEncendidoAlarma[5].digitToInt() + dataSeg.tEncendidoAlarma[6].digitToInt()
-
-            dataSeg.hOffAlarma = 10 * dataSeg.tApagadoAlarma[2].digitToInt() + dataSeg.tApagadoAlarma[3].digitToInt()
-            dataSeg.mOffAlarma = 10 * dataSeg.tApagadoAlarma[5].digitToInt() + dataSeg.tApagadoAlarma[6].digitToInt()
-
 
             // Bloqueo de Switches
             binding.switchSeguridadInt.isEnabled = !isChecked
@@ -102,7 +94,7 @@ class SeguridadFragment : Fragment() {
                 segValue = 1
             this.dataSeg.segAuto = segValue
             dbController.DataDAO().updateData(this.dataSeg)
-            this.generateDataStringAndSend(this.dataSeg)
+            //this.generateDataStringAndSend(this.dataSeg)
         }
 
         return root
@@ -178,39 +170,59 @@ class SeguridadFragment : Fragment() {
         }
 
         // Alarma Automática
-
-        val c = Calendar.getInstance()
-
         object : CountDownTimer(86400000, 60000) { // Durante 1 día, cada minuto
 
             override fun onTick(millisUntilFinished: Long) {
 
-                /*Toast.makeText(
-                    getActivity(),"${c.get(Calendar.HOUR_OF_DAY)}||${dataSeg.hOnAlarma}",
-                    Toast.LENGTH_LONG
-                ).show()*/
+                val hOn = 10 * dataSeg.tEncendidoAlarma[2].digitToInt() + dataSeg.tEncendidoAlarma[3].digitToInt()
+                val mOn = 10 * dataSeg.tEncendidoAlarma[5].digitToInt() + dataSeg.tEncendidoAlarma[6].digitToInt()
+                val hOff = 10 * dataSeg.tApagadoAlarma[2].digitToInt() + dataSeg.tApagadoAlarma[3].digitToInt()
+                val mOff = 10 * dataSeg.tApagadoAlarma[5].digitToInt() + dataSeg.tApagadoAlarma[6].digitToInt()
 
-                Toast.makeText(
-                    getActivity(),"${dataSeg.hOnAlarma}",
-                    Toast.LENGTH_LONG
-                ).show()
+                if (dataSeg.segAuto == 1){
 
-                /*if ((c.get(Calendar.HOUR_OF_DAY) == dataSeg.hOnAlarma)/*&& (c.get(Calendar.MINUTE) == dataSeg.mOnAlarma)*/){ // Alarma activada
-                    Toast.makeText(
-                        getActivity(),"ALARMA ACTIVADA",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }*/
-                /*if ((c.get(Calendar.HOUR_OF_DAY) == dataSeg.hOffAlarma) && (c.get(Calendar.MINUTE) == dataSeg.mOffAlarma)){ // Alarma desactivada
-                    Toast.makeText(
-                        getActivity(),"alarma desactivada",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }*/
+                    if (dataSeg.bEncendidoAlarma && dataSeg.bApagadoAlarma){
 
-                //dataSeg.tLectura = 1
-                //dbController.DataDAO().updateData(dataLectura)
-                //generateDataStringAndSend(dataLectura)
+                        val c = Calendar.getInstance()
+
+                        var auxOff = hOff
+                        if (hOff < hOn) // Si el horario contiene las 00:00h
+                            auxOff = hOff+24
+
+                        var auxOn = 0
+                        if (hOn == hOff) // Si la hora de apagado y encendido es la misma
+                            auxOn = 1
+
+                        if (((auxOn == 0) && (c.get(Calendar.HOUR_OF_DAY) > hOn) && (c.get(Calendar.HOUR_OF_DAY) < auxOff)) // Alarma activada
+                            || ((auxOn == 0) &&(c.get(Calendar.HOUR_OF_DAY) == hOn) && (c.get(Calendar.MINUTE) >= mOn))
+                            || ((auxOn == 0) && (c.get(Calendar.HOUR_OF_DAY) == hOff) && (c.get(Calendar.MINUTE) <= mOff))
+                            || ((auxOn == 1) && (c.get(Calendar.HOUR_OF_DAY) == hOff) && (c.get(Calendar.MINUTE) <= mOff) && (c.get(Calendar.MINUTE) >= mOn)) ){
+
+                            dataSeg.segExt = 1
+                            dataSeg.segInt = 1
+                            dbController.DataDAO().updateData(dataSeg)
+                            generateDataStringAndSend(dataSeg)
+
+                            /*Toast.makeText(
+                                getActivity(),"ALARMA ACTIVADA",
+                                Toast.LENGTH_LONG
+                            ).show()*/
+                        }
+
+                        else { // Alarma desactivada
+
+                            dataSeg.segExt = 0
+                            dataSeg.segInt = 0
+                            dbController.DataDAO().updateData(dataSeg)
+                            generateDataStringAndSend(dataSeg)
+
+                            /*Toast.makeText(
+                                getActivity(),"alarma desactivada",
+                                Toast.LENGTH_LONG
+                            ).show()*/
+                        }
+                    }
+                }
             }
 
             override fun onFinish() {
@@ -225,7 +237,7 @@ class SeguridadFragment : Fragment() {
         // Todos los datos de Seguridad en el orden deseado
         vSeg.add(data.segInt.toString())
         vSeg.add(data.segExt.toString())
-        vSeg.add(data.segAuto.toString())
+        //vSeg.add(data.segAuto.toString())
 
         sendDataToServer("s;$vSeg;$token\n") // s[..., ..., ...] + token
     }

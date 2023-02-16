@@ -63,9 +63,20 @@ class ConfiguracionFragment() : Fragment() {
 
         // HORARIOS
         binding.editTextEncendidoAlarma.setOnClickListener { selectHoraEncendido() }
+        val textIni = "  00:00 h"
+
+        if (dataAjustes.tEncendidoAlarma == "  00000") {
+            binding.editTextEncendidoAlarma.setText(textIni)
+        } else {
+            binding.editTextEncendidoAlarma.setText(this.dataAjustes.tEncendidoAlarma)
+        }
+
         binding.editTextApagadoAlarma.setOnClickListener { selectHoraApagado() }
-        binding.editTextEncendidoAlarma.setText(this.dataAjustes.tEncendidoAlarma)
-        binding.editTextApagadoAlarma.setText(this.dataAjustes.tApagadoAlarma)
+        if (dataAjustes.tApagadoAlarma == "  00000") {
+            binding.editTextApagadoAlarma.setText(textIni)
+        } else {
+            binding.editTextApagadoAlarma.setText(this.dataAjustes.tApagadoAlarma)
+        }
 
         // HUMEDAD
         binding.pickerRhMinimo.minValue = 0

@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-// Funciones de extensión
+// Función de extensión
 val Fragment.dbController: DataDb
     get() = (requireActivity() as MainActivity).dbController
 
